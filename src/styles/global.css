@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* CSS Custom Properties for Dark/Light Mode */
+:root {
+  /* Light mode */
+  --color-primary: #2563eb;
+  --color-secondary: #f8f9fa;
+  --color-accent: #00ff88;
+  --color-text: #1f2937;
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark mode */
+  --color-primary: #3b82f6;
+  --color-secondary: #1a1a1a;
+  --color-accent: #00ff88;
+  --color-text: #ffffff;
+  --color-bg: #0a0a0a;
+  --color-surface: #1a1a1a;
+  --color-border: #374151;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(0, 0, 0, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(255, 255, 255, 0.05);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphic Card Utility */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+/* Smooth Transitions */
+.transition-theme {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation Utilities */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+}

@@ -1,16 +1,33 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
 
+const currentPath = Astro.url.pathname;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="FitOut - Nowoczesne Przestrzenie Fit-Out | Aranżacja Biur, Sklepów, Restauracji"
+  description="Specjalizujemy się w kompleksowych projektach fit-out. Tworzymy nowoczesne przestrzenie biurowe, handlowe i gastronomiczne. 150+ realizacji, 15 lat doświadczenia."
+>
+  <Header currentPath={currentPath} />
+  
+  <main>
+    <Hero />
+    
+    <!-- Temporary content sections - to be replaced with actual components -->
+    <section class="py-20 bg-surface">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 text-center">
+        <h2 class="reveal-up text-3xl md:text-4xl font-bold text-text mb-8">
+          Więcej sekcji będzie dodanych wkrótce...
+        </h2>
+        <p class="reveal-up text-text/70 max-w-2xl mx-auto">
+          Ta strona jest obecnie w budowie. Sekcje takie jak O nas, Portfolio, Usługi będą dodane w kolejnych etapach.
+        </p>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

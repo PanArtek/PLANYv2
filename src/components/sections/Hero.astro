@@ -1,0 +1,300 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  backgroundImage?: string;
+  backgroundVideo?: string;
+}
+
+const {
+  title = "Tworzymy Przestrzenie",
+  subtitle = "Które Inspirują",
+  description = "Specjalizujemy się w kompleksowych projektach fit-out - od koncepcji przez projekt po realizację. Tworzymy nowoczesne przestrzenie biurowe, handlowe i gastronomiczne.",
+  ctaText = "Zobacz Realizacje",
+  ctaLink = "/realizacje",
+  backgroundImage = "/images/hero-bg.jpg",
+  backgroundVideo = "/videos/hero-bg.mp4",
+} = Astro.props;
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Video/Image -->
+  <div class="absolute inset-0 z-0">
+    <!-- Video Background (fallback to image if video not available) -->
+    <video 
+      id="hero-video"
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      style="display: none;"
+    >
+      <source src={backgroundVideo} type="video/mp4" />
+    </video>
+    
+    <!-- Image Fallback -->
+    <div 
+      id="hero-image"
+      class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+      style={`background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${backgroundImage})`}
+    ></div>
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <!-- Floating Shapes -->
+    <div class="floating-shape absolute top-20 left-10 w-20 h-20 bg-accent/10 rounded-full blur-xl"></div>
+    <div class="floating-shape absolute top-40 right-20 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+    <div class="floating-shape absolute bottom-40 left-20 w-24 h-24 bg-accent/10 rounded-full blur-xl"></div>
+    
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-8 text-center">
+    <!-- Main Title -->
+    <div class="mb-8">
+      <h1 class="hero-title font-poppins font-bold text-white mb-4">
+        <span class="hero-title-line block text-4xl md:text-6xl lg:text-7xl">{title}</span>
+        <span class="hero-title-line block text-4xl md:text-6xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
+          {subtitle}
+        </span>
+      </h1>
+      
+      <p class="hero-description text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="hero-cta flex flex-col sm:flex-row gap-4 justify-center">
+      <a 
+        href={ctaLink}
+        class="cta-primary inline-flex items-center px-8 py-4 bg-accent text-bg font-semibold rounded-lg hover:bg-accent/90 transition-all duration-300 hover:scale-105 group"
+      >
+        {ctaText}
+        <svg class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+      
+      <a 
+        href="/kontakt"
+        class="cta-secondary inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-bg transition-all duration-300 hover:scale-105 group"
+      >
+        Skontaktuj się
+        <svg class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Statistics -->
+    <div class="hero-stats mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+      <div class="stat-item text-center">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-accent mb-2">150+</div>
+        <div class="stat-label text-white/80 text-sm md:text-base">Realizacji</div>
+      </div>
+      <div class="stat-item text-center">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-accent mb-2">15</div>
+        <div class="stat-label text-white/80 text-sm md:text-base">Lat doświadczenia</div>
+      </div>
+      <div class="stat-item text-center">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-accent mb-2">50K+</div>
+        <div class="stat-label text-white/80 text-sm md:text-base">m² powierzchni</div>
+      </div>
+      <div class="stat-item text-center">
+        <div class="stat-number text-3xl md:text-4xl font-bold text-accent mb-2">98%</div>
+        <div class="stat-label text-white/80 text-sm md:text-base">Zadowolonych klientów</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+    <div class="flex flex-col items-center text-white/70">
+      <span class="text-sm mb-2">Przewiń w dół</span>
+      <div class="scroll-arrow w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+        <div class="scroll-dot w-1 h-1 bg-white/70 rounded-full mt-2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+  }
+  
+  .scroll-dot {
+    animation: scroll-dot 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @keyframes scroll-dot {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(20px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  // GSAP Hero Animations
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize GSAP timeline
+    const tl = gsap.timeline();
+    
+    // Set initial states
+    gsap.set('.hero-title-line', { y: 100, opacity: 0 });
+    gsap.set('.hero-description', { y: 50, opacity: 0 });
+    gsap.set('.hero-cta', { y: 50, opacity: 0 });
+    gsap.set('.hero-stats', { y: 50, opacity: 0 });
+    gsap.set('.scroll-indicator', { y: 50, opacity: 0 });
+    gsap.set('.floating-shape', { scale: 0, opacity: 0 });
+
+    // Animate elements in sequence
+    tl.to('.hero-title-line', {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'power3.out'
+    })
+    .to('.hero-description', {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.5')
+    .to('.hero-cta', {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.4')
+    .to('.hero-stats', {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .to('.scroll-indicator', {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.2')
+    .to('.floating-shape', {
+      scale: 1,
+      opacity: 1,
+      duration: 1.5,
+      stagger: 0.3,
+      ease: 'power2.out'
+    }, '-=1');
+
+    // Floating animation for shapes
+    gsap.to('.floating-shape', {
+      y: 'random(-20, 20)',
+      x: 'random(-10, 10)',
+      rotation: 'random(-180, 180)',
+      duration: 'random(3, 6)',
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      stagger: {
+        amount: 2,
+        from: 'random'
+      }
+    });
+
+    // Counter animation for statistics
+    const animateCounter = (element: Element, target: number, suffix: string = '') => {
+      const counter = { value: 0 };
+      gsap.to(counter, {
+        value: target,
+        duration: 2,
+        ease: 'power2.out',
+        onUpdate: () => {
+          element.textContent = Math.floor(counter.value) + suffix;
+        },
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          once: true
+        }
+      });
+    };
+
+    // Initialize counters
+    setTimeout(() => {
+      const stats = document.querySelectorAll('.stat-number');
+      if (stats[0]) animateCounter(stats[0], 150, '+');
+      if (stats[1]) animateCounter(stats[1], 15);
+      if (stats[2]) animateCounter(stats[2], 50, 'K+');
+      if (stats[3]) animateCounter(stats[3], 98, '%');
+    }, 1000);
+
+    // Parallax effect for background
+    gsap.to('#hero-video, #hero-image', {
+      yPercent: -50,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // Handle video background
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    const image = document.getElementById('hero-image') as HTMLElement;
+    
+    if (video) {
+      video.addEventListener('canplay', () => {
+        video.style.display = 'block';
+        if (image) image.style.display = 'none';
+      });
+      
+      video.addEventListener('error', () => {
+        video.style.display = 'none';
+        if (image) image.style.display = 'block';
+      });
+    }
+  });
+</script>

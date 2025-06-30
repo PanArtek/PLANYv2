@@ -1,0 +1,128 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = "Nowoczesne fit-out - projektowanie i aranżacja przestrzeni biurowych, handlowych i gastronomicznych",
+  image = "/images/og-image.jpg",
+  canonical = Astro.url.pathname,
+} = Astro.props;
+
+const siteUrl = "https://panartek.github.io/PLANYv2";
+---
+
+<!doctype html>
+<html lang="pl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={siteUrl + canonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl + canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={siteUrl + image} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl + canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={siteUrl + image} />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Theme Script (prevent FOUC) -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme') || 
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body class="font-inter antialiased">
+    <slot />
+    
+    <!-- Import global styles -->
+    <style>
+      @import "../styles/global.css";
+    </style>
+    
+    <!-- GSAP CDN -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      is:inline
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      is:inline
+    ></script>
+    
+    <!-- Initialize GSAP -->
+    <script is:inline>
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Basic scroll reveal animations
+      gsap.set(".reveal-up", { y: 50, opacity: 0 });
+      gsap.set(".reveal-left", { x: -50, opacity: 0 });
+      gsap.set(".reveal-right", { x: 50, opacity: 0 });
+      
+      ScrollTrigger.batch(".reveal-up", {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out"
+          });
+        },
+      });
+      
+      ScrollTrigger.batch(".reveal-left", {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out"
+          });
+        },
+      });
+      
+      ScrollTrigger.batch(".reveal-right", {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out"
+          });
+        },
+      });
+    </script>
+  </body>
+</html>
