@@ -80,16 +80,60 @@ const siteUrl = "https://panartek.github.io/PLANYv2";
     ></script>
     
     <!-- Initialize GSAP Animation System -->
-    <script type="module">
-      import { initAnimations } from '../scripts/gsap/animations.js';
-      
-      // Initialize animations when DOM is ready
+    <script is:inline>
+      // Initialize GSAP and animations when DOM is ready
       document.addEventListener('DOMContentLoaded', () => {
-        initAnimations();
+        if (typeof gsap !== 'undefined') {
+          // Magnetic interaction system
+          function initMagneticElements() {
+            const magneticElements = document.querySelectorAll('.magnetic-element');
+            
+            magneticElements.forEach((element) => {
+              element.addEventListener('mouseenter', () => {
+                gsap.to(element, {
+                  scale: 1.05,
+                  duration: 0.3,
+                  ease: 'power3.out'
+                });
+              });
+              
+              element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const intensity = 0.3;
+                const magneticX = x * intensity;
+                const magneticY = y * intensity;
+                
+                gsap.to(element, {
+                  x: magneticX,
+                  y: magneticY,
+                  duration: 0.3,
+                  ease: 'power3.out'
+                });
+              });
+              
+              element.addEventListener('mouseleave', () => {
+                gsap.to(element, {
+                  x: 0,
+                  y: 0,
+                  scale: 1,
+                  duration: 0.6,
+                  ease: 'elastic.out(1, 0.3)'
+                });
+              });
+            });
+          }
+          
+          // Initialize magnetic elements
+          initMagneticElements();
+        }
       });
       
-      // Fallback for older browsers or if modules fail
-      if (typeof gsap !== 'undefined') {
+      
+      // GSAP ScrollTrigger setup
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         
         // Basic scroll reveal animations as fallback
