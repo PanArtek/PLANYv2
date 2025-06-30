@@ -138,9 +138,6 @@ const siteUrl = "https://panartek.github.io/PLANYv2";
         
         // Basic scroll reveal animations as fallback
         gsap.set(".reveal-up", { y: 50, opacity: 0 });
-        gsap.set(".reveal-left", { x: -50, opacity: 0 });
-        gsap.set(".reveal-right", { x: 50, opacity: 0 });
-        gsap.set(".reveal-scale", { scale: 0.8, opacity: 0 });
         
         ScrollTrigger.batch(".reveal-up", {
           onEnter: (elements) => {
@@ -155,44 +152,6 @@ const siteUrl = "https://panartek.github.io/PLANYv2";
           once: true
         });
         
-        ScrollTrigger.batch(".reveal-left", {
-          onEnter: (elements) => {
-            gsap.to(elements, {
-              x: 0,
-              opacity: 1,
-              duration: 0.8,
-              stagger: 0.1,
-              ease: "power2.out"
-            });
-          },
-          once: true
-        });
-        
-        ScrollTrigger.batch(".reveal-right", {
-          onEnter: (elements) => {
-            gsap.to(elements, {
-              x: 0,
-              opacity: 1,
-              duration: 0.8,
-              stagger: 0.1,
-              ease: "power2.out"
-            });
-          },
-          once: true
-        });
-        
-        ScrollTrigger.batch(".reveal-scale", {
-          onEnter: (elements) => {
-            gsap.to(elements, {
-              scale: 1,
-              opacity: 1,
-              duration: 0.8,
-              stagger: 0.1,
-              ease: "back.out(1.7)"
-            });
-          },
-          once: true
-        });
       }
     </script>
   </body>

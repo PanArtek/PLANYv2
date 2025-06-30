@@ -5,8 +5,6 @@ interface Props {
   description?: string;
   ctaText?: string;
   ctaLink?: string;
-  backgroundImage?: string;
-  backgroundVideo?: string;
 }
 
 const {
@@ -15,36 +13,14 @@ const {
   description = "Specjalizujemy się w kompleksowych projektach fit-out - od koncepcji przez projekt po realizację. Tworzymy nowoczesne przestrzenie biurowe, handlowe i gastronomiczne.",
   ctaText = "Zobacz Realizacje",
   ctaLink = "/realizacje",
-  backgroundImage = "/images/hero-bg.jpg",
-  backgroundVideo = "/videos/hero-bg.mp4",
 } = Astro.props;
 ---
 
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background Video/Image -->
+  <!-- Gradient Background -->
   <div class="absolute inset-0 z-0">
-    <!-- Video Background (fallback to image if video not available) -->
-    <video 
-      id="hero-video"
-      class="absolute inset-0 w-full h-full object-cover"
-      autoplay 
-      muted 
-      loop 
-      playsinline
-      style="display: none;"
-    >
-      <source src={backgroundVideo} type="video/mp4" />
-    </video>
-    
-    <!-- Image Fallback -->
-    <div 
-      id="hero-image"
-      class="absolute inset-0 w-full h-full bg-gradient-to-br from-primary via-secondary to-accent"
-      style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5))"
-    ></div>
-    
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-primary via-secondary to-accent opacity-90"></div>
+    <div class="absolute inset-0 bg-black/30"></div>
   </div>
 
   <!-- Animated Background Elements -->
@@ -275,9 +251,9 @@ const {
       if (stats[3]) animateCounter(stats[3], 98, '%');
     }, 1000);
 
-    // Parallax effect for background
-    gsap.to('#hero-video, #hero-image', {
-      yPercent: -50,
+    // Parallax effect for gradient background
+    gsap.to('.absolute.inset-0.w-full.h-full', {
+      yPercent: -20,
       ease: 'none',
       scrollTrigger: {
         trigger: '#hero',
@@ -286,21 +262,5 @@ const {
         scrub: true
       }
     });
-
-    // Handle video background
-    const video = document.getElementById('hero-video') as HTMLVideoElement;
-    const image = document.getElementById('hero-image') as HTMLElement;
-    
-    if (video) {
-      video.addEventListener('canplay', () => {
-        video.style.display = 'block';
-        if (image) image.style.display = 'none';
-      });
-      
-      video.addEventListener('error', () => {
-        video.style.display = 'none';
-        if (image) image.style.display = 'block';
-      });
-    }
   });
 </script>
