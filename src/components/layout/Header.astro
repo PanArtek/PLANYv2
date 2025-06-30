@@ -14,13 +14,13 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-theme">
-  <nav class="glass-card mx-4 mt-4 px-6 py-4 md:mx-8 lg:mx-auto lg:max-w-6xl">
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-theme">
+  <nav id="main-nav" class="glass-card mx-4 mt-4 px-6 py-4 md:mx-8 lg:mx-auto lg:max-w-6xl transition-all duration-300">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2 transition-theme hover:opacity-80">
-        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent"></div>
-        <span class="font-poppins text-xl font-bold text-text">FitOut</span>
+      <a href="/" class="flex items-center space-x-2 transition-theme hover:opacity-80 magnetic-element" id="logo-link">
+        <div class="h-8 w-8 rounded-lg logo-gradient transition-all duration-300 ease-out"></div>
+        <span class="font-poppins text-xl font-bold text-text transition-all duration-300">FitOut</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -28,8 +28,8 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class={`text-sm font-medium transition-theme hover:text-accent ${
-              currentPath === item.href ? "text-accent" : "text-text"
+            class={`nav-item text-sm font-medium transition-theme hover:text-accent magnetic-element ${
+              currentPath === item.href ? "text-accent active" : "text-text"
             }`}
           >
             {item.label}
@@ -42,7 +42,7 @@ const navItems = [
         <!-- Theme Toggle -->
         <button
           id="theme-toggle"
-          class="rounded-lg p-2 transition-theme hover:bg-surface"
+          class="rounded-lg p-2 transition-theme hover:bg-surface magnetic-element"
           aria-label="Toggle theme"
         >
           <svg
@@ -78,7 +78,7 @@ const navItems = [
         <!-- Mobile Menu Toggle -->
         <button
           id="mobile-menu-toggle"
-          class="md:hidden rounded-lg p-2 transition-theme hover:bg-surface"
+          class="md:hidden rounded-lg p-2 transition-theme hover:bg-surface magnetic-element"
           aria-label="Toggle mobile menu"
         >
           <svg
@@ -116,12 +116,13 @@ const navItems = [
     <!-- Mobile Navigation -->
     <div id="mobile-menu" class="md:hidden hidden mt-4 pt-4 border-t border-border">
       <div class="space-y-2">
-        {navItems.map((item) => (
+        {navItems.map((item, index) => (
           <a
             href={item.href}
-            class={`block px-4 py-2 text-sm font-medium transition-theme hover:text-accent hover:bg-surface rounded-lg ${
+            class={`mobile-menu-item block px-4 py-2 text-sm font-medium transition-theme hover:text-accent hover:bg-surface rounded-lg ${
               currentPath === item.href ? "text-accent bg-surface" : "text-text"
             }`}
+            style={`transition-delay: ${(index + 1) * 0.05}s`}
           >
             {item.label}
           </a>
@@ -132,61 +133,177 @@ const navItems = [
 </header>
 
 <script>
-  // Theme Toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const sunIcon = document.getElementById('theme-toggle-sun');
-  const moonIcon = document.getElementById('theme-toggle-moon');
+  // Header scroll effects and interactions
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    const nav = document.getElementById('main-nav');
+    const logoLink = document.getElementById('logo-link');
+    let lastScrollY = window.scrollY;
+    let isScrolled = false;
 
-  function updateThemeIcon(theme: string) {
-    if (theme === 'dark') {
-      sunIcon?.classList.add('hidden');
-      moonIcon?.classList.remove('hidden');
-    } else {
-      sunIcon?.classList.remove('hidden');
-      moonIcon?.classList.add('hidden');
+    // Header scroll animation
+    function updateHeaderOnScroll() {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+      const scrollThreshold = 100;
+
+      if (currentScrollY > scrollThreshold && !isScrolled) {
+        // Scrolled down - add blur and background
+        nav?.classList.add('header-scrolled');
+        header?.style.setProperty('transform', 'translateY(0)');
+        isScrolled = true;
+      } else if (currentScrollY <= scrollThreshold && isScrolled) {
+        // At top - remove blur and background
+        nav?.classList.remove('header-scrolled');
+        isScrolled = false;
+      }
+
+      // Hide header when scrolling down fast, show when scrolling up
+      if (scrollingDown && currentScrollY > 200) {
+        header?.style.setProperty('transform', 'translateY(-100%)');
+      } else if (!scrollingDown || currentScrollY < 200) {
+        header?.style.setProperty('transform', 'translateY(0)');
+      }
+
+      lastScrollY = currentScrollY;
     }
-  }
 
-  // Initialize theme icon
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  updateThemeIcon(currentTheme);
+    // Magnetic effect for interactive elements
+    function addMagneticEffect() {
+      const magneticElements = document.querySelectorAll('.magnetic-element');
+      
+      magneticElements.forEach((element) => {
+        element.addEventListener('mousemove', (e) => {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          
+          const intensity = 0.3;
+          const magneticX = x * intensity;
+          const magneticY = y * intensity;
+          
+          element.style.setProperty('--magnetic-x', `${magneticX}px`);
+          element.style.setProperty('--magnetic-y', `${magneticY}px`);
+          element.style.transform = `translate(${magneticX}px, ${magneticY}px) scale(1.05)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.setProperty('--magnetic-x', '0px');
+          element.style.setProperty('--magnetic-y', '0px');
+          element.style.transform = 'translate(0px, 0px) scale(1)';
+        });
+      });
+    }
 
-  themeToggle?.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    // GSAP enhanced animations
+    if (typeof gsap !== 'undefined') {
+      // Header entrance animation
+      gsap.from(header, {
+        y: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.2
+      });
+
+      // Logo pulse animation
+      gsap.to('#logo-link .logo-gradient', {
+        scale: 1.1,
+        duration: 2,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true
+      });
+    }
+
+    // Initialize effects
+    addMagneticEffect();
     
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-  });
+    // Scroll listener with throttling
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateHeaderOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
 
-  // Mobile Menu Toggle
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuOpen = document.getElementById('mobile-menu-open');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('theme-toggle-sun');
+    const moonIcon = document.getElementById('theme-toggle-moon');
 
-  mobileMenuToggle?.addEventListener('click', () => {
-    const isHidden = mobileMenu?.classList.contains('hidden');
-    
-    if (isHidden) {
-      mobileMenu?.classList.remove('hidden');
-      mobileMenuOpen?.classList.add('hidden');
-      mobileMenuClose?.classList.remove('hidden');
-    } else {
-      mobileMenu?.classList.add('hidden');
-      mobileMenuOpen?.classList.remove('hidden');
-      mobileMenuClose?.classList.add('hidden');
+    function updateThemeIcon(theme: string) {
+      if (theme === 'dark') {
+        sunIcon?.classList.add('hidden');
+        moonIcon?.classList.remove('hidden');
+      } else {
+        sunIcon?.classList.remove('hidden');
+        moonIcon?.classList.add('hidden');
+      }
     }
-  });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    if (!target.closest('#mobile-menu') && !target.closest('#mobile-menu-toggle')) {
-      mobileMenu?.classList.add('hidden');
-      mobileMenuOpen?.classList.remove('hidden');
-      mobileMenuClose?.classList.add('hidden');
-    }
+    // Initialize theme icon
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeIcon(currentTheme);
+
+    themeToggle?.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    // Enhanced Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOpen = document.getElementById('mobile-menu-open');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+
+    mobileMenuToggle?.addEventListener('click', () => {
+      const isHidden = mobileMenu?.classList.contains('hidden');
+      
+      if (isHidden) {
+        // Open menu
+        mobileMenu?.classList.remove('hidden');
+        mobileMenu?.classList.add('mobile-menu-open');
+        mobileMenuOpen?.classList.add('hidden');
+        mobileMenuClose?.classList.remove('hidden');
+        
+        // GSAP animation for menu items
+        if (typeof gsap !== 'undefined') {
+          gsap.from(mobileMenuItems, {
+            x: -50,
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.1,
+            ease: 'power2.out'
+          });
+        }
+      } else {
+        // Close menu
+        mobileMenu?.classList.add('hidden');
+        mobileMenu?.classList.remove('mobile-menu-open');
+        mobileMenuOpen?.classList.remove('hidden');
+        mobileMenuClose?.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('#mobile-menu') && !target.closest('#mobile-menu-toggle')) {
+        mobileMenu?.classList.add('hidden');
+        mobileMenu?.classList.remove('mobile-menu-open');
+        mobileMenuOpen?.classList.remove('hidden');
+        mobileMenuClose?.classList.add('hidden');
+      }
+    });
   });
 </script>

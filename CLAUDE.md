@@ -339,6 +339,38 @@ git push origin main     # Auto-deploy to GitHub Pages
 - **Używaj konwencji** z tego pliku
 - **Repository jest połączone z GitHub Pages** - każdy push do main automatycznie deployuje
 
+### 📝 Dokumentacja Pracy
+
+**WAŻNE**: Wszystkie kroki implementacji, zmiany i postęp projektu muszą być dokumentowane w `DOC.md`:
+
+- **Po każdej sekcji pracy** - aktualizuj DOC.md z opisem zmian
+- **Nowe komponenty** - dodaj do sekcji "Utworzona Struktura Plików"
+- **Nowe funkcjonalności** - opisz w sekcji odpowiedniej fazy
+- **Problemy i rozwiązania** - dokumentuj w sekcji "Znane Problemy / Todo"
+- **Performance metrics** - aktualizuj po optymalizacjach
+- **Trendy designu** - dodaj nowe zaimplementowane wzorce
+
+**Format dokumentacji**: Używaj struktur markdown z emoji, checklistami ✅ i kategoriami faz rozwoju projektu.
+
+---
+
+## 📋 Workflow Dokumentacji
+
+### Przed rozpoczęciem pracy:
+1. Przeczytaj DOC.md aby zrozumieć aktualny stan projektu
+2. Sprawdź sekcję "Następne Kroki" dla priorytetów
+3. Zaplanuj implementację zgodnie z fazami rozwoju
+
+### Podczas pracy:
+1. Używaj TodoWrite do śledzenia postępu
+2. Aktualizuj DOC.md po każdym znaczącym kroku
+3. Dokumentuj nowe komponenty i funkcjonalności
+
+### Po zakończeniu:
+1. Zaktualizuj status fazy w DOC.md
+2. Dodaj nowe osiągnięcia do sekcji "Osiągnięcia"
+3. Zaplanuj następne kroki
+
 ---
 
 *Ostatnia aktualizacja: 2025-06-30*
