@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/layout/Navigation.astro';
 import Hero from '../components/sections/Hero.astro';
 import Portfolio from '../components/sections/Portfolio.astro';
 import Services from '../components/sections/Services.astro';
@@ -7,6 +8,7 @@ import Contact from '../components/sections/Contact.astro';
 ---
 
 <Layout title="Kompleksowe Wykończenia - Fit Out od A do Z">
+  <Navigation />
   <Hero />
   <Portfolio showAll={false} limit={6} />
   <Services />

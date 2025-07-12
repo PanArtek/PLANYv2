@@ -2,59 +2,86 @@
 import Button from '../ui/Button.astro';
 ---
 
-<section class="hero relative overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen flex items-center">
-  <!-- Building Blocks Animation Container -->
-  <div class="hero-animation absolute inset-0 pointer-events-none" id="heroAnimation">
-    <!-- Floating geometric shapes -->
-    <div class="building-block block-1 absolute w-12 h-12 bg-blue-500/20 rounded-lg"></div>
-    <div class="building-block block-2 absolute w-16 h-8 bg-slate-400/20 rounded-lg"></div>
-    <div class="building-block block-3 absolute w-8 h-16 bg-blue-600/20 rounded-lg"></div>
-    <div class="building-block block-4 absolute w-20 h-12 bg-slate-500/20 rounded-lg"></div>
-    <div class="building-block block-5 absolute w-10 h-10 bg-blue-400/20 rounded-lg"></div>
-    <div class="building-block block-6 absolute w-14 h-6 bg-slate-300/20 rounded-lg"></div>
+<section class="hero relative overflow-hidden min-h-screen flex items-center" id="home">
+  <!-- Modern Hero Background -->
+  <div class="hero-background absolute inset-0 pointer-events-none">
+    <!-- Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-dark opacity-95"></div>
+    <div class="absolute inset-0 bg-gradient-primary opacity-20"></div>
     
-    <!-- Assembly target - building silhouette -->
-    <div class="building-silhouette absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0">
-      <div class="silhouette-base w-32 h-40 bg-gradient-to-t from-slate-600/30 to-slate-400/30 rounded-b-lg relative">
-        <div class="silhouette-roof w-36 h-8 bg-slate-500/30 rounded-t-lg absolute -top-4 -left-2"></div>
-        <div class="silhouette-window w-4 h-4 bg-blue-400/40 rounded absolute top-8 left-4"></div>
-        <div class="silhouette-window w-4 h-4 bg-blue-400/40 rounded absolute top-8 left-12"></div>
-        <div class="silhouette-window w-4 h-4 bg-blue-400/40 rounded absolute top-8 left-20"></div>
-        <div class="silhouette-door w-6 h-12 bg-slate-700/40 rounded-t absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
-      </div>
+    <!-- Animated Grid Pattern -->
+    <div class="blueprint-grid absolute inset-0" id="blueprintGrid">
+      <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid Lines -->
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1"/>
+          </pattern>
+          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(99, 102, 241);stop-opacity:0"/>
+            <stop offset="50%" style="stop-color:rgb(99, 102, 241);stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:rgb(99, 102, 241);stop-opacity:0"/>
+          </linearGradient>
+        </defs>
+        
+        <!-- Grid Background -->
+        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.5"/>
+        
+        <!-- Animated Blueprint Lines -->
+        <g class="blueprint-lines">
+          <!-- Horizontal lines -->
+          <line class="blueprint-line line-1" x1="0" y1="200" x2="0" y2="200" stroke="url(#lineGradient)" stroke-width="2"/>
+          <line class="blueprint-line line-2" x1="0" y1="400" x2="0" y2="400" stroke="url(#lineGradient)" stroke-width="2"/>
+          <line class="blueprint-line line-3" x1="0" y1="600" x2="0" y2="600" stroke="url(#lineGradient)" stroke-width="2"/>
+          
+          <!-- Vertical lines -->
+          <line class="blueprint-line line-4" x1="300" y1="0" x2="300" y2="0" stroke="url(#lineGradient)" stroke-width="2" transform="rotate(90 300 400)"/>
+          <line class="blueprint-line line-5" x1="600" y1="0" x2="600" y2="0" stroke="url(#lineGradient)" stroke-width="2" transform="rotate(90 600 400)"/>
+          <line class="blueprint-line line-6" x1="900" y1="0" x2="900" y2="0" stroke="url(#lineGradient)" stroke-width="2" transform="rotate(90 900 400)"/>
+        </g>
+        
+        <!-- Floating Geometric Elements -->
+        <g class="floating-elements">
+          <circle class="float-element element-1" cx="150" cy="150" r="8" fill="rgba(236, 72, 153, 0.6)"/>
+          <rect class="float-element element-2" x="950" y="100" width="16" height="16" fill="rgba(245, 158, 11, 0.6)" rx="2"/>
+          <polygon class="float-element element-3" points="200,700 220,680 240,700 220,720" fill="rgba(99, 102, 241, 0.6)"/>
+          <circle class="float-element element-4" cx="1000" cy="650" r="6" fill="rgba(236, 72, 153, 0.4)"/>
+          <rect class="float-element element-5" x="100" y="500" width="12" height="12" fill="rgba(245, 158, 11, 0.4)" rx="6"/>
+        </g>
+      </svg>
+    </div>
+    
+    <!-- Parallax Decoration -->
+    <div class="parallax-decoration absolute inset-0">
+      <div class="decoration-1 absolute top-20 left-10 w-2 h-2 bg-accent-1 rounded-full opacity-60"></div>
+      <div class="decoration-2 absolute top-40 right-20 w-1 h-1 bg-accent-2 rounded-full opacity-40"></div>
+      <div class="decoration-3 absolute bottom-32 left-20 w-3 h-3 bg-secondary rounded-full opacity-30"></div>
+      <div class="decoration-4 absolute bottom-20 right-32 w-1.5 h-1.5 bg-accent-1 rounded-full opacity-50"></div>
     </div>
   </div>
 
   <!-- Hero Content -->
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-800 mb-4 sm:mb-6 leading-tight">
-        Kompleksowe <span class="text-blue-600">wykończenia</span><br class="hidden sm:block">
-        od A do Z
+      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight">
+        <span class="block">Profesjonalne</span>
+        <span class="block text-gradient-primary">wykonawstwo</span>
+        <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal text-neutral-medium mt-2">na każdym etapie</span>
       </h1>
       
-      <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-slate-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-        Własny zespół, pełen zakres instalacji, elastyczne podejście. 
-        Tworzymy przestrzenie, które inspirują i funkcjonują.
+      <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-neutral-medium mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+        <span class="text-white font-medium">Własny zespół 20+ specjalistów</span> realizuje kompleksowe projekty fit-out. 
+        <span class="text-accent-2">Pełen zakres instalacji</span> i <span class="text-accent-1">elastyczne podejście</span> 
+        do każdego projektu.
       </p>
       
       <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-        <Button 
-          variant="primary" 
-          size="large"
-          href="#kontakt"
-          class="hero-cta-primary w-full sm:w-auto"
-        >
-          Poproś o wycenę
-        </Button>
-        <Button 
-          variant="secondary" 
-          size="large"
-          href="#realizacje"
-          class="hero-cta-secondary w-full sm:w-auto"
-        >
-          Nasze realizacje
-        </Button>
+        <button class="btn-modern btn-primary-modern hero-cta-primary text-lg px-8 py-4 w-full sm:w-auto">
+          <span class="relative z-10">Otrzymaj wycenę</span>
+        </button>
+        <button class="btn-modern btn-secondary-modern hero-cta-secondary text-lg px-8 py-4 w-full sm:w-auto bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary">
+          <span class="relative z-10">Nasze realizacje</span>
+        </button>
       </div>
       
       <!-- Trust indicators -->
@@ -82,79 +109,147 @@ import Button from '../ui/Button.astro';
 
 <style>
   .hero {
-    perspective: 1000px;
+    position: relative;
+    background: var(--gradient-dark);
+    min-height: 100vh;
   }
 
-  .building-block {
-    transform-style: preserve-3d;
+  /* Blueprint Grid Animation */
+  .blueprint-grid {
+    opacity: 0.8;
+  }
+
+  .blueprint-line {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+  }
+
+  .blueprint-lines .line-1,
+  .blueprint-lines .line-2,
+  .blueprint-lines .line-3 {
+    x2: 0;
+  }
+
+  .blueprint-lines .line-4,
+  .blueprint-lines .line-5,
+  .blueprint-lines .line-6 {
+    y2: 0;
+  }
+
+  /* Floating Elements */
+  .float-element {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Parallax Decorations */
+  .parallax-decoration {
     will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
 
-  /* Initial positions for building blocks */
-  .block-1 {
-    top: 20%;
-    left: 10%;
-    transform: translateZ(0) rotateX(15deg) rotateY(15deg);
+  .decoration-1,
+  .decoration-2,
+  .decoration-3,
+  .decoration-4 {
+    animation: float 6s ease-in-out infinite;
   }
 
-  .block-2 {
-    top: 30%;
-    right: 15%;
-    transform: translateZ(0) rotateX(-10deg) rotateY(-20deg);
+  .decoration-2 { animation-delay: -1.5s; }
+  .decoration-3 { animation-delay: -3s; }
+  .decoration-4 { animation-delay: -4.5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
   }
 
-  .block-3 {
-    top: 60%;
-    left: 20%;
-    transform: translateZ(0) rotateX(20deg) rotateY(10deg);
+  /* Hero Content Styling */
+  .hero-content {
+    position: relative;
+    z-index: 10;
   }
 
-  .block-4 {
-    top: 15%;
-    right: 25%;
-    transform: translateZ(0) rotateX(-15deg) rotateY(25deg);
+  .hero-title {
+    opacity: 0;
+    transform: translateY(50px);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
-  .block-5 {
-    bottom: 25%;
-    right: 20%;
-    transform: translateZ(0) rotateX(10deg) rotateY(-15deg);
-  }
-
-  .block-6 {
-    bottom: 30%;
-    left: 15%;
-    transform: translateZ(0) rotateX(-20deg) rotateY(20deg);
-  }
-
-  /* Hero content animations setup */
-  .hero-title,
-  .hero-subtitle,
-  .hero-cta,
-  .hero-trust {
+  .hero-subtitle {
     opacity: 0;
     transform: translateY(30px);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   }
 
-  /* Performance optimizations */
-  .hero-animation {
-    contain: layout style paint;
-    transform: translateZ(0);
-  }
-  
-  .building-silhouette {
-    will-change: transform;
-    backface-visibility: hidden;
+  .hero-cta {
+    opacity: 0;
+    transform: translateY(20px);
   }
 
-  /* Reduced motion fallback */
+  .hero-trust {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Modern Button Enhancements */
+  .hero-cta-primary {
+    background: var(--gradient-primary);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  }
+
+  .hero-cta-primary:hover {
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+  }
+
+  .hero-cta-secondary {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Trust Indicators Enhancement */
+  .trust-item {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .trust-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .trust-item .text-2xl {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .blueprint-grid svg {
+      transform: scale(0.8);
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+  }
+
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .building-block {
-      transform: none !important;
-      animation: none !important;
-      will-change: auto;
+    .blueprint-line,
+    .float-element,
+    .decoration-1,
+    .decoration-2,
+    .decoration-3,
+    .decoration-4 {
+      animation: none;
+      transition: none;
     }
     
     .hero-title,
@@ -164,10 +259,12 @@ import Button from '../ui/Button.astro';
       opacity: 1;
       transform: none;
     }
-    
-    .hero-animation {
-      display: none;
-    }
+  }
+
+  /* Performance optimizations */
+  .hero-background {
+    contain: layout style paint;
+    transform: translateZ(0);
   }
 </style>
 
@@ -193,7 +290,7 @@ import Button from '../ui/Button.astro';
     });
   }
 
-  // Initialize hero animations when component loads
+  // Initialize modern hero animations
   function initHeroAnimations() {
     if (!window.gsap) return;
     
@@ -203,33 +300,94 @@ import Button from '../ui/Button.astro';
         autoAlpha: 1,
         y: 0
       });
+      gsap.set(['.blueprint-line', '.float-element'], {
+        autoAlpha: 1
+      });
       return;
     }
 
     // Performance: Enable will-change for animated elements
-    enableWillChange(['.building-block', '.building-silhouette']);
+    enableWillChange(['.blueprint-line', '.float-element', '.hero-title', '.hero-subtitle']);
 
-    // Create main timeline with performance optimizations
+    // Create main timeline
     const tl = gsap.timeline({
       onComplete: () => {
-        // Clean up will-change after initial animation
-        disableWillChange('.building-block');
+        disableWillChange(['.blueprint-line', '.float-element']);
       }
     });
 
-    // 1. Initial setup - hide everything
-    gsap.set('.building-silhouette', { autoAlpha: 0, scale: 0.8, force3D: true });
+    // 1. Initial setup
     gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust'], {
       autoAlpha: 0,
-      y: 30,
+      y: 50,
       force3D: true
     });
 
-    // 2. Building blocks floating animation (continuous)
-    const floatingAnimation = gsap.to('.building-block', {
-      duration: 6,
-      y: '+=20',
-      rotation: '+=15',
+    gsap.set('.float-element', {
+      autoAlpha: 0,
+      y: 20,
+      force3D: true
+    });
+
+    // 2. Blueprint lines animation
+    const blueprintLines = document.querySelectorAll('.blueprint-line');
+    blueprintLines.forEach((line, index) => {
+      const isHorizontal = index < 3;
+      const maxLength = isHorizontal ? 1200 : 800;
+      
+      tl.to(line, {
+        duration: 1.5,
+        [isHorizontal ? 'x2' : 'y2']: maxLength,
+        ease: 'power2.out',
+        force3D: true
+      }, index * 0.2);
+    });
+
+    // 3. Content animation sequence
+    tl.to('.hero-title', {
+      duration: 1.2,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power3.out',
+      force3D: true
+    }, '-=1')
+    .to('.hero-subtitle', {
+      duration: 1,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.8')
+    .to('.hero-cta', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.6')
+    .to('.hero-trust', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.4');
+
+    // 4. Floating elements staggered animation
+    tl.to('.float-element', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'back.out(1.7)',
+      stagger: 0.1,
+      force3D: true
+    }, '-=0.5');
+
+    // 5. Continuous floating animation for elements
+    gsap.to('.float-element', {
+      duration: 4,
+      y: '+=10',
+      rotation: '+=5',
       ease: 'power1.inOut',
       repeat: -1,
       yoyo: true,
@@ -240,89 +398,73 @@ import Button from '../ui/Button.astro';
       }
     });
 
-    // 3. Assembly animation sequence
-    tl.to('.building-block', {
-      duration: 2,
-      x: () => window.innerWidth * 0.5, // Use function for responsive positioning
-      y: () => window.innerHeight * 0.5,
-      rotation: 0,
-      scale: 0.8,
-      ease: 'power2.inOut',
-      force3D: true,
-      stagger: 0.1
-    })
-    .to('.building-silhouette', {
-      duration: 1,
-      autoAlpha: 1,
-      scale: 1,
-      ease: 'back.out(1.7)',
-      force3D: true
-    }, '-=1')
-    .to('.building-block', {
-      duration: 0.8,
-      autoAlpha: 0,
-      scale: 0,
-      ease: 'power2.in',
-      force3D: true,
-      stagger: 0.05,
-      onComplete: () => {
-        // Stop floating animation when blocks disappear
-        floatingAnimation.kill();
-      }
-    }, '-=0.5')
-    .to('.hero-title', {
-      duration: 0.8,
-      autoAlpha: 1,
-      y: 0,
-      ease: 'power2.out',
-      force3D: true
-    }, '-=0.3')
-    .to('.hero-subtitle', {
-      duration: 0.8,
-      autoAlpha: 1,
-      y: 0,
-      ease: 'power2.out',
-      force3D: true
-    }, '-=0.5')
-    .to('.hero-cta', {
-      duration: 0.8,
-      autoAlpha: 1,
-      y: 0,
-      ease: 'power2.out',
-      force3D: true
-    }, '-=0.5')
-    .to('.hero-trust', {
-      duration: 0.8,
-      autoAlpha: 1,
-      y: 0,
-      ease: 'power2.out',
-      force3D: true,
-      onComplete: () => {
-        // Clean up will-change for content elements
-        disableWillChange(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust']);
-      }
-    }, '-=0.5');
+    // 6. Parallax effect on scroll
+    let parallaxElements = document.querySelectorAll('.parallax-decoration > div');
+    
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      
+      parallaxElements.forEach((element, index) => {
+        const speed = (index + 1) * 0.1;
+        gsap.to(element, {
+          duration: 0.3,
+          y: rate * speed,
+          force3D: true
+        });
+      });
+    }
 
-    // 4. Subtle continuous animation for building silhouette
-    gsap.to('.building-silhouette', {
-      duration: 4,
-      y: '+=5',
-      rotation: '+=1',
-      ease: 'power1.inOut',
-      repeat: -1,
-      yoyo: true,
-      force3D: true,
-      delay: 4
-    });
+    window.addEventListener('scroll', updateParallax, { passive: true });
 
-    // Pause animations when page is not visible
+    // Button hover effects
+    const primaryBtn = document.querySelector('.hero-cta-primary');
+    const secondaryBtn = document.querySelector('.hero-cta-secondary');
+
+    if (primaryBtn) {
+      primaryBtn.addEventListener('mouseenter', () => {
+        gsap.to(primaryBtn, {
+          duration: 0.3,
+          scale: 1.05,
+          y: -2,
+          ease: 'power2.out'
+        });
+      });
+
+      primaryBtn.addEventListener('mouseleave', () => {
+        gsap.to(primaryBtn, {
+          duration: 0.3,
+          scale: 1,
+          y: 0,
+          ease: 'power2.out'
+        });
+      });
+    }
+
+    if (secondaryBtn) {
+      secondaryBtn.addEventListener('mouseenter', () => {
+        gsap.to(secondaryBtn, {
+          duration: 0.3,
+          scale: 1.02,
+          ease: 'power2.out'
+        });
+      });
+
+      secondaryBtn.addEventListener('mouseleave', () => {
+        gsap.to(secondaryBtn, {
+          duration: 0.3,
+          scale: 1,
+          ease: 'power2.out'
+        });
+      });
+    }
+
+    // Cleanup on page visibility change
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         tl.pause();
-        floatingAnimation.pause();
       } else {
         tl.resume();
-        floatingAnimation.resume();
       }
     });
   }
