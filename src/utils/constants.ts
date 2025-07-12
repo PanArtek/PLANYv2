@@ -4,7 +4,7 @@ import type { NavigationItem, ServiceCategory, Project } from './types';
 // Site configuration
 export const SITE_CONFIG = {
   name: 'PLANY',
-  description: 'Kompleksowy wykonawca wykończeń i instalacji. Własny zespół 20+ specjalistów realizuje projekty fit-out od 100 do 5000m².',
+  description: 'Własny zespół 20+ specjalistów eliminuje problemy koordynacji. 17 lat doświadczenia w wykończeniach komercyjnych. Jeden telefon załatwia sprawę.',
   url: 'https://panartek.github.io/PLANYv2',
   author: 'PLANY',
   keywords: 'kompleksowy wykonawca wykończeń, wykończenia pod klucz, wykonawca instalacji, fit-out, wykończenia medyczne, wykończenia biurowe',
