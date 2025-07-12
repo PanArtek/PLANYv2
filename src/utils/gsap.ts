@@ -22,29 +22,44 @@ export const createFadeInAnimation = (
 ) => {
   const config = { ...ANIMATION_DEFAULTS, ...options };
   
-  return gsap.fromTo(
+  // Early return for reduced motion
+  if (respectsReducedMotion()) {
+    gsap.set(elements, { opacity: 1, y: 0 });
+    return gsap.timeline();
+  }
+  
+  // Enable will-change before animation
+  enableWillChange(elements);
+  
+  const animation = gsap.fromTo(
     elements,
     { 
-      opacity: 0, 
+      autoAlpha: 0, // Use autoAlpha for better performance
       y: 30,
-      // Use transform3d for hardware acceleration
       force3D: true
     },
     { 
-      opacity: 1, 
+      autoAlpha: 1, 
       y: 0, 
       duration: config.duration,
       ease: config.ease,
       stagger: config.stagger,
+      onComplete: () => {
+        // Clean up will-change after animation
+        disableWillChange(elements);
+      },
       scrollTrigger: config.trigger ? {
         trigger: config.trigger,
         start: config.start || 'top 80%',
         end: config.end,
         scrub: config.scrub,
         once: true, // Animation runs only once for performance
+        fastScrollEnd: true, // Optimize for fast scrolling
       } : undefined
     }
   );
+  
+  return animation;
 };
 
 // Stagger reveal animation for grids/lists
@@ -129,12 +144,25 @@ export const cleanupScrollTriggers = () => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 };
 
-// Reduced motion media query handler
+// Reduced motion media query handler with caching
+let reducedMotionCache: boolean | null = null;
 export const respectsReducedMotion = () => {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotionCache === null) {
+    reducedMotionCache = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+  return reducedMotionCache;
 };
 
-// Initialize GSAP with performance optimizations
+// Performance optimization utilities
+export const enableWillChange = (elements: string | Element | Element[]) => {
+  gsap.set(elements, { willChange: 'transform' });
+};
+
+export const disableWillChange = (elements: string | Element | Element[]) => {
+  gsap.set(elements, { willChange: 'auto' });
+};
+
+// Initialize GSAP with enhanced performance optimizations
 export const initGSAP = () => {
   if (typeof window === 'undefined') return;
   
@@ -147,21 +175,43 @@ export const initGSAP = () => {
   // Set global GSAP defaults for performance
   gsap.defaults({
     ease: 'power2.out',
-    duration: 0.6
+    duration: 0.6,
+    force3D: true, // Force hardware acceleration globally
+    autoAlpha: 1 // Use autoAlpha instead of opacity when possible
   });
   
   // Optimize ScrollTrigger for performance
   ScrollTrigger.config({
     limitCallbacks: true, // Limit callback frequency for better performance
-    syncInterval: 150     // Sync interval for better performance
+    syncInterval: 150,    // Sync interval for better performance
+    autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load' // Reduce refresh events
   });
   
-  // Refresh ScrollTrigger on resize (debounced)
-  let resizeTimeout: NodeJS.Timeout;
+  // Enhanced resize handler with RAF
+  let resizeTimeout: number;
+  let ticking = false;
+  
+  const handleResize = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+  
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 250);
+    resizeTimeout = window.setTimeout(handleResize, 250);
+  });
+  
+  // Pause animations when tab is not visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      gsap.globalTimeline.pause();
+    } else {
+      gsap.globalTimeline.resume();
+    }
   });
 };

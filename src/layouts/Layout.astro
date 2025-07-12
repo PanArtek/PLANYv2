@@ -50,26 +50,106 @@ const imageUrl = new URL(image, siteUrl).toString();
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content="FitOut Pro - Kompleksowe wykończenia od A do Z" />
     
-    <!-- Schema.org JSON-LD -->
+    <!-- Additional SEO meta tags -->
+    <meta name="language" content="pl" />
+    <meta name="geo.region" content="PL" />
+    <meta name="geo.placename" content="Poland" />
+    <meta name="ICBM" content="52.237049, 21.017532" />
+    <meta name="DC.title" content={fullTitle} />
+    <meta name="DC.creator" content={SITE_CONFIG.author} />
+    <meta name="DC.subject" content="wykończenia, fit-out, remonty, placówki medyczne, biura" />
+    <meta name="DC.description" content={description} />
+    <meta name="DC.publisher" content={SITE_CONFIG.name} />
+    <meta name="DC.language" content="pl" />
+    
+    <!-- Business-specific meta tags -->
+    <meta name="apple-mobile-web-app-title" content="FitOut Pro" />
+    <meta name="application-name" content="FitOut Pro" />
+    <meta name="msapplication-TileColor" content="#3b82f6" />
+    <meta name="theme-color" content="#3b82f6" />
+    
+    <!-- Enhanced Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://panartek.github.io/PLANYv2/#business",
       "name": "FitOut Pro",
-      "description": "Kompleksowe wykończenia lokali komercyjnych i użyteczności publicznej",
+      "alternateName": "Kompleksowe Wykończenia",
+      "description": "Profesjonalne wykończenia placówek medycznych, biur i lokali komercyjnych. Własny zespół 20+ pracowników, kompleksowe instalacje, działamy w całej Polsce.",
       "url": "https://panartek.github.io/PLANYv2",
+      "image": "https://panartek.github.io/PLANYv2/images/og-image.jpg",
+      "telephone": "+48 123 456 789",
+      "email": "kontakt@fitoutpro.pl",
+      "priceRange": "$$-$$$",
+      "foundingDate": "2014",
+      "numberOfEmployees": "20-25",
       "serviceArea": {
         "@type": "Country",
         "name": "Poland"
       },
       "areaServed": "Poland",
-      "sameAs": [],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Usługi wykończeniowe",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wykończenia placówek medycznych",
+              "description": "Specializujemy się w wykończeniach zgodnych z wymogami sanitarnymi"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wykończenia biur i przestrzeni komercyjnych",
+              "description": "Nowoczesne środowiska pracy i przestrzenie handlowe"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Instalacje techniczne",
+              "description": "Pełen zakres instalacji elektrycznych, hydraulicznych i wentylacyjnych"
+            }
+          }
+        ]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL",
+        "addressRegion": "Polska"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
+        "telephone": "+48 123 456 789",
+        "email": "kontakt@fitoutpro.pl",
         "areaServed": "PL",
-        "availableLanguage": "Polish"
+        "availableLanguage": "Polish",
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      },
+      "sameAs": [
+        "https://www.facebook.com/fitoutpro",
+        "https://www.linkedin.com/company/fitoutpro"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "45",
+        "bestRating": "5",
+        "worstRating": "1"
       }
     }
     </script>
@@ -82,8 +162,53 @@ const imageUrl = new URL(image, siteUrl).toString();
       rel="stylesheet"
     />
     
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    
     <!-- Preload critical resources -->
-    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" as="script" />
+    
+    <!-- Sitemap and robots -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        page_title: document.title,
+        page_location: window.location.href,
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+      
+      // Enhanced ecommerce tracking for lead generation
+      function trackFormSubmit(formName, eventValue) {
+        gtag('event', 'generate_lead', {
+          'event_category': 'Form',
+          'event_label': formName,
+          'value': eventValue || 1
+        });
+      }
+      
+      // Track portfolio interactions
+      function trackPortfolioView(projectId) {
+        gtag('event', 'view_item', {
+          'event_category': 'Portfolio',
+          'event_label': projectId,
+          'content_type': 'project'
+        });
+      }
+      
+      // Make tracking functions globally available
+      window.trackFormSubmit = trackFormSubmit;
+      window.trackPortfolioView = trackPortfolioView;
+    </script>
     
     <!-- Theme and initial styles to prevent FOUC -->
     <style>
@@ -140,69 +265,92 @@ const imageUrl = new URL(image, siteUrl).toString();
   <body>
     <slot />
     
-    <!-- GSAP Core Library - Load before other scripts -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      is:inline
-    ></script>
-    
-    <!-- GSAP ScrollTrigger Plugin -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer"
-      is:inline
-    ></script>
-    
-    <!-- Initialize GSAP and performance optimizations -->
+    <!-- GSAP Lazy Loading for Performance -->
     <script is:inline>
-      // Initialize GSAP system on DOM ready
+      // Load GSAP only when needed
+      window.loadGSAP = function() {
+        if (window.gsapLoaded) return Promise.resolve();
+        
+        return new Promise((resolve, reject) => {
+          const script1 = document.createElement('script');
+          script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+          script1.integrity = 'sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==';
+          script1.crossOrigin = 'anonymous';
+          script1.referrerPolicy = 'no-referrer';
+          
+          script1.onload = () => {
+            const script2 = document.createElement('script');
+            script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+            script2.integrity = 'sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==';
+            script2.crossOrigin = 'anonymous';
+            script2.referrerPolicy = 'no-referrer';
+            
+            script2.onload = () => {
+              window.gsapLoaded = true;
+              resolve();
+            };
+            script2.onerror = reject;
+            document.head.appendChild(script2);
+          };
+          script1.onerror = reject;
+          document.head.appendChild(script1);
+        });
+      };
+      
+      // Load GSAP immediately if user doesn't prefer reduced motion
       document.addEventListener('DOMContentLoaded', () => {
-        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion) {
+          window.loadGSAP();
+        }
+      });
+    </script>
+    
+    <!-- Initialize GSAP when loaded -->
+    <script is:inline>
+      // Initialize GSAP system when available
+      window.initGSAP = function() {
+        if (!window.gsap) return;
+        
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
-        if (typeof gsap !== 'undefined') {
-          // Register ScrollTrigger plugin
-          gsap.registerPlugin(ScrollTrigger);
-          
-          // Set global defaults for performance
-          gsap.defaults({
-            ease: 'power2.out',
-            duration: prefersReducedMotion ? 0.01 : 0.6,
-            force3D: true // Hardware acceleration
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Set global defaults for performance
+        gsap.defaults({
+          ease: 'power2.out',
+          duration: prefersReducedMotion ? 0.01 : 0.6,
+          force3D: true // Hardware acceleration
+        });
+        
+        // Configure ScrollTrigger for performance
+        ScrollTrigger.config({
+          limitCallbacks: true,
+          syncInterval: prefersReducedMotion ? 1000 : 150
+        });
+        
+        // Remove loading classes to enable animations
+        document.querySelectorAll('.gsap-loading').forEach(element => {
+          element.classList.remove('gsap-loading');
+        });
+        
+        // Refresh ScrollTrigger on resize (debounced)
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            ScrollTrigger.refresh();
+          }, 250);
+        });
+      };
+      
+      // Auto-initialize when GSAP loads
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.loadGSAP) {
+          window.loadGSAP().then(() => {
+            window.initGSAP();
           });
-          
-          // Configure ScrollTrigger for performance
-          ScrollTrigger.config({
-            limitCallbacks: true,
-            syncInterval: prefersReducedMotion ? 1000 : 150
-          });
-          
-          // Remove loading classes to enable animations
-          document.querySelectorAll('.gsap-loading').forEach(element => {
-            element.classList.remove('gsap-loading');
-          });
-          
-          // Refresh ScrollTrigger on resize (debounced)
-          let resizeTimeout;
-          window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-              ScrollTrigger.refresh();
-            }, 250);
-          });
-          
-          // Debug mode in development
-          if (import.meta.env.DEV) {
-            console.log('🎬 GSAP initialized successfully');
-            console.log('📱 Reduced motion:', prefersReducedMotion);
-          }
-        } else {
-          console.warn('⚠️ GSAP failed to load');
         }
       });
       

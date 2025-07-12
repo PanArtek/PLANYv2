@@ -1,0 +1,441 @@
+---
+import Card from '../ui/Card.astro';
+import Icon from '../ui/Icon.astro';
+import { SERVICES } from '../../utils/constants';
+---
+
+<section class="services py-20 bg-slate-50" id="uslugi">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="services-header text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+        Nasze <span class="text-blue-600">Specjalizacje</span>
+      </h2>
+      <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Oferujemy kompleksowe rozwiązania fit-out dostosowane do specyficznych wymagań różnych branż. 
+        Każdy projekt realizujemy z własnym zespołem specjalistów.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {SERVICES.map((service, index) => (
+        <div 
+          class="service-item opacity-0 transform translate-y-8" 
+          data-service-id={service.id}
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <Card class="service-card group h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <!-- Service Icon -->
+            <div class="service-icon mb-6">
+              <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
+                <Icon 
+                  name={service.icon} 
+                  class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors duration-300" 
+                />
+              </div>
+            </div>
+
+            <!-- Service Content -->
+            <div class="service-content">
+              <h3 class="text-xl font-semibold text-slate-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                {service.title}
+              </h3>
+              
+              <p class="text-slate-600 mb-6 leading-relaxed">
+                {service.description}
+              </p>
+
+              <!-- Service Features -->
+              <ul class="space-y-3">
+                {service.features.map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-slate-600">
+                    <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon 
+                        name="Check" 
+                        class="w-3 h-3 text-green-600" 
+                      />
+                    </div>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Service CTA -->
+              <div class="mt-6 pt-6 border-t border-slate-200">
+                <button 
+                  class="service-cta text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200 flex items-center gap-2 group/cta"
+                  data-service={service.id}
+                >
+                  Dowiedz się więcej
+                  <Icon 
+                    name="ArrowRight" 
+                    class="w-4 h-4 transform group-hover/cta:translate-x-1 transition-transform duration-200" 
+                  />
+                </button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA Section -->
+    <div class="services-cta text-center mt-16 pt-16 border-t border-slate-200">
+      <div class="max-w-2xl mx-auto">
+        <h3 class="text-2xl font-semibold text-slate-800 mb-4">
+          Potrzebujesz rozwiązania na miarę?
+        </h3>
+        <p class="text-slate-600 mb-8 leading-relaxed">
+          Każdy projekt jest unikalny. Skontaktuj się z nami, aby omówić Twoje potrzeby 
+          i otrzymać spersonalizowaną wycenę.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="#kontakt"
+            class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            Poproś o wycenę
+          </a>
+          <a 
+            href="tel:+48123456789"
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-medium rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors duration-200"
+          >
+            <Icon name="Phone" class="w-5 h-5 mr-2" />
+            Zadzwoń teraz
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Details Modal -->
+<div id="serviceModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+  <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div id="serviceModalContent" class="p-6">
+      <!-- Modal content will be populated by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<style>
+  .service-item {
+    transition: all 0.3s ease;
+  }
+
+  .service-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+  }
+
+  .service-card:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border-color: #cbd5e1;
+  }
+
+  /* Custom animations for service icons */
+  .service-icon {
+    position: relative;
+  }
+
+  .service-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    z-index: -1;
+  }
+
+  .service-card:hover .service-icon::before {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Service features list styling */
+  .service-content ul li {
+    animation: slideInLeft 0.5s ease-out both;
+  }
+
+  .service-content ul li:nth-child(1) { animation-delay: 0.1s; }
+  .service-content ul li:nth-child(2) { animation-delay: 0.2s; }
+  .service-content ul li:nth-child(3) { animation-delay: 0.3s; }
+  .service-content ul li:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Reduced motion fallback */
+  @media (prefers-reduced-motion: reduce) {
+    .service-item,
+    .service-card,
+    .service-icon,
+    .service-cta {
+      transition: none !important;
+      transform: none !important;
+      animation: none !important;
+    }
+    
+    .service-item {
+      opacity: 1 !important;
+    }
+
+    .service-content ul li {
+      animation: none !important;
+    }
+  }
+</style>
+
+<script type="module">
+  function initServicesAnimations() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    
+    gsap.registerPlugin(ScrollTrigger);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // Show all items immediately for users who prefer reduced motion
+      gsap.set('.service-item', { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Animate services header
+    gsap.fromTo('.services-header', 
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.services-header',
+          start: 'top 80%'
+        }
+      }
+    );
+
+    // Animate service items with stagger
+    gsap.fromTo('.service-item',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 70%'
+        }
+      }
+    );
+
+    // Animate bottom CTA section
+    gsap.fromTo('.services-cta',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.services-cta',
+          start: 'top 80%'
+        }
+      }
+    );
+  }
+
+  function initServiceModal() {
+    const serviceCTAs = document.querySelectorAll('.service-cta');
+    const modal = document.getElementById('serviceModal');
+    const modalContent = document.getElementById('serviceModalContent');
+
+    if (!modal || !modalContent) return;
+
+    // Service details data
+    const serviceDetails = {
+      medical: {
+        title: 'Placówki Medyczne',
+        description: 'Specjalizujemy się w wykończeniach placówek medycznych zgodnych z najwyższymi standardami sanitarnymi i bezpieczeństwa.',
+        details: [
+          'Compliance z wymogami sanitarnymi i normami medycznymi',
+          'Materiały antybakteryjne i łatwe w dezynfekcji',
+          'Systemy wentylacji z filtracją HEPA',
+          'Specjalistyczne instalacje medyczne',
+          'Projektowanie stref czystych i brudnych',
+          'Systemy sygnalizacji i komunikacji'
+        ],
+        projects: ['Klinika Stomatologiczna - Warszawa', 'Przychodnia Lekarska - Poznań', 'Centrum Fizjoterapii - Szczecin']
+      },
+      education: {
+        title: 'Instytucje Edukacyjne',
+        description: 'Tworzymy inspirujące przestrzenie edukacyjne, które wspierają proces nauki i rozwoju.',
+        details: [
+          'Bezpieczne materiały dla dzieci i młodzieży',
+          'Akustyka sal lekcyjnych i audytoriów',
+          'Ergonomiczne rozwiązania dla różnych grup wiekowych',
+          'Kolorystyka wspierająca koncentrację i naukę',
+          'Systemy audiowizualne i interaktywne',
+          'Przestrzenie rekreacyjne i odpoczynku'
+        ],
+        projects: ['Szkoła Podstawowa - Kraków', 'Aula Uniwersytecka - Łódź']
+      },
+      office: {
+        title: 'Przestrzenie Biurowe',
+        description: 'Projektujemy nowoczesne biura, które zwiększają produktywność i wspierają well-being pracowników.',
+        details: [
+          'Open space i elastyczne strefy pracy',
+          'Sale konferencyjne z systemami AV',
+          'Ergonomiczne stanowiska pracy',
+          'Systemy klimatyzacji i wentylacji',
+          'Rozwiązania smart office i automatyka',
+          'Strefy relaksu i przestrzenie socjalne'
+        ],
+        projects: ['Biuro IT - Wrocław', 'Przestrzeń Coworking - Katowice']
+      },
+      retail: {
+        title: 'Lokale Handlowe',
+        description: 'Atrakcyjne przestrzenie handlowe, które zwiększają sprzedaż i poprawiają doświadczenie klientów.',
+        details: [
+          'Strategiczny layout sklepu i customer journey',
+          'Systemy oświetlenia produktów i ekspozycji',
+          'Materiały o wysokiej trwałości i łatwej konserwacji',
+          'Rozwiązania digital signage i multimedia',
+          'Systemy bezpieczeństwa i monitoring',
+          'Strefy kas i obsługi klienta'
+        ],
+        projects: ['Butik Modowy - Gdańsk', 'Salon Optyczny - Lublin']
+      },
+      installations: {
+        title: 'Instalacje Techniczne',
+        description: 'Kompleksowe instalacje techniczne zapewniające bezpieczeństwo i komfort użytkowania.',
+        details: [
+          'Instalacje elektryczne i teleinformatyczne',
+          'Systemy HVAC i klimatyzacja',
+          'Instalacje wodno-kanalizacyjne',
+          'Systemy bezpieczeństwa i monitoring',
+          'Instalacje gazowe i sprężonego powietrza',
+          'Systemy przeciwpożarowe'
+        ],
+        projects: ['Dostępne we wszystkich realizacjach']
+      },
+      turnkey: {
+        title: 'Projekty Kompleksowe',
+        description: 'Realizacje "pod klucz" od projektu przez realizację po odbiór końcowy i serwis.',
+        details: [
+          'Projekt i wizualizacje 3D',
+          'Zarządzanie całym procesem inwestycji',
+          'Własny zespół realizacyjny',
+          'Koordynacja z innymi wykonawcami',
+          'Kontrola jakości i terminów',
+          'Gwarancja i serwis posprzedażowy'
+        ],
+        projects: ['Dostępne dla wszystkich typów projektów']
+      }
+    };
+
+    serviceCTAs.forEach(cta => {
+      cta.addEventListener('click', () => {
+        const serviceId = cta.getAttribute('data-service');
+        const service = serviceDetails[serviceId];
+        
+        if (!service) return;
+
+        modalContent.innerHTML = `
+          <div class="text-center mb-6">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">${service.title}</h3>
+            <p class="text-slate-600 text-lg leading-relaxed">${service.description}</p>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-xl font-semibold text-slate-800 mb-4">Co oferujemy:</h4>
+              <ul class="space-y-3">
+                ${service.details.map(detail => `
+                  <li class="flex items-start gap-3">
+                    <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-slate-700">${detail}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-xl font-semibold text-slate-800 mb-4">Przykładowe realizacje:</h4>
+              <ul class="space-y-2">
+                ${service.projects.map(project => `
+                  <li class="flex items-center gap-2 text-slate-600">
+                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    ${project}
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mt-8 pt-6 border-t border-slate-200">
+            <button id="closeServiceModal" class="flex-1 px-6 py-3 border-2 border-slate-300 text-slate-700 font-medium rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors">
+              Zamknij
+            </button>
+            <a href="#kontakt" class="flex-1 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors text-center">
+              Poproś o wycenę
+            </a>
+          </div>
+        `;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Close modal functionality
+        const closeButton = modal.querySelector('#closeServiceModal');
+        const closeModal = () => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        };
+
+        closeButton?.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        // Handle CTA links in modal
+        modal.querySelectorAll('a[href="#kontakt"]').forEach(link => {
+          link.addEventListener('click', closeModal);
+        });
+      });
+    });
+  }
+
+  // Initialize when DOM is ready
+  function init() {
+    initServicesAnimations();
+    initServiceModal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

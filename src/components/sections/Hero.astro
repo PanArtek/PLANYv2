@@ -1,0 +1,363 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="hero relative overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen flex items-center">
+  <!-- Building Blocks Animation Container -->
+  <div class="hero-animation absolute inset-0 pointer-events-none" id="heroAnimation">
+    <!-- Floating geometric shapes -->
+    <div class="building-block block-1 absolute w-12 h-12 bg-blue-500/20 rounded-lg"></div>
+    <div class="building-block block-2 absolute w-16 h-8 bg-slate-400/20 rounded-lg"></div>
+    <div class="building-block block-3 absolute w-8 h-16 bg-blue-600/20 rounded-lg"></div>
+    <div class="building-block block-4 absolute w-20 h-12 bg-slate-500/20 rounded-lg"></div>
+    <div class="building-block block-5 absolute w-10 h-10 bg-blue-400/20 rounded-lg"></div>
+    <div class="building-block block-6 absolute w-14 h-6 bg-slate-300/20 rounded-lg"></div>
+    
+    <!-- Assembly target - building silhouette -->
+    <div class="building-silhouette absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0">
+      <div class="silhouette-base w-32 h-40 bg-gradient-to-t from-slate-600/30 to-slate-400/30 rounded-b-lg relative">
+        <div class="silhouette-roof w-36 h-8 bg-slate-500/30 rounded-t-lg absolute -top-4 -left-2"></div>
+        <div class="silhouette-window w-4 h-4 bg-blue-400/40 rounded absolute top-8 left-4"></div>
+        <div class="silhouette-window w-4 h-4 bg-blue-400/40 rounded absolute top-8 left-12"></div>
+        <div class="silhouette-window w-4 h-4 bg-blue-400/40 rounded absolute top-8 left-20"></div>
+        <div class="silhouette-door w-6 h-12 bg-slate-700/40 rounded-t absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-800 mb-4 sm:mb-6 leading-tight">
+        Kompleksowe <span class="text-blue-600">wykończenia</span><br class="hidden sm:block">
+        od A do Z
+      </h1>
+      
+      <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-slate-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+        Własny zespół, pełen zakres instalacji, elastyczne podejście. 
+        Tworzymy przestrzenie, które inspirują i funkcjonują.
+      </p>
+      
+      <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+        <Button 
+          variant="primary" 
+          size="large"
+          href="#kontakt"
+          class="hero-cta-primary w-full sm:w-auto"
+        >
+          Poproś o wycenę
+        </Button>
+        <Button 
+          variant="secondary" 
+          size="large"
+          href="#realizacje"
+          class="hero-cta-secondary w-full sm:w-auto"
+        >
+          Nasze realizacje
+        </Button>
+      </div>
+      
+      <!-- Trust indicators -->
+      <div class="hero-trust flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200 mx-4 sm:mx-0">
+        <div class="trust-item text-center">
+          <div class="text-xl sm:text-2xl font-bold text-blue-600">20+</div>
+          <div class="text-xs sm:text-sm text-slate-600">Pracowników</div>
+        </div>
+        <div class="trust-item text-center">
+          <div class="text-xl sm:text-2xl font-bold text-blue-600">150+</div>
+          <div class="text-xs sm:text-sm text-slate-600">Realizacji</div>
+        </div>
+        <div class="trust-item text-center">
+          <div class="text-xl sm:text-2xl font-bold text-blue-600">10+</div>
+          <div class="text-xs sm:text-sm text-slate-600">lat doświadczenia</div>
+        </div>
+        <div class="trust-item text-center">
+          <div class="text-xl sm:text-2xl font-bold text-blue-600">Cała</div>
+          <div class="text-xs sm:text-sm text-slate-600">Polska</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    perspective: 1000px;
+  }
+
+  .building-block {
+    transform-style: preserve-3d;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Initial positions for building blocks */
+  .block-1 {
+    top: 20%;
+    left: 10%;
+    transform: translateZ(0) rotateX(15deg) rotateY(15deg);
+  }
+
+  .block-2 {
+    top: 30%;
+    right: 15%;
+    transform: translateZ(0) rotateX(-10deg) rotateY(-20deg);
+  }
+
+  .block-3 {
+    top: 60%;
+    left: 20%;
+    transform: translateZ(0) rotateX(20deg) rotateY(10deg);
+  }
+
+  .block-4 {
+    top: 15%;
+    right: 25%;
+    transform: translateZ(0) rotateX(-15deg) rotateY(25deg);
+  }
+
+  .block-5 {
+    bottom: 25%;
+    right: 20%;
+    transform: translateZ(0) rotateX(10deg) rotateY(-15deg);
+  }
+
+  .block-6 {
+    bottom: 30%;
+    left: 15%;
+    transform: translateZ(0) rotateX(-20deg) rotateY(20deg);
+  }
+
+  /* Hero content animations setup */
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta,
+  .hero-trust {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Performance optimizations */
+  .hero-animation {
+    contain: layout style paint;
+    transform: translateZ(0);
+  }
+  
+  .building-silhouette {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Reduced motion fallback */
+  @media (prefers-reduced-motion: reduce) {
+    .building-block {
+      transform: none !important;
+      animation: none !important;
+      will-change: auto;
+    }
+    
+    .hero-title,
+    .hero-subtitle,
+    .hero-cta,
+    .hero-trust {
+      opacity: 1;
+      transform: none;
+    }
+    
+    .hero-animation {
+      display: none;
+    }
+  }
+</style>
+
+<script type="module">
+  // Utility functions
+  function respectsReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function enableWillChange(elements) {
+    if (typeof elements === 'string') elements = [elements];
+    elements.forEach(selector => {
+      const els = document.querySelectorAll(selector);
+      els.forEach(el => el.style.willChange = 'transform');
+    });
+  }
+
+  function disableWillChange(elements) {
+    if (typeof elements === 'string') elements = [elements];
+    elements.forEach(selector => {
+      const els = document.querySelectorAll(selector);
+      els.forEach(el => el.style.willChange = 'auto');
+    });
+  }
+
+  // Initialize hero animations when component loads
+  function initHeroAnimations() {
+    if (!window.gsap) return;
+    
+    // Early return for reduced motion
+    if (respectsReducedMotion()) {
+      gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust'], {
+        autoAlpha: 1,
+        y: 0
+      });
+      return;
+    }
+
+    // Performance: Enable will-change for animated elements
+    enableWillChange(['.building-block', '.building-silhouette']);
+
+    // Create main timeline with performance optimizations
+    const tl = gsap.timeline({
+      onComplete: () => {
+        // Clean up will-change after initial animation
+        disableWillChange('.building-block');
+      }
+    });
+
+    // 1. Initial setup - hide everything
+    gsap.set('.building-silhouette', { autoAlpha: 0, scale: 0.8, force3D: true });
+    gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust'], {
+      autoAlpha: 0,
+      y: 30,
+      force3D: true
+    });
+
+    // 2. Building blocks floating animation (continuous)
+    const floatingAnimation = gsap.to('.building-block', {
+      duration: 6,
+      y: '+=20',
+      rotation: '+=15',
+      ease: 'power1.inOut',
+      repeat: -1,
+      yoyo: true,
+      force3D: true,
+      stagger: {
+        each: 0.3,
+        from: 'random'
+      }
+    });
+
+    // 3. Assembly animation sequence
+    tl.to('.building-block', {
+      duration: 2,
+      x: () => window.innerWidth * 0.5, // Use function for responsive positioning
+      y: () => window.innerHeight * 0.5,
+      rotation: 0,
+      scale: 0.8,
+      ease: 'power2.inOut',
+      force3D: true,
+      stagger: 0.1
+    })
+    .to('.building-silhouette', {
+      duration: 1,
+      autoAlpha: 1,
+      scale: 1,
+      ease: 'back.out(1.7)',
+      force3D: true
+    }, '-=1')
+    .to('.building-block', {
+      duration: 0.8,
+      autoAlpha: 0,
+      scale: 0,
+      ease: 'power2.in',
+      force3D: true,
+      stagger: 0.05,
+      onComplete: () => {
+        // Stop floating animation when blocks disappear
+        floatingAnimation.kill();
+      }
+    }, '-=0.5')
+    .to('.hero-title', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.3')
+    .to('.hero-subtitle', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.5')
+    .to('.hero-cta', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.5')
+    .to('.hero-trust', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true,
+      onComplete: () => {
+        // Clean up will-change for content elements
+        disableWillChange(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust']);
+      }
+    }, '-=0.5');
+
+    // 4. Subtle continuous animation for building silhouette
+    gsap.to('.building-silhouette', {
+      duration: 4,
+      y: '+=5',
+      rotation: '+=1',
+      ease: 'power1.inOut',
+      repeat: -1,
+      yoyo: true,
+      force3D: true,
+      delay: 4
+    });
+
+    // Pause animations when page is not visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        tl.pause();
+        floatingAnimation.pause();
+      } else {
+        tl.resume();
+        floatingAnimation.resume();
+      }
+    });
+  }
+
+  // Use Intersection Observer for performance with GSAP loading
+  function observeHero() {
+    const heroElement = document.querySelector('.hero');
+    if (!heroElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Ensure GSAP is loaded before initializing animations
+            if (window.loadGSAP) {
+              window.loadGSAP().then(() => {
+                initHeroAnimations();
+              });
+            } else {
+              initHeroAnimations();
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    observer.observe(heroElement);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observeHero);
+  } else {
+    observeHero();
+  }
+</script>

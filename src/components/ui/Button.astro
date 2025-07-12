@@ -1,12 +1,18 @@
 ---
 export interface Props {
   variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'large';
   href?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   class?: string;
   'data-category'?: string; // For portfolio filtering
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  'aria-expanded'?: boolean;
+  'aria-pressed'?: boolean;
+  role?: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
 }
 
 const {
@@ -16,14 +22,27 @@ const {
   type = 'button',
   disabled = false,
   class: className = '',
+  target,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedby,
+  'aria-expanded': ariaExpanded,
+  'aria-pressed': ariaPressed,
+  role,
   ...props
 } = Astro.props;
+
+// Accessibility enhancements
+const isExternal = href && (href.startsWith('http') || href.startsWith('//'))
+const shouldOpenInNewTab = target === '_blank' || isExternal;
+const finalTarget = shouldOpenInNewTab ? '_blank' : target;
+const rel = shouldOpenInNewTab ? 'noopener noreferrer' : undefined;
 
 // Size classes
 const sizeClasses = {
   sm: 'px-4 py-2 text-sm',
   md: 'px-6 py-3 text-base',
-  lg: 'px-8 py-4 text-lg'
+  lg: 'px-8 py-4 text-lg',
+  large: 'px-8 py-4 text-lg'
 };
 
 // Variant classes
@@ -49,7 +68,18 @@ const Tag = href ? 'a' : 'button';
   href={href}
   type={!href ? type : undefined}
   disabled={!href ? disabled : undefined}
+  target={finalTarget}
+  rel={rel}
+  role={role}
+  aria-label={ariaLabel}
+  aria-describedby={ariaDescribedby}
+  aria-expanded={ariaExpanded}
+  aria-pressed={ariaPressed}
+  aria-disabled={disabled ? 'true' : undefined}
   {...props}
 >
   <slot />
+  {shouldOpenInNewTab && (
+    <span class="sr-only"> (opens in new tab)</span>
+  )}
 </Tag>

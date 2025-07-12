@@ -178,10 +178,42 @@
     display: none;
   }
   
+  /* Performance optimization utilities */
+  .perf-contain {
+    contain: layout style paint;
+  }
+  
+  .perf-will-change {
+    will-change: transform;
+  }
+  
+  .perf-will-change:not(:hover):not(:focus):not(.animating) {
+    will-change: auto;
+  }
+  
   /* Image optimization utilities */
   .img-optimized {
     @apply object-cover object-center;
     image-rendering: -webkit-optimize-contrast;
+  }
+  
+  .img-lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .img-lazy.loaded {
+    opacity: 1;
+  }
+  
+  /* Critical path optimization */
+  .above-fold {
+    content-visibility: visible;
+  }
+  
+  .below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: 200px;
   }
 }
 

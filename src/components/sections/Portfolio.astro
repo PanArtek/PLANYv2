@@ -1,0 +1,532 @@
+---
+import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
+import { PORTFOLIO_PROJECTS } from '../../utils/constants';
+import type { Project } from '../../utils/types';
+
+export interface Props {
+  showAll?: boolean;
+  limit?: number;
+}
+
+const { showAll = false, limit = 6 } = Astro.props;
+
+// Get projects to display
+const projects = showAll ? PORTFOLIO_PROJECTS : PORTFOLIO_PROJECTS.slice(0, limit);
+
+// Get unique categories for filtering
+const categories = ['all', ...new Set(PORTFOLIO_PROJECTS.map(p => p.category))];
+
+const categoryLabels = {
+  all: 'Wszystkie',
+  medical: 'Medyczne',
+  education: 'Edukacyjne', 
+  retail: 'Handlowe',
+  office: 'Biurowe',
+  other: 'Inne'
+};
+---
+
+<section class="portfolio py-20 bg-white" id="realizacje">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="portfolio-header text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+        Nasze <span class="text-blue-600">Realizacje</span>
+      </h2>
+      <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Odkryj nasze najnowsze projekty fit-out realizowane w całej Polsce. 
+        Każda inwestycja to unikalne rozwiązanie dostosowane do specyficznych potrzeb klienta.
+      </p>
+    </div>
+
+    <!-- Category Filters -->
+    {showAll && (
+      <div class="portfolio-filters" role="group" aria-label="Filtruj projekty według kategorii">
+        <h3 class="sr-only">Filtry kategorii projektów</h3>
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category, index) => (
+            <Button
+              variant="outline"
+              size="md"
+              data-category={category}
+              class="filter-btn transition-all duration-300 hover:transform hover:scale-105"
+              role="button"
+              aria-pressed={index === 0 ? 'true' : 'false'}
+              aria-describedby={`filter-${category}-desc`}
+            >
+              {categoryLabels[category as keyof typeof categoryLabels]}
+              <span id={`filter-${category}-desc`} class="sr-only">
+                {category === 'all' ? 'Pokaż wszystkie projekty' : `Filtruj według kategorii: ${categoryLabels[category as keyof typeof categoryLabels]}`}
+              </span>
+            </Button>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Portfolio Grid -->
+    <div 
+      class="portfolio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" 
+      id="portfolioGrid"
+      role="grid"
+      aria-label="Portfolio projektów"
+    >
+      {projects.map((project, index) => (
+        <div 
+          class="portfolio-item opacity-0 transform translate-y-8" 
+          data-category={project.category}
+          data-project-id={project.id}
+          role="gridcell"
+          aria-describedby={`project-${project.id}-desc`}
+        >
+          <Card 
+            class="portfolio-card group cursor-pointer h-full"
+            role="button"
+            tabindex="0"
+            aria-label={`Szczegóły projektu: ${project.title}`}
+          >
+            <!-- Project Image -->
+            <div class="relative overflow-hidden rounded-lg mb-4 bg-slate-200 aspect-[4/3]">
+              <div class="portfolio-image-placeholder w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                <div class="text-slate-500 text-center">
+                  <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="text-sm">{project.title}</p>
+                </div>
+              </div>
+              
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/80 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <Button variant="secondary" size="sm" class="transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                  Zobacz szczegóły
+                </Button>
+              </div>
+            </div>
+
+            <!-- Project Info -->
+            <div class="space-y-3" id={`project-${project.id}-desc`}>
+              <!-- Category Badge -->
+              <div class="flex items-center justify-between">
+                <span 
+                  class={`inline-block px-3 py-1 text-xs font-medium rounded-full ${
+                    project.category === 'medical' ? 'bg-red-100 text-red-700' :
+                    project.category === 'education' ? 'bg-green-100 text-green-700' :
+                    project.category === 'retail' ? 'bg-purple-100 text-purple-700' :
+                    project.category === 'office' ? 'bg-blue-100 text-blue-700' :
+                    'bg-gray-100 text-gray-700'
+                  }`}
+                  aria-label={`Kategoria: ${categoryLabels[project.category as keyof typeof categoryLabels]}`}
+                >
+                  {categoryLabels[project.category as keyof typeof categoryLabels]}
+                </span>
+                <time class="text-sm text-slate-500" datetime={project.year.toString()}>
+                  {project.year}
+                </time>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
+                {project.title}
+              </h3>
+
+              <!-- Location & Area -->
+              <div class="flex items-center gap-4 text-sm text-slate-600">
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span aria-label={`Lokalizacja: ${project.location}`}>
+                    {project.location}
+                  </span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                  </svg>
+                  <span aria-label={`Powierzchnia: ${project.area} metrów kwadratowych`}>
+                    {project.area} m²
+                  </span>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                {project.description}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {project.tags.slice(0, 3).map(tag => (
+                  <span class="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded">
+                    {tag}
+                  </span>
+                ))}
+                {project.tags.length > 3 && (
+                  <span class="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded">
+                    +{project.tags.length - 3}
+                  </span>
+                )}
+              </div>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+
+    <!-- View More Button (only on homepage) -->
+    {!showAll && (
+      <div class="text-center">
+        <Button 
+          variant="primary" 
+          size="lg"
+          href="/realizacje"
+          class="view-more-btn"
+        >
+          Zobacz wszystkie realizacje
+        </Button>
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- Portfolio Modal -->
+<div 
+  id="portfolioModal" 
+  class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
+>
+  <div 
+    class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+    role="document"
+  >
+    <div id="modalContent" class="p-6">
+      <!-- Modal content will be populated by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<style>
+  .portfolio-item {
+    transition: all 0.3s ease;
+  }
+
+  .portfolio-card {
+    transition: transform 0.3s ease, shadow 0.3s ease;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .filter-btn.active {
+    @apply bg-blue-600 text-white border-blue-600;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Screen reader only text */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Focus styles for better accessibility */
+  .portfolio-card:focus,
+  .filter-btn:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion fallback */
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-item,
+    .portfolio-card,
+    .filter-btn {
+      transition: none !important;
+      transform: none !important;
+    }
+    
+    .portfolio-item {
+      opacity: 1 !important;
+    }
+  }
+</style>
+
+<script type="module">
+  function initPortfolioAnimations() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    
+    gsap.registerPlugin(ScrollTrigger);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // Show all items immediately for users who prefer reduced motion
+      gsap.set('.portfolio-item', { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Animate portfolio header
+    gsap.fromTo('.portfolio-header', 
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.portfolio-header',
+          start: 'top 80%'
+        }
+      }
+    );
+
+    // Animate filter buttons (if present)
+    if (document.querySelector('.portfolio-filters')) {
+      gsap.fromTo('.filter-btn',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: '.portfolio-filters',
+            start: 'top 80%'
+          }
+        }
+      );
+    }
+
+    // Animate portfolio items with stagger
+    gsap.fromTo('.portfolio-item',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.portfolio-grid',
+          start: 'top 70%'
+        }
+      }
+    );
+
+    // Animate view more button
+    if (document.querySelector('.view-more-btn')) {
+      gsap.fromTo('.view-more-btn',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.view-more-btn',
+            start: 'top 80%'
+          }
+        }
+      );
+    }
+  }
+
+  function initPortfolioFiltering() {
+    const filterButtons = document.querySelectorAll('[data-category]');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    if (!filterButtons.length) return;
+
+    // Set initial active filter
+    const allButton = document.querySelector('[data-category="all"]');
+    if (allButton) {
+      allButton.classList.add('active');
+      allButton.setAttribute('aria-pressed', 'true');
+    }
+
+    filterButtons.forEach(button => {
+      // Add keyboard support
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          button.click();
+        }
+      });
+
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        // Update active button and ARIA states
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+
+        // Announce filter change to screen readers
+        const categoryLabel = button.textContent?.trim();
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.setAttribute('aria-atomic', 'true');
+        announcement.className = 'sr-only';
+        announcement.textContent = `Filtr aktywny: ${categoryLabel}`;
+        document.body.appendChild(announcement);
+        setTimeout(() => document.body.removeChild(announcement), 1000);
+
+        // Filter items
+        let visibleCount = 0;
+        portfolioItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+          const shouldShow = category === 'all' || itemCategory === category;
+          
+          if (shouldShow) {
+            visibleCount++;
+            item.setAttribute('aria-hidden', 'false');
+            gsap.to(item, {
+              opacity: 1,
+              scale: 1,
+              duration: 0.4,
+              ease: 'power2.out'
+            });
+          } else {
+            item.setAttribute('aria-hidden', 'true');
+            gsap.to(item, {
+              opacity: 0.3,
+              scale: 0.95,
+              duration: 0.4,
+              ease: 'power2.out'
+            });
+          }
+        });
+
+        // Announce results count
+        setTimeout(() => {
+          const resultsAnnouncement = document.createElement('div');
+          resultsAnnouncement.setAttribute('aria-live', 'polite');
+          resultsAnnouncement.className = 'sr-only';
+          resultsAnnouncement.textContent = `Znaleziono ${visibleCount} projekt${visibleCount === 1 ? '' : visibleCount < 5 ? 'y' : 'ów'}`;
+          document.body.appendChild(resultsAnnouncement);
+          setTimeout(() => document.body.removeChild(resultsAnnouncement), 1000);
+        }, 500);
+      });
+    });
+  }
+
+  function initPortfolioModal() {
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    const modal = document.getElementById('portfolioModal');
+    const modalContent = document.getElementById('modalContent');
+
+    if (!modal || !modalContent) return;
+
+    let lastFocusedElement;
+
+    portfolioCards.forEach(card => {
+      // Add keyboard support for cards
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+
+      card.addEventListener('click', () => {
+        const projectId = card.closest('.portfolio-item')?.getAttribute('data-project-id');
+        if (!projectId) return;
+
+        // Store last focused element for restoration
+        lastFocusedElement = document.activeElement;
+
+        // Here you would fetch project details and populate modal
+        // For now, showing a placeholder
+        modalContent.innerHTML = `
+          <div class="text-center">
+            <h3 id="modal-title" class="text-2xl font-bold mb-4">Szczegóły projektu</h3>
+            <p id="modal-description" class="text-slate-600 mb-6">Funkcja szczegółów projektu będzie wkrótce dostępna.</p>
+            <button id="closeModal" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Zamknij modal">
+              Zamknij
+            </button>
+          </div>
+        `;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Focus management
+        const closeButton = modal.querySelector('#closeModal');
+        closeButton?.focus();
+
+        // Close modal functionality
+        const closeModal = () => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          
+          // Restore focus
+          if (lastFocusedElement) {
+            lastFocusedElement.focus();
+          }
+        };
+
+        // Trap focus within modal
+        const trapFocus = (e) => {
+          if (e.key === 'Tab') {
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (e.shiftKey && document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            } else if (!e.shiftKey && document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        };
+
+        modal.addEventListener('keydown', trapFocus);
+        closeButton?.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      });
+    });
+  }
+
+  // Initialize when DOM is ready
+  function init() {
+    initPortfolioAnimations();
+    initPortfolioFiltering();
+    initPortfolioModal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
