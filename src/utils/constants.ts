@@ -4,10 +4,10 @@ import type { NavigationItem, ServiceCategory, Project } from './types';
 // Site configuration
 export const SITE_CONFIG = {
   name: 'PLANY',
-  description: 'Profesjonalne projekty architektoniczne i planistyczne. Kompleksowe usługi projektowe od koncepcji po realizację.',
+  description: 'Kompleksowy wykonawca wykończeń i instalacji. Własny zespół 20+ specjalistów realizuje projekty fit-out od 100 do 5000m².',
   url: 'https://panartek.github.io/PLANYv2',
   author: 'PLANY',
-  keywords: 'projekty, architektura, planowanie, projektowanie, realizacja',
+  keywords: 'kompleksowy wykonawca wykończeń, wykończenia pod klucz, wykonawca instalacji, fit-out, wykończenia medyczne, wykończenia biurowe',
 } as const;
 
 // Navigation items
@@ -19,84 +19,84 @@ export const NAVIGATION: NavigationItem[] = [
   { label: 'Kontakt', href: '/#kontakt' },
 ] as const;
 
-// Service categories (6 as specified in claude.md)
+// Service categories - zgodnie z PRD (konkretne usługi z korzyściami)
 export const SERVICES: ServiceCategory[] = [
   {
     id: 'medical',
-    title: 'Placówki Medyczne',
-    description: 'Wykończenia zgodne z wymogami sanitarnymi i certyfikacjami medycznymi',
+    title: 'Wykończenia Medyczne',
+    description: 'Właśni elektricy i instalatorzy - znamy wymagania sanitarne',
     icon: 'Heart',
     category: 'medical',
     features: [
-      'Certyfikowane materiały medyczne',
-      'Compliance z wymogami sanitarnymi', 
-      'Instalacje specjalistyczne',
-      'Powierzchnie antybakteryjne'
+      'Własni elektricy znający specyfikę medyczną',
+      'Instalacje elektryczne zgodne z normami medycznymi', 
+      'Systemy wentylacji z filtracją HEPA',
+      'Materiały antybakteryjne i łatwe w czyszczeniu'
     ]
   },
   {
     id: 'education',
-    title: 'Instytucje Edukacyjne',
-    description: 'Bezpieczne i inspirujące przestrzenie edukacyjne dla wszystkich grup wiekowych',
+    title: 'Wykończenia Edukacyjne',
+    description: 'Terminowo, bez zakłócania zajęć - znamy specyfikę szkół',
     icon: 'GraduationCap',
     category: 'education',
     features: [
-      'Bezpieczne materiały dla dzieci',
-      'Akustyka sal lekcyjnych',
-      'Ergonomiczne rozwiązania',
-      'Kolorystyka wspierająca naukę'
+      'Harmonogram dostosowany do roku szkolnego',
+      'Własni akustycy - idealna akustyka sal',
+      'Bezpieczeństwo - materiały certyfikowane dla dzieci',
+      'Instalacje dostosowane do potrzeb edukacyjnych'
     ]
   },
   {
     id: 'office',
-    title: 'Przestrzenie Biurowe',
-    description: 'Nowoczesne biura wspierające produktywność i well-being pracowników',
+    title: 'Wykończenia Biurowe',
+    description: 'Od open space po sale konferencyjne - produktywność i well-being',
     icon: 'Building2',
     category: 'office',
     features: [
-      'Open space i sale konferencyjne',
-      'Ergonomiczne stanowiska pracy',
-      'Systemy klimatyzacji i wentylacji',
-      'Rozwiązania smart office'
+      'Własni projektanci open space i stref prywatnych',
+      'Instalacje HVAC i klimatyzacji własnym zespołem',
+      'Systemy elektroinstalacyjne dla nowoczesnych biur',
+      'Akustyka - komfort pracy w open space'
     ]
   },
   {
     id: 'retail',
-    title: 'Lokale Handlowe',
-    description: 'Atrakcyjne przestrzenie handlowe zwiększające sprzedaż i doświadczenie klientów',
+    title: 'Wykończenia Handlowe',
+    description: 'Customer experience - więcej sprzedaży dzięki przemyślanym rozwiązaniom',
     icon: 'ShoppingBag',
     category: 'retail',
     features: [
-      'Strategiczny layout sklepu',
-      'Systemy oświetlenia produktów',
-      'Materiały o wysokiej trwałości',
-      'Rozwiązania digital signage'
+      'Oświetlenie produktów - własni elektrycy',
+      'Wytrzymałe materiały na duży ruch klientów',
+      'Szybka realizacja - minimalne przerwy w działalności',
+      'Funkcjonalne rozwiązania techniczne'
     ]
   },
   {
     id: 'installations',
-    title: 'Instalacje Techniczne',
-    description: 'Kompleksowe instalacje elektryczne, wodno-kanalizacyjne i HVAC',
+    title: 'Instalacje Kompleksowe',
+    description: 'Własny zespół wszystkich branż - elektryka, HVAC, wod-kan, SSP',
     icon: 'Zap',
     category: 'installations',
     features: [
-      'Instalacje elektryczne i teleinformatyczne',
-      'Systemy HVAC i klimatyzacja',
-      'Instalacje wodno-kanalizacyjne',
-      'Systemy bezpieczeństwa i monitoring'
+      'Instalacje elektryczne i teletechniczne - własni elektrycy',
+      'HVAC i wentylacja - projektujemy i montujemy',
+      'Wodno-kanalizacyjne - pełen zakres',
+      'SSP (systemy sygnalizacji pożaru) - certyfikowani monterzy'
     ]
   },
   {
     id: 'turnkey',
-    title: 'Projekty Kompleksowe',
-    description: 'Realizacje "pod klucz" od projektu przez realizację po odbiór końcowy',
+    title: 'Realizacje "Pod Klucz"',
+    description: 'Od wizji lokalnej po odbiór - pełna odpowiedzialność za całość',
     icon: 'Key',
     category: 'turnkey',
     features: [
-      'Projekt i wizualizacje 3D',
-      'Zarządzanie całym procesem',
-      'Własny zespół realizacyjny',
-      'Gwarancja i serwis posprzedażowy'
+      'Wizja lokalna i szczegółowa wycena',
+      'Koordynacja wszystkich prac własnym zespołem',
+      'Harmonogram i terminowa realizacja',
+      'Odbiór z 24-miesięczną gwarancją'
     ]
   }
 ] as const;
