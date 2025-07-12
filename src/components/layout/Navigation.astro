@@ -7,19 +7,14 @@ import Button from '../ui/Button.astro';
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       
-      <!-- Logo -->
+      <!-- Logo PLANY -->
       <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-3 group" aria-label="FitOut Pro - Strona główna">
-          <div class="logo-icon w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-            </svg>
-          </div>
-          <div class="logo-text">
-            <h1 class="text-xl lg:text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
-              {SITE_CONFIG.name}
+        <a href="/" class="flex items-center group" aria-label="PLANY - Strona główna">
+          <div class="logo-container relative">
+            <h1 class="logo-text text-3xl lg:text-4xl font-bold text-gradient-primary tracking-tight">
+              PLANY
             </h1>
-            <p class="text-xs text-slate-500 -mt-1 hidden sm:block">Fit-out solutions</p>
+            <div class="logo-underline absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100"></div>
           </div>
         </a>
       </div>
@@ -120,8 +115,32 @@ import Button from '../ui/Button.astro';
   }
 
   /* Logo animations */
-  .logo-icon {
-    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.3);
+  .logo-container {
+    position: relative;
+  }
+  
+  .logo-text {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+    position: relative;
+  }
+  
+  .logo-underline {
+    width: 100%;
+    transform-origin: left;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   /* Navigation link active states */

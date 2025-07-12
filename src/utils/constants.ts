@@ -3,17 +3,17 @@ import type { NavigationItem, ServiceCategory, Project } from './types';
 
 // Site configuration
 export const SITE_CONFIG = {
-  name: 'FitOut Pro',
-  description: 'Profesjonalne wykończenia placówek medycznych, biur i lokali komercyjnych. Własny zespół, pełen zakres instalacji, działamy w całej Polsce.',
+  name: 'PLANY',
+  description: 'Profesjonalne projekty architektoniczne i planistyczne. Kompleksowe usługi projektowe od koncepcji po realizację.',
   url: 'https://panartek.github.io/PLANYv2',
-  author: 'FitOut Pro',
-  keywords: 'fit-out, wykończenia, placówki medyczne, biura, lokale komercyjne, instalacje',
+  author: 'PLANY',
+  keywords: 'projekty, architektura, planowanie, projektowanie, realizacja',
 } as const;
 
 // Navigation items
 export const NAVIGATION: NavigationItem[] = [
   { label: 'Strona główna', href: '/' },
-  { label: 'Realizacje', href: '/realizacje' },
+  { label: 'Projekty', href: '/projekty' },
   { label: 'Usługi', href: '/#uslugi' },
   { label: 'O nas', href: '/#o-nas' },
   { label: 'Kontakt', href: '/kontakt' },

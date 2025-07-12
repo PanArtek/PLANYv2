@@ -6,27 +6,28 @@
 /* CSS Custom Properties for Design System - Modern 2025 Palette */
 @layer base {
   :root {
-    /* Modern 2025 color palette - inspired by tech/architecture */
-    --primary: #0A0E1A;        /* Deep navy - premium elegance */
-    --secondary: #6366F1;      /* Modern indigo - tech innovation */
-    --accent-1: #EC4899;       /* Hot pink - creative energy */
-    --accent-2: #F59E0B;       /* Amber - warmth & trust */
+    /* PLANY Color Palette - Based on provided image */
+    --primary: #7234fa;        /* Purple - main brand color */
+    --secondary: #334464;      /* Dark blue - secondary */
+    --accent-1: #222222;       /* Black - text/contrast */
+    --accent-2: #ddd8ce;       /* Light beige - soft backgrounds */
+    --accent-3: #312f36;       /* Dark gray - alternative dark */
     --accent: #FFFFFF;         /* Pure white */
     --neutral-light: #F8FAFC;  /* Subtle background */
-    --neutral: #F1F5F9;        /* Light gray */
-    --neutral-medium: #E2E8F0; /* Medium gray */
-    --neutral-dark: #64748B;   /* Dark gray */
-    --text-primary: #1E293B;   /* Rich dark text */
-    --text-secondary: #64748B; /* Secondary text */
-    --text-muted: #94A3B8;     /* Muted text */
+    --neutral: #ddd8ce;        /* Light beige from palette */
+    --neutral-medium: #334464; /* Dark blue from palette */
+    --neutral-dark: #222222;   /* Black from palette */
+    --text-primary: #222222;   /* Black text */
+    --text-secondary: #334464; /* Dark blue text */
+    --text-muted: #312f36;     /* Dark gray text */
     
-    /* Modern gradients */
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    --gradient-cool: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    --gradient-dark: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+    /* PLANY gradients */
+    --gradient-primary: linear-gradient(135deg, #7234fa 0%, #334464 100%);
+    --gradient-secondary: linear-gradient(135deg, #334464 0%, #312f36 100%);
+    --gradient-accent: linear-gradient(135deg, #7234fa 0%, #222222 100%);
+    --gradient-warm: linear-gradient(135deg, #7234fa 0%, #ddd8ce 100%);
+    --gradient-cool: linear-gradient(135deg, #ddd8ce 0%, #334464 100%);
+    --gradient-dark: linear-gradient(135deg, #222222 0%, #312f36 100%);
     
     /* Glassmorphism variables */
     --glass-bg: rgba(255, 255, 255, 0.1);
@@ -144,22 +145,78 @@
 
 /* Component layer for reusable patterns */
 @layer components {
-  /* Button component styles */
+  /* PLANY Hero Button Styles - Main Focus Elements */
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-300;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300 transform;
+    @apply focus:outline-none focus:ring-4 focus:ring-opacity-50 shadow-2xl;
+    @apply hover:scale-110 active:scale-95;
+    background: linear-gradient(135deg, #7234fa 0%, #334464 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+    min-width: 200px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 10px 40px rgba(114, 52, 250, 0.5);
+  }
+  
+  .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn:hover:before {
+    left: 100%;
   }
   
   .btn-primary {
-    @apply bg-primary text-accent hover:bg-primary-light focus:ring-primary;
+    background: linear-gradient(135deg, #7234fa 0%, #334464 100%);
+    color: white;
+    box-shadow: 0 15px 50px rgba(114, 52, 250, 0.6);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 20px 60px rgba(114, 52, 250, 0.8);
+    transform: translateY(-5px) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.4);
   }
   
   .btn-secondary {
-    @apply bg-secondary text-accent hover:bg-secondary-dark focus:ring-secondary;
+    background: linear-gradient(135deg, #334464 0%, #222222 100%);
+    color: white;
+    box-shadow: 0 15px 50px rgba(51, 68, 100, 0.6);
+    border: 3px solid rgba(114, 52, 250, 0.3);
+  }
+  
+  .btn-secondary:hover {
+    box-shadow: 0 20px 60px rgba(51, 68, 100, 0.8);
+    transform: translateY(-5px) scale(1.05);
+    border-color: #7234fa;
   }
   
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-accent focus:ring-primary;
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: none;
+  }
+  
+  .btn-outline:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(10, 14, 26, 0.3);
   }
   
   /* Card component styles */
