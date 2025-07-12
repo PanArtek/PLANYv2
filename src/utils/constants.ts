@@ -13,10 +13,10 @@ export const SITE_CONFIG = {
 // Navigation items
 export const NAVIGATION: NavigationItem[] = [
   { label: 'Strona główna', href: '/' },
-  { label: 'Projekty', href: '/projekty' },
+  { label: 'Projekty', href: '/#realizacje' },
   { label: 'Usługi', href: '/#uslugi' },
   { label: 'O nas', href: '/#o-nas' },
-  { label: 'Kontakt', href: '/kontakt' },
+  { label: 'Kontakt', href: '/#kontakt' },
 ] as const;
 
 // Service categories (6 as specified in claude.md)

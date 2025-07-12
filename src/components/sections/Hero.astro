@@ -3,60 +3,27 @@ import Button from '../ui/Button.astro';
 ---
 
 <section class="hero relative overflow-hidden min-h-screen flex items-center" id="home">
-  <!-- Modern Hero Background -->
+  <!-- Simple Hero Background -->
   <div class="hero-background absolute inset-0 pointer-events-none">
     <!-- Gradient Background -->
     <div class="absolute inset-0 bg-gradient-dark opacity-95"></div>
     <div class="absolute inset-0 bg-gradient-primary opacity-20"></div>
     
-    <!-- Animated Grid Pattern -->
-    <div class="blueprint-grid absolute inset-0" id="blueprintGrid">
-      <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-        <!-- Grid Lines -->
-        <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1"/>
-          </pattern>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:rgb(99, 102, 241);stop-opacity:0"/>
-            <stop offset="50%" style="stop-color:rgb(99, 102, 241);stop-opacity:1"/>
-            <stop offset="100%" style="stop-color:rgb(99, 102, 241);stop-opacity:0"/>
-          </linearGradient>
-        </defs>
-        
-        <!-- Grid Background -->
-        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.5"/>
-        
-        <!-- Animated Blueprint Lines -->
-        <g class="blueprint-lines">
-          <!-- Horizontal lines -->
-          <line class="blueprint-line line-1" x1="0" y1="200" x2="0" y2="200" stroke="url(#lineGradient)" stroke-width="2"/>
-          <line class="blueprint-line line-2" x1="0" y1="400" x2="0" y2="400" stroke="url(#lineGradient)" stroke-width="2"/>
-          <line class="blueprint-line line-3" x1="0" y1="600" x2="0" y2="600" stroke="url(#lineGradient)" stroke-width="2"/>
-          
-          <!-- Vertical lines -->
-          <line class="blueprint-line line-4" x1="300" y1="0" x2="300" y2="0" stroke="url(#lineGradient)" stroke-width="2" transform="rotate(90 300 400)"/>
-          <line class="blueprint-line line-5" x1="600" y1="0" x2="600" y2="0" stroke="url(#lineGradient)" stroke-width="2" transform="rotate(90 600 400)"/>
-          <line class="blueprint-line line-6" x1="900" y1="0" x2="900" y2="0" stroke="url(#lineGradient)" stroke-width="2" transform="rotate(90 900 400)"/>
-        </g>
-        
-        <!-- Floating Geometric Elements -->
-        <g class="floating-elements">
-          <circle class="float-element element-1" cx="150" cy="150" r="8" fill="rgba(236, 72, 153, 0.6)"/>
-          <rect class="float-element element-2" x="950" y="100" width="16" height="16" fill="rgba(245, 158, 11, 0.6)" rx="2"/>
-          <polygon class="float-element element-3" points="200,700 220,680 240,700 220,720" fill="rgba(99, 102, 241, 0.6)"/>
-          <circle class="float-element element-4" cx="1000" cy="650" r="6" fill="rgba(236, 72, 153, 0.4)"/>
-          <rect class="float-element element-5" x="100" y="500" width="12" height="12" fill="rgba(245, 158, 11, 0.4)" rx="6"/>
-        </g>
-      </svg>
+    <!-- Simple Background Particles -->
+    <div class="particle-container absolute inset-0">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
     </div>
-    
-    <!-- Parallax Decoration -->
+
+    <!-- Decorative elements -->
     <div class="parallax-decoration absolute inset-0">
-      <div class="decoration-1 absolute top-20 left-10 w-2 h-2 bg-accent-1 rounded-full opacity-60"></div>
-      <div class="decoration-2 absolute top-40 right-20 w-1 h-1 bg-accent-2 rounded-full opacity-40"></div>
-      <div class="decoration-3 absolute bottom-32 left-20 w-3 h-3 bg-secondary rounded-full opacity-30"></div>
-      <div class="decoration-4 absolute bottom-20 right-32 w-1.5 h-1.5 bg-accent-1 rounded-full opacity-50"></div>
+      <div class="decoration-1 absolute top-20 left-10 w-2 h-2 bg-purple-500 rounded-full opacity-60"></div>
+      <div class="decoration-2 absolute top-40 right-20 w-1 h-1 bg-blue-400 rounded-full opacity-40"></div>
+      <div class="decoration-3 absolute bottom-32 left-20 w-3 h-3 bg-purple-600 rounded-full opacity-30"></div>
+      <div class="decoration-4 absolute bottom-20 right-32 w-1.5 h-1.5 bg-blue-500 rounded-full opacity-50"></div>
     </div>
   </div>
 
@@ -85,22 +52,22 @@ import Button from '../ui/Button.astro';
       </div>
       
       <!-- Trust indicators -->
-      <div class="hero-trust flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200 mx-4 sm:mx-0">
+      <div class="hero-trust flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20 mx-4 sm:mx-0">
         <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-blue-600">20+</div>
-          <div class="text-xs sm:text-sm text-slate-600">Pracowników</div>
+          <div class="text-xl sm:text-2xl font-bold text-yellow-400">20+</div>
+          <div class="text-xs sm:text-sm text-white/80">Projektantów</div>
         </div>
         <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-blue-600">150+</div>
-          <div class="text-xs sm:text-sm text-slate-600">Realizacji</div>
+          <div class="text-xl sm:text-2xl font-bold text-blue-400">150+</div>
+          <div class="text-xs sm:text-sm text-white/80">Realizacji</div>
         </div>
         <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-blue-600">10+</div>
-          <div class="text-xs sm:text-sm text-slate-600">lat doświadczenia</div>
+          <div class="text-xl sm:text-2xl font-bold text-green-400">10+</div>
+          <div class="text-xs sm:text-sm text-white/80">lat doświadczenia</div>
         </div>
         <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-blue-600">Cała</div>
-          <div class="text-xs sm:text-sm text-slate-600">Polska</div>
+          <div class="text-xl sm:text-2xl font-bold text-purple-400">Cała</div>
+          <div class="text-xs sm:text-sm text-white/80">Polska</div>
         </div>
       </div>
     </div>
@@ -115,235 +82,133 @@ import Button from '../ui/Button.astro';
     padding-top: 6rem; /* Add space for fixed navigation */
   }
 
-  /* Blueprint Grid Animation */
-  .blueprint-grid {
-    opacity: 0.8;
+  /* Simple Particle Animation */
+  .particle-container {
+    opacity: 0.6;
   }
-
-  .blueprint-line {
-    stroke-dasharray: 0;
-    stroke-dashoffset: 0;
-  }
-
-  .blueprint-lines .line-1,
-  .blueprint-lines .line-2,
-  .blueprint-lines .line-3 {
-    x2: 0;
-  }
-
-  .blueprint-lines .line-4,
-  .blueprint-lines .line-5,
-  .blueprint-lines .line-6 {
-    y2: 0;
-  }
-
-  /* Floating Elements */
-  .float-element {
+  
+  .particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #7234fa, #334464);
+    border-radius: 50%;
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0);
+  }
+  
+  .particle-1 {
+    top: 20%;
+    left: 10%;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .particle-2 {
+    top: 40%;
+    right: 15%;
+    animation: float 5s ease-in-out infinite -1s;
+  }
+  
+  .particle-3 {
+    bottom: 30%;
+    left: 20%;
+    animation: float 6s ease-in-out infinite -2s;
+  }
+  
+  .particle-4 {
+    top: 60%;
+    right: 30%;
+    animation: float 4.5s ease-in-out infinite -3s;
+  }
+  
+  .particle-5 {
+    bottom: 20%;
+    right: 40%;
+    animation: float 5.5s ease-in-out infinite -1.5s;
   }
 
-  /* Parallax Decorations */
-  .parallax-decoration {
-    will-change: transform;
-  }
-
+  /* Floating decorations */
   .decoration-1,
   .decoration-2,
   .decoration-3,
   .decoration-4 {
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
   }
 
-  .decoration-2 { animation-delay: -1.5s; }
-  .decoration-3 { animation-delay: -3s; }
-  .decoration-4 { animation-delay: -4.5s; }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+  .decoration-2 {
+    animation-delay: -1s;
   }
 
-  /* Hero Content Styling */
-  .hero-content {
-    position: relative;
-    z-index: 10;
+  .decoration-3 {
+    animation-delay: -2s;
   }
 
-  .hero-title {
-    opacity: 0;
-    transform: translateY(50px);
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  .decoration-4 {
+    animation-delay: -1.5s;
   }
 
-  .hero-subtitle {
-    opacity: 0;
-    transform: translateY(30px);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .hero-cta {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  .hero-trust {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  /* Modern Button Enhancements */
-  .hero-cta-primary {
-    background: var(--gradient-primary);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-  }
-
-  .hero-cta-primary:hover {
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-  }
-
-  .hero-cta-secondary {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  /* Trust Indicators Enhancement */
+  /* Trust indicators styling */
   .trust-item {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-lg);
-    padding: 1rem;
-    transition: all 0.3s var(--ease-out);
-  }
-
-  .trust-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-  }
-
-  .trust-item .text-2xl {
-    background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    min-width: 80px;
   }
 
   /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .blueprint-grid svg {
-      transform: scale(0.8);
+  @media (max-width: 640px) {
+    .hero {
+      padding-top: 5rem;
     }
     
-    .hero-title {
-      font-size: clamp(2.5rem, 8vw, 4rem);
+    .trust-item {
+      min-width: 60px;
     }
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .blueprint-line,
-    .float-element,
+    .particle,
     .decoration-1,
     .decoration-2,
     .decoration-3,
     .decoration-4 {
       animation: none;
-      transition: none;
     }
-    
-    .hero-title,
-    .hero-subtitle,
-    .hero-cta,
-    .hero-trust {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  /* Performance optimizations */
-  .hero-background {
-    contain: layout style paint;
-    transform: translateZ(0);
   }
 </style>
 
 <script type="module">
-  // Utility functions
-  function respectsReducedMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }
-
-  function enableWillChange(elements) {
-    if (typeof elements === 'string') elements = [elements];
-    elements.forEach(selector => {
-      const els = document.querySelectorAll(selector);
-      els.forEach(el => el.style.willChange = 'transform');
-    });
-  }
-
-  function disableWillChange(elements) {
-    if (typeof elements === 'string') elements = [elements];
-    elements.forEach(selector => {
-      const els = document.querySelectorAll(selector);
-      els.forEach(el => el.style.willChange = 'auto');
-    });
-  }
-
-  // Initialize modern hero animations
   function initHeroAnimations() {
+    // Simple entrance animations without complex SVG
     if (!window.gsap) return;
-    
-    // Early return for reduced motion
-    if (respectsReducedMotion()) {
-      gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust'], {
-        autoAlpha: 1,
-        y: 0
-      });
-      gsap.set(['.blueprint-line', '.float-element'], {
-        autoAlpha: 1
-      });
-      return;
-    }
 
-    // Performance: Enable will-change for animated elements
-    enableWillChange(['.blueprint-line', '.float-element', '.hero-title', '.hero-subtitle']);
+    const tl = gsap.timeline({ delay: 0.2 });
 
-    // Create main timeline
-    const tl = gsap.timeline({
-      onComplete: () => {
-        disableWillChange(['.blueprint-line', '.float-element']);
-      }
-    });
-
-    // 1. Initial setup
+    // 1. Set initial states
     gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust'], {
       autoAlpha: 0,
       y: 50,
       force3D: true
     });
 
-    gsap.set('.float-element', {
+    gsap.set('.particle', {
       autoAlpha: 0,
-      y: 20,
+      scale: 0,
       force3D: true
     });
 
-    // 2. Simplified blueprint lines animation - faster
-    const blueprintLines = document.querySelectorAll('.blueprint-line');
-    blueprintLines.forEach((line, index) => {
-      const isHorizontal = index < 3;
-      const maxLength = isHorizontal ? 600 : 400; // Shorter lines for faster animation
-      
-      tl.to(line, {
-        duration: 0.8, // Much faster
-        attr: { [isHorizontal ? 'x2' : 'y2']: maxLength },
-        ease: 'power2.out'
-      }, index * 0.1); // Reduced stagger
-    });
+    // 2. Simple particle animation
+    const particles = document.querySelectorAll('.particle');
+    if (particles.length > 0) {
+      particles.forEach((particle, index) => {
+        tl.to(particle, {
+          duration: 0.6,
+          autoAlpha: 1,
+          scale: 1,
+          ease: 'power2.out'
+        }, index * 0.1);
+      });
+    }
 
-    // 3. Much faster content animation sequence
+    // 3. Content animation sequence
     tl.to('.hero-title', {
       duration: 0.6,
       autoAlpha: 1,
@@ -371,138 +236,26 @@ import Button from '../ui/Button.astro';
       y: 0,
       ease: 'power2.out',
       force3D: true
-    }, '-=0.4');
+    }, '-=0.1');
 
-    // 4. Floating elements staggered animation
-    tl.to('.float-element', {
-      duration: 0.8,
-      autoAlpha: 1,
-      y: 0,
-      ease: 'back.out(1.7)',
-      stagger: 0.1,
-      force3D: true
-    }, '-=0.5');
-
-    // 5. Continuous floating animation for elements
-    gsap.to('.float-element', {
-      duration: 4,
-      y: '+=10',
-      rotation: '+=5',
-      ease: 'power1.inOut',
-      repeat: -1,
-      yoyo: true,
-      force3D: true,
-      stagger: {
-        each: 0.3,
-        from: 'random'
-      }
+    // 4. Continuous floating animation for decorations
+    const decorations = document.querySelectorAll('.parallax-decoration > div');
+    decorations.forEach((decoration, index) => {
+      gsap.to(decoration, {
+        y: '+=10',
+        duration: 2 + index * 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power2.inOut',
+        delay: index * 0.2
+      });
     });
-
-    // 6. Parallax effect on scroll
-    let parallaxElements = document.querySelectorAll('.parallax-decoration > div');
-    
-    function updateParallax() {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-      
-      parallaxElements.forEach((element, index) => {
-        const speed = (index + 1) * 0.1;
-        gsap.to(element, {
-          duration: 0.3,
-          y: rate * speed,
-          force3D: true
-        });
-      });
-    }
-
-    window.addEventListener('scroll', updateParallax, { passive: true });
-
-    // Button hover effects
-    const primaryBtn = document.querySelector('.hero-cta-primary');
-    const secondaryBtn = document.querySelector('.hero-cta-secondary');
-
-    if (primaryBtn) {
-      primaryBtn.addEventListener('mouseenter', () => {
-        gsap.to(primaryBtn, {
-          duration: 0.3,
-          scale: 1.05,
-          y: -2,
-          ease: 'power2.out'
-        });
-      });
-
-      primaryBtn.addEventListener('mouseleave', () => {
-        gsap.to(primaryBtn, {
-          duration: 0.3,
-          scale: 1,
-          y: 0,
-          ease: 'power2.out'
-        });
-      });
-    }
-
-    if (secondaryBtn) {
-      secondaryBtn.addEventListener('mouseenter', () => {
-        gsap.to(secondaryBtn, {
-          duration: 0.3,
-          scale: 1.02,
-          ease: 'power2.out'
-        });
-      });
-
-      secondaryBtn.addEventListener('mouseleave', () => {
-        gsap.to(secondaryBtn, {
-          duration: 0.3,
-          scale: 1,
-          ease: 'power2.out'
-        });
-      });
-    }
-
-    // Cleanup on page visibility change
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        tl.pause();
-      } else {
-        tl.resume();
-      }
-    });
-  }
-
-  // Use Intersection Observer for performance
-  function observeHero() {
-    const heroElement = document.querySelector('.hero');
-    if (!heroElement) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Wait for GSAP to be available
-            if (typeof gsap !== 'undefined') {
-              initHeroAnimations();
-            } else {
-              // Wait a bit for GSAP to load
-              setTimeout(() => {
-                if (typeof gsap !== 'undefined') {
-                  initHeroAnimations();
-                }
-              }, 100);
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    observer.observe(heroElement);
   }
 
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', observeHero);
+    document.addEventListener('DOMContentLoaded', initHeroAnimations);
   } else {
-    observeHero();
+    initHeroAnimations();
   }
 </script>
