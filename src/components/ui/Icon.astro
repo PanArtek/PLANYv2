@@ -1,0 +1,101 @@
+---
+export interface Props {
+  name: string;
+  size?: number | string;
+  class?: string;
+  strokeWidth?: number;
+}
+
+const {
+  name,
+  size = 24,
+  class: className = '',
+  strokeWidth = 2
+} = Astro.props;
+
+// Convert size to number if string
+const iconSize = typeof size === 'string' ? parseInt(size) : size;
+
+const classes = [
+  'inline-block',
+  className
+].filter(Boolean).join(' ');
+---
+
+<!-- 
+  This component will be replaced with actual Lucide React icons
+  when we need interactivity. For now, we'll use a placeholder SVG
+  that can be easily swapped out.
+-->
+<svg
+  class={classes}
+  width={iconSize}
+  height={iconSize}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <!-- Placeholder icon based on name -->
+  {name === 'Heart' && (
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+  )}
+  {name === 'GraduationCap' && (
+    <>
+      <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+      <path d="M22 10v6" />
+      <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+    </>
+  )}
+  {name === 'Building2' && (
+    <>
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+      <path d="M6 12H4a2 2 0 0 0-2 2v8h20v-8a2 2 0 0 0-2-2h-2" />
+      <path d="M10 6h4" />
+      <path d="M10 10h4" />
+      <path d="M10 14h4" />
+      <path d="M10 18h4" />
+    </>
+  )}
+  {name === 'ShoppingBag' && (
+    <>
+      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+      <path d="M3 6h18" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </>
+  )}
+  {name === 'Zap' && (
+    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+  )}
+  {name === 'Key' && (
+    <>
+      <circle cx="7.5" cy="15.5" r="5.5" />
+      <path d="m21 2-9.6 9.6" />
+      <path d="m15.5 7.5 3 3L22 7l-3-3" />
+    </>
+  )}
+  {name === 'Menu' && (
+    <>
+      <line x1="4" x2="20" y1="12" y2="12" />
+      <line x1="4" x2="20" y1="6" y2="6" />
+      <line x1="4" x2="20" y1="18" y2="18" />
+    </>
+  )}
+  {name === 'X' && (
+    <>
+      <path d="M18 6 6 18" />
+      <path d="M6 6l12 12" />
+    </>
+  )}
+  {name === 'ArrowRight' && (
+    <>
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </>
+  )}
+  {name === 'ChevronDown' && (
+    <path d="m6 9 6 6 6-6" />
+  )}
+</svg>

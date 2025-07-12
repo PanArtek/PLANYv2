@@ -1,2 +1,252 @@
-/* Global CSS file */
-/* Add your global styles here */
+/* Global CSS with Tailwind and custom animations */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties for Design System */
+@layer base {
+  :root {
+    /* Professional color palette from claude.md */
+    --primary: #2a2a2a;      /* Professional charcoal */
+    --secondary: #3b82f6;     /* Trust blue */
+    --accent: #ffffff;        /* Clean white */
+    --neutral: #f1f5f9;       /* Soft gray */
+    --text: #374151;          /* Readable dark gray */
+    
+    /* Extended color variations */
+    --primary-light: #404040;
+    --primary-dark: #1a1a1a;
+    --secondary-light: #60a5fa;
+    --secondary-dark: #2563eb;
+    --neutral-dark: #e2e8f0;
+    --text-light: #6b7280;
+    --text-muted: #9ca3af;
+    
+    /* Shadows and effects */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    
+    /* Animation variables for GSAP */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Base typography and layout */
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    background-color: var(--accent);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+  }
+  
+  /* Improved focus states for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  /* Selection colors */
+  ::selection {
+    background-color: var(--secondary);
+    color: var(--accent);
+  }
+}
+
+/* Component layer for reusable patterns */
+@layer components {
+  /* Button component styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-accent hover:bg-primary-light focus:ring-primary;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-accent hover:bg-secondary-dark focus:ring-secondary;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-accent focus:ring-primary;
+  }
+  
+  /* Card component styles */
+  .card {
+    @apply bg-accent rounded-xl shadow-md border border-neutral-dark/20 transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Container utilities */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Typography utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  /* Animation utilities for GSAP */
+  .gsap-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .gsap-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  
+  .gsap-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  
+  .gsap-scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  /* Building blocks animation classes */
+  .building-block {
+    @apply absolute w-16 h-16 rounded-lg;
+    will-change: transform;
+  }
+  
+  .building-block-1 {
+    @apply bg-primary;
+  }
+  
+  .building-block-2 {
+    @apply bg-secondary;
+  }
+  
+  .building-block-3 {
+    @apply bg-primary-light;
+  }
+  
+  /* Floating animation for hero elements */
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .floating:nth-child(2) {
+    animation-delay: -1s;
+  }
+  
+  .floating:nth-child(3) {
+    animation-delay: -2s;
+  }
+}
+
+/* Utility layer for specific overrides */
+@layer utilities {
+  /* Hardware acceleration for animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Smooth scrolling sections */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Image optimization utilities */
+  .img-optimized {
+    @apply object-cover object-center;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Keyframes for CSS animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  .floating {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+}

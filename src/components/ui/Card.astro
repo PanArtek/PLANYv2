@@ -1,0 +1,37 @@
+---
+export interface Props {
+  variant?: 'default' | 'hover' | 'bordered';
+  class?: string;
+  padding?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  variant = 'default',
+  class: className = '',
+  padding = 'md'
+} = Astro.props;
+
+// Padding classes
+const paddingClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8'
+};
+
+// Variant classes
+const variantClasses = {
+  default: 'card',
+  hover: 'card card-hover',
+  bordered: 'card border-2'
+};
+
+const classes = [
+  variantClasses[variant],
+  paddingClasses[padding],
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={classes}>
+  <slot />
+</div>

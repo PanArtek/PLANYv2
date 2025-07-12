@@ -1,51 +1,217 @@
 ---
-export interface Props {
-  title: string;
-}
+import type { BaseLayoutProps } from '../utils/types';
+import { SITE_CONFIG } from '../utils/constants';
 
-const { title } = Astro.props;
+// Props with SEO defaults
+const {
+  title,
+  description = SITE_CONFIG.description,
+  image = '/images/og-image.jpg',
+  canonical = Astro.url.pathname,
+  noindex = false
+} = Astro.props as BaseLayoutProps;
+
+// Construct full URLs for meta tags
+const siteUrl = SITE_CONFIG.url;
+const fullTitle = title.includes(SITE_CONFIG.name) ? title : `${title} | ${SITE_CONFIG.name}`;
+const canonicalUrl = new URL(canonical, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={SITE_CONFIG.keywords} />
+    <meta name="author" content={SITE_CONFIG.author} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta property="og:locale" content="pl_PL" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "FitOut Pro",
+      "description": "Kompleksowe wykończenia lokali komercyjnych i użyteczności publicznej",
+      "url": "https://panartek.github.io/PLANYv2",
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Poland"
+      },
+      "areaServed": "Poland",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "areaServed": "PL",
+        "availableLanguage": "Polish"
+      }
+    }
+    </script>
+    
+    <!-- Fonts - Inter for professional appearance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Theme and initial styles to prevent FOUC -->
+    <style>
+      /* Critical CSS - inline for performance */
+      :root {
+        --primary: #2a2a2a;
+        --secondary: #3b82f6;
+        --accent: #ffffff;
+        --neutral: #f1f5f9;
+        --text: #374151;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        font-family: 'Inter', system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        background-color: var(--accent);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Loading state for GSAP animations */
+      .gsap-loading {
+        opacity: 0;
+      }
+      
+      /* Reduced motion fallbacks */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
   </head>
+  
   <body>
     <slot />
+    
+    <!-- GSAP Core Library - Load before other scripts -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      is:inline
+    ></script>
+    
+    <!-- GSAP ScrollTrigger Plugin -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer"
+      is:inline
+    ></script>
+    
+    <!-- Initialize GSAP and performance optimizations -->
+    <script is:inline>
+      // Initialize GSAP system on DOM ready
+      document.addEventListener('DOMContentLoaded', () => {
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (typeof gsap !== 'undefined') {
+          // Register ScrollTrigger plugin
+          gsap.registerPlugin(ScrollTrigger);
+          
+          // Set global defaults for performance
+          gsap.defaults({
+            ease: 'power2.out',
+            duration: prefersReducedMotion ? 0.01 : 0.6,
+            force3D: true // Hardware acceleration
+          });
+          
+          // Configure ScrollTrigger for performance
+          ScrollTrigger.config({
+            limitCallbacks: true,
+            syncInterval: prefersReducedMotion ? 1000 : 150
+          });
+          
+          // Remove loading classes to enable animations
+          document.querySelectorAll('.gsap-loading').forEach(element => {
+            element.classList.remove('gsap-loading');
+          });
+          
+          // Refresh ScrollTrigger on resize (debounced)
+          let resizeTimeout;
+          window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 250);
+          });
+          
+          // Debug mode in development
+          if (import.meta.env.DEV) {
+            console.log('🎬 GSAP initialized successfully');
+            console.log('📱 Reduced motion:', prefersReducedMotion);
+          }
+        } else {
+          console.warn('⚠️ GSAP failed to load');
+        }
+      });
+      
+      // Cleanup ScrollTrigger instances on page unload
+      window.addEventListener('beforeunload', () => {
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        }
+      });
+    </script>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151A;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>

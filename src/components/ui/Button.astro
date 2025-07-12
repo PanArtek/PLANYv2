@@ -1,0 +1,55 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+  'data-category'?: string; // For portfolio filtering
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+  ...props
+} = Astro.props;
+
+// Size classes
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg'
+};
+
+// Variant classes
+const variantClasses = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary', 
+  outline: 'btn-outline'
+};
+
+const classes = [
+  'btn',
+  sizeClasses[size],
+  variantClasses[variant],
+  className
+].filter(Boolean).join(' ');
+
+// Determine tag based on href presence
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  class={classes}
+  href={href}
+  type={!href ? type : undefined}
+  disabled={!href ? disabled : undefined}
+  {...props}
+>
+  <slot />
+</Tag>
