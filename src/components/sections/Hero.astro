@@ -31,24 +31,24 @@ import Button from '../ui/Button.astro';
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
       <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
-        <span class="block text-yellow-400">PLANY</span>
-        <span class="block text-blue-400">projekty przyszłości</span>
-        <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal text-white mt-2">architektura • planowanie • realizacja</span>
+        <span class="block">Profesjonalne</span>
+        <span class="block text-gradient-primary">wykonawstwo</span>
+        <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal text-neutral-medium mt-2">na każdym etapie</span>
       </h1>
       
-      <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-white mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 drop-shadow-lg font-medium">
-        <span class="text-blue-300">Nowoczesne projekty architektoniczne</span> • 
-        <span class="text-yellow-300">Kompleksowe planowanie</span> • 
-        <span class="text-green-300">Realizacje w całej Polsce</span>
+      <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-neutral-medium mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+        <span class="text-white font-medium">Własny zespół 20+ specjalistów</span> realizuje kompleksowe projekty fit-out. 
+        <span class="text-accent-2">Pełen zakres instalacji</span> i <span class="text-accent-1">elastyczne podejście</span> 
+        do każdego projektu.
       </p>
       
       <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-        <button class="btn btn-primary text-lg px-10 py-4 w-full sm:w-auto shadow-2xl font-bold">
+        <a href="#kontakt" class="btn btn-primary text-lg px-10 py-4 w-full sm:w-auto shadow-2xl font-bold">
           <span class="relative z-10">Otrzymaj wycenę</span>
-        </button>
-        <button class="btn btn-secondary text-lg px-10 py-4 w-full sm:w-auto shadow-2xl font-bold">
-          <span class="relative z-10">Zobacz projekty</span>
-        </button>
+        </a>
+        <a href="#realizacje" class="btn btn-secondary text-lg px-10 py-4 w-full sm:w-auto shadow-2xl font-bold">
+          <span class="relative z-10">Nasze realizacje</span>
+        </a>
       </div>
       
       <!-- Trust indicators -->
@@ -248,6 +248,27 @@ import Button from '../ui/Button.astro';
         yoyo: true,
         ease: 'power2.inOut',
         delay: index * 0.2
+      });
+    });
+    
+    // 5. Smooth scroll for hero buttons
+    const heroButtons = document.querySelectorAll('.hero-cta a[href^="#"]');
+    heroButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = button.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const navbar = document.getElementById('navbar');
+          const navHeight = navbar ? navbar.offsetHeight : 80;
+          const targetPosition = targetElement.offsetTop - navHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   }

@@ -325,11 +325,37 @@ import Button from '../ui/Button.astro';
 
     mobileMenuButton.addEventListener('click', toggleMobileMenu);
 
-    // Close mobile menu on link click
+    // Handle navigation clicks with smooth scroll
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (isMenuOpen) {
-          toggleMobileMenu();
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        // Handle internal anchor links
+        if (href && href.startsWith('/#')) {
+          e.preventDefault();
+          const targetId = href.substring(2); // Remove /#
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            // Close mobile menu if open
+            if (isMenuOpen) {
+              toggleMobileMenu();
+            }
+            
+            // Smooth scroll to target with offset for fixed nav
+            const navHeight = navbar.offsetHeight;
+            const targetPosition = targetElement.offsetTop - navHeight - 20;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        } else {
+          // For other links, just close mobile menu
+          if (isMenuOpen) {
+            toggleMobileMenu();
+          }
         }
       });
     });
