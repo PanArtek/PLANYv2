@@ -265,99 +265,53 @@ const imageUrl = new URL(image, siteUrl).toString();
   <body>
     <slot />
     
-    <!-- GSAP Lazy Loading for Performance -->
-    <script is:inline>
-      // Load GSAP only when needed
-      window.loadGSAP = function() {
-        if (window.gsapLoaded) return Promise.resolve();
-        
-        return new Promise((resolve, reject) => {
-          const script1 = document.createElement('script');
-          script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-          script1.integrity = 'sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==';
-          script1.crossOrigin = 'anonymous';
-          script1.referrerPolicy = 'no-referrer';
-          
-          script1.onload = () => {
-            const script2 = document.createElement('script');
-            script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-            script2.integrity = 'sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==';
-            script2.crossOrigin = 'anonymous';
-            script2.referrerPolicy = 'no-referrer';
-            
-            script2.onload = () => {
-              window.gsapLoaded = true;
-              resolve();
-            };
-            script2.onerror = reject;
-            document.head.appendChild(script2);
-          };
-          script1.onerror = reject;
-          document.head.appendChild(script1);
-        });
-      };
-      
-      // Load GSAP immediately if user doesn't prefer reduced motion
-      document.addEventListener('DOMContentLoaded', () => {
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReducedMotion) {
-          window.loadGSAP();
-        }
-      });
-    </script>
+    <!-- GSAP CDN Direct Loading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <!-- Initialize GSAP when loaded -->
+    <!-- Initialize GSAP -->
     <script is:inline>
-      // Initialize GSAP system when available
-      window.initGSAP = function() {
-        if (!window.gsap) return;
-        
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        
-        // Register ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Set global defaults for performance
-        gsap.defaults({
-          ease: 'power2.out',
-          duration: prefersReducedMotion ? 0.01 : 0.6,
-          force3D: true // Hardware acceleration
-        });
-        
-        // Configure ScrollTrigger for performance
-        ScrollTrigger.config({
-          limitCallbacks: true,
-          syncInterval: prefersReducedMotion ? 1000 : 150
-        });
-        
-        // Remove loading classes to enable animations
-        document.querySelectorAll('.gsap-loading').forEach(element => {
-          element.classList.remove('gsap-loading');
-        });
-        
-        // Refresh ScrollTrigger on resize (debounced)
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(() => {
-            ScrollTrigger.refresh();
-          }, 250);
-        });
-      };
-      
-      // Auto-initialize when GSAP loads
-      document.addEventListener('DOMContentLoaded', () => {
-        if (window.loadGSAP) {
-          window.loadGSAP().then(() => {
-            window.initGSAP();
+      // Initialize GSAP immediately
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+          const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          
+          // Register ScrollTrigger plugin
+          gsap.registerPlugin(ScrollTrigger);
+          
+          // Set global defaults for performance
+          gsap.defaults({
+            ease: 'power2.out',
+            duration: prefersReducedMotion ? 0.01 : 0.6,
+            force3D: true
+          });
+          
+          // Configure ScrollTrigger for performance
+          ScrollTrigger.config({
+            limitCallbacks: true,
+            syncInterval: prefersReducedMotion ? 1000 : 150
+          });
+          
+          // Mark GSAP as loaded
+          window.gsapLoaded = true;
+          
+          // Refresh ScrollTrigger on resize (debounced)
+          let resizeTimeout;
+          window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+              ScrollTrigger.refresh();
+            }, 250);
           });
         }
       });
       
-      // Cleanup ScrollTrigger instances on page unload
-      window.addEventListener('beforeunload', () => {
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', function() {
         if (typeof ScrollTrigger !== 'undefined') {
-          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+          ScrollTrigger.getAll().forEach(function(trigger) {
+            trigger.kill();
+          });
         }
       });
     </script>

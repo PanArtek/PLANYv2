@@ -327,7 +327,7 @@ import Button from '../ui/Button.astro';
     });
   }
 
-  // Use Intersection Observer for performance with GSAP loading
+  // Use Intersection Observer for performance
   function observeHero() {
     const heroElement = document.querySelector('.hero');
     if (!heroElement) return;
@@ -336,13 +336,16 @@ import Button from '../ui/Button.astro';
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Ensure GSAP is loaded before initializing animations
-            if (window.loadGSAP) {
-              window.loadGSAP().then(() => {
-                initHeroAnimations();
-              });
-            } else {
+            // Wait for GSAP to be available
+            if (typeof gsap !== 'undefined') {
               initHeroAnimations();
+            } else {
+              // Wait a bit for GSAP to load
+              setTimeout(() => {
+                if (typeof gsap !== 'undefined') {
+                  initHeroAnimations();
+                }
+              }, 100);
             }
             observer.unobserve(entry.target);
           }
