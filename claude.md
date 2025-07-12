@@ -1,14 +1,21 @@
-# Fit Out Company Website - Claude Code Instructions
+# PLANY - Claude Code Instructions (PRD REPOSITIONING COMPLETED)
 
-## 🎯 Project Overview
+## 🎯 Project Overview - CURRENT STATUS
 
-Create a professional website for a fit-out/construction company specializing in complete commercial and institutional space finishing. This is a lead generation and portfolio showcase website targeting B2B clients including medical facilities, educational institutions, retail spaces, and commercial offices.
+✅ **MAJOR SUCCESS**: Successfully repositioned from incorrect "architecture studio" to correct "comprehensive fit-out contractor" according to PRD requirements.
 
-**Key Business Goals:**
-- Generate 15-25 qualified leads monthly
-- Showcase 10 premium projects 
-- Position as reliable, full-service fit-out specialists
-- Target audience: Property managers, medical facility owners, retail chains, investment funds
+**Current Business Positioning:**
+- **Company**: PLANY - Kompleksowy wykonawca wykończeń i instalacji
+- **Core Message**: "Profesjonalne wykonawstwo na każdym etapie" 
+- **Key Value**: Własny zespół 20+ specjalistów eliminuje problemy koordynacji
+- **Experience**: 17 lat doświadczenia w wykończeniach komercyjnych
+- **Scale**: Realizacje 100-5000m² w całej Polsce
+
+**Target Industries (PRD-Aligned):**
+- Zarządcy nieruchomości (modernizacje, remonty)
+- Kliniki medyczne (gabinety z wymogami sanitarnymi)
+- Szkoły prywatne (bezpieczeństwo, funkcjonalność)
+- Firmy otwierające biura (open space, sale konferencyjne)
 
 ## 📋 IMPORTANT: Documentation Requirements
 
