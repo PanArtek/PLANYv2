@@ -2,71 +2,83 @@
 import Button from '../ui/Button.astro';
 ---
 
-<section class="hero relative overflow-hidden min-h-screen flex items-center" id="home">
-  <!-- Simple Hero Background -->
+<section class="hero-minimalist relative overflow-hidden min-h-screen flex items-center" id="home">
+  <!-- Minimalist Background - 70% white space -->
   <div class="hero-background absolute inset-0 pointer-events-none">
-    <!-- Gradient Background -->
-    <div class="absolute inset-0 bg-gradient-dark opacity-95"></div>
-    <div class="absolute inset-0 bg-gradient-primary opacity-20"></div>
+    <!-- Pure white background for minimalism -->
+    <div class="absolute inset-0 bg-white"></div>
     
-    <!-- Simple Background Particles -->
-    <div class="particle-container absolute inset-0">
-      <div class="particle particle-1"></div>
-      <div class="particle particle-2"></div>
-      <div class="particle particle-3"></div>
-      <div class="particle particle-4"></div>
-      <div class="particle particle-5"></div>
+    <!-- Subtle geometric accents - positioned strategically -->
+    <div class="geometric-accent-group absolute bottom-24 right-10 sm:right-20 flex gap-4 opacity-80">
+      <div class="accent-triangle w-6 h-6 geometric-triangle" style="background: var(--accent-orange);"></div>
+      <div class="accent-circle w-5 h-5 rounded-full" style="background: var(--primary-medium);"></div>
+      <div class="accent-square w-4 h-4 transform rotate-45" style="background: var(--primary-dark);"></div>
+      <div class="accent-hexagon w-5 h-5 geometric-hexagon" style="background: var(--primary-light);"></div>
     </div>
-
-    <!-- Decorative elements -->
-    <div class="parallax-decoration absolute inset-0">
-      <div class="decoration-1 absolute top-20 left-10 w-2 h-2 bg-purple-500 rounded-full opacity-60"></div>
-      <div class="decoration-2 absolute top-40 right-20 w-1 h-1 bg-blue-400 rounded-full opacity-40"></div>
-      <div class="decoration-3 absolute bottom-32 left-20 w-3 h-3 bg-purple-600 rounded-full opacity-30"></div>
-      <div class="decoration-4 absolute bottom-20 right-32 w-1.5 h-1.5 bg-blue-500 rounded-full opacity-50"></div>
-    </div>
+    
+    <!-- Logo geometric accent -->
+    <div class="logo-accent absolute top-8 left-4 sm:left-8 w-2 h-2 rounded-full" style="background: var(--neutral-light);"></div>
   </div>
 
-  <!-- Hero Content -->
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
-        <span class="block">PLANY</span>
-        <span class="block text-gradient-primary">Profesjonalne wykonawstwo</span>
-        <span class="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal text-white mt-2">na każdym etapie</span>
+  <!-- Hero Content - Minimalist Typography -->
+  <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl text-left">
+      <!-- Clean, minimal logo -->
+      <div class="hero-logo mb-16 flex items-center">
+        <span class="text-2xl font-bold" style="color: var(--primary-dark);">PLANY</span>
+        <div class="logo-accent-inline w-2 h-2 rounded-full ml-2" style="background: var(--neutral-light);"></div>
+      </div>
+      
+      <!-- Main message - Extra clean with generous spacing -->
+      <h1 class="hero-title mb-6" style="
+        font-size: clamp(48px, 8vw, 72px);
+        font-weight: 300;
+        line-height: 1.1;
+        color: var(--neutral-dark);
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+      ">
+        Profesjonalne wykonawstwo<br>
+        na każdym etapie
       </h1>
       
-      <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-white mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-        <span class="text-yellow-300 font-semibold">Własny zespół 20+ specjalistów</span> realizuje kompleksowe wykończenia i instalacje.<br>
-        <span class="text-blue-300">Pełen zakres prac</span> i <span class="text-green-300">elastyczne podejście</span> do każdego projektu.
+      <!-- Supporting text with extra line height -->
+      <p class="hero-subtitle mb-12" style="
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--neutral-light);
+        margin-bottom: 48px;
+        max-width: 500px;
+      ">
+        Własny zespół 20+ specjalistów<br>
+        realizuje kompleksowe wykończenia
       </p>
       
-      <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-        <a href="#kontakt" class="btn btn-primary text-lg px-10 py-4 w-full sm:w-auto shadow-2xl font-bold">
-          <span class="relative z-10">Umów wizję lokalną</span>
-        </a>
-        <a href="#realizacje" class="btn btn-secondary text-lg px-10 py-4 w-full sm:w-auto shadow-2xl font-bold">
-          <span class="relative z-10">Nasze realizacje</span>
+      <!-- CTA with generous spacing -->
+      <div class="hero-cta mb-16">
+        <a href="#kontakt" class="btn-geometric btn-primary-geometric">
+          Umów wizję lokalną
         </a>
       </div>
       
-      <!-- Trust indicators - zgodnie z PRD -->
-      <div class="hero-trust flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20 mx-4 sm:px-0">
-        <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-yellow-400">17</div>
-          <div class="text-xs sm:text-sm text-white/80">lat doświadczenia</div>
+      <!-- Trust indicators - Minimalist style -->
+      <div class="hero-trust flex gap-8 items-center" style="
+        padding-top: 48px;
+        border-top: 1px solid var(--neutral-light);
+        max-width: 500px;
+      ">
+        <div class="trust-item">
+          <div style="font-size: 20px; font-weight: 600; color: var(--primary-dark);">17</div>
+          <div style="font-size: 14px; color: var(--neutral-light); opacity: 0.8;">lat doświadczenia</div>
         </div>
-        <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-blue-400">20+</div>
-          <div class="text-xs sm:text-sm text-white/80">własnych pracowników</div>
+        <div class="trust-item">
+          <div style="font-size: 20px; font-weight: 600; color: var(--primary-dark);">20+</div>
+          <div style="font-size: 14px; color: var(--neutral-light); opacity: 0.8;">specjalistów</div>
         </div>
-        <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-green-400">100-5000m²</div>
-          <div class="text-xs sm:text-sm text-white/80">realizacje</div>
-        </div>
-        <div class="trust-item text-center">
-          <div class="text-xl sm:text-2xl font-bold text-purple-400">Cała</div>
-          <div class="text-xs sm:text-sm text-white/80">Polska</div>
+        <div class="trust-item">
+          <div style="font-size: 20px; font-weight: 600; color: var(--primary-dark);">100-5000m²</div>
+          <div style="font-size: 14px; color: var(--neutral-light); opacity: 0.8;">realizacje</div>
         </div>
       </div>
     </div>
@@ -74,188 +86,152 @@ import Button from '../ui/Button.astro';
 </section>
 
 <style>
-  .hero {
+  /* Minimalist Hero with 70% white space */
+  .hero-minimalist {
     position: relative;
-    background: var(--gradient-dark);
+    background: var(--white);
     min-height: 100vh;
-    padding-top: 6rem; /* Add space for fixed navigation */
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
   }
 
-  /* Simple Particle Animation */
-  .particle-container {
-    opacity: 0.6;
-  }
-  
-  .particle {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: linear-gradient(45deg, #7234fa, #334464);
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(0);
-  }
-  
-  .particle-1 {
-    top: 20%;
-    left: 10%;
-    animation: float 4s ease-in-out infinite;
-  }
-  
-  .particle-2 {
-    top: 40%;
-    right: 15%;
-    animation: float 5s ease-in-out infinite -1s;
-  }
-  
-  .particle-3 {
-    bottom: 30%;
-    left: 20%;
-    animation: float 6s ease-in-out infinite -2s;
-  }
-  
-  .particle-4 {
-    top: 60%;
-    right: 30%;
-    animation: float 4.5s ease-in-out infinite -3s;
-  }
-  
-  .particle-5 {
-    bottom: 20%;
-    right: 40%;
-    animation: float 5.5s ease-in-out infinite -1.5s;
+  /* Geometric accent animations - subtle for minimalism */
+  .geometric-accent-group:hover .accent-triangle {
+    transform: rotate(120deg);
+    transition: transform 0.4s ease;
   }
 
-  /* Floating decorations */
-  .decoration-1,
-  .decoration-2,
-  .decoration-3,
-  .decoration-4 {
-    animation: float 3s ease-in-out infinite;
+  .geometric-accent-group:hover .accent-square {
+    transform: rotate(90deg);
+    transition: transform 0.4s ease;
   }
 
-  .decoration-2 {
-    animation-delay: -1s;
+  .geometric-accent-group:hover .accent-circle {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
   }
 
-  .decoration-3 {
-    animation-delay: -2s;
+  .geometric-accent-group:hover .accent-hexagon {
+    transform: rotate(60deg);
+    transition: transform 0.4s ease;
   }
 
-  .decoration-4 {
-    animation-delay: -1.5s;
+  /* Minimalist typography adjustments */
+  .hero-title {
+    font-family: 'Inter', sans-serif;
   }
 
-  /* Trust indicators styling */
-  .trust-item {
-    min-width: 80px;
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .hero {
-      padding-top: 5rem;
+  /* Responsive adjustments for mobile */
+  @media (max-width: 768px) {
+    .hero-minimalist {
+      padding: 80px 0;
+      text-align: center;
     }
     
-    .trust-item {
-      min-width: 60px;
+    .hero-title {
+      font-size: 48px !important;
+      margin-bottom: 32px !important;
+    }
+    
+    .hero-subtitle {
+      font-size: 20px !important;
+      margin-bottom: 48px !important;
+    }
+    
+    .geometric-accent-group {
+      position: static !important;
+      justify-content: center;
+      margin-top: 48px;
+      opacity: 0.6 !important;
+    }
+    
+    .hero-trust {
+      justify-content: center !important;
+      gap: 24px !important;
     }
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .particle,
-    .decoration-1,
-    .decoration-2,
-    .decoration-3,
-    .decoration-4 {
-      animation: none;
+    .geometric-accent-group:hover .accent-triangle,
+    .geometric-accent-group:hover .accent-square,
+    .geometric-accent-group:hover .accent-circle,
+    .geometric-accent-group:hover .accent-hexagon {
+      transform: none;
+      transition: none;
     }
   }
 </style>
 
 <script type="module">
-  function initHeroAnimations() {
-    // Simple entrance animations without complex SVG
+  function initMinimalistHeroAnimations() {
+    // Minimal animations for clean, professional appearance
     if (!window.gsap) return;
 
-    const tl = gsap.timeline({ delay: 0.2 });
+    const tl = gsap.timeline({ delay: 0.3 });
 
-    // 1. Set initial states
-    gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust'], {
+    // 1. Set initial states - very subtle
+    gsap.set(['.hero-logo', '.hero-title', '.hero-subtitle', '.hero-cta', '.hero-trust', '.geometric-accent-group'], {
       autoAlpha: 0,
-      y: 50,
+      y: 20, // Smaller movement for minimalism
       force3D: true
     });
 
-    gsap.set('.particle', {
-      autoAlpha: 0,
-      scale: 0,
-      force3D: true
-    });
-
-    // 2. Simple particle animation
-    const particles = document.querySelectorAll('.particle');
-    if (particles.length > 0) {
-      particles.forEach((particle, index) => {
-        tl.to(particle, {
-          duration: 0.6,
-          autoAlpha: 1,
-          scale: 1,
-          ease: 'power2.out'
-        }, index * 0.1);
-      });
-    }
-
-    // 3. Content animation sequence
-    tl.to('.hero-title', {
-      duration: 0.6,
+    // 2. Subtle entrance sequence
+    tl.to('.hero-logo', {
+      duration: 0.4,
       autoAlpha: 1,
       y: 0,
       ease: 'power2.out',
       force3D: true
-    }, '-=0.4')
-    .to('.hero-subtitle', {
+    })
+    .to('.hero-title', {
       duration: 0.5,
       autoAlpha: 1,
       y: 0,
       ease: 'power2.out',
       force3D: true
-    }, '-=0.3')
-    .to('.hero-cta', {
+    }, '-=0.2')
+    .to('.hero-subtitle', {
       duration: 0.4,
       autoAlpha: 1,
       y: 0,
       ease: 'power2.out',
       force3D: true
     }, '-=0.2')
+    .to('.hero-cta', {
+      duration: 0.3,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.1')
     .to('.hero-trust', {
-      duration: 0.4,
+      duration: 0.3,
+      autoAlpha: 1,
+      y: 0,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.1')
+    .to('.geometric-accent-group', {
+      duration: 0.3,
       autoAlpha: 1,
       y: 0,
       ease: 'power2.out',
       force3D: true
     }, '-=0.1');
-
-    // 4. Continuous floating animation for decorations
-    const decorations = document.querySelectorAll('.parallax-decoration > div');
-    decorations.forEach((decoration, index) => {
-      gsap.to(decoration, {
-        y: '+=10',
-        duration: 2 + index * 0.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power2.inOut',
-        delay: index * 0.2
-      });
-    });
     
-    // 5. Smooth scroll for hero buttons
-    const heroButtons = document.querySelectorAll('.hero-cta a[href^="#"]');
-    heroButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
+    // 3. Smooth scroll for hero button
+    const heroButton = document.querySelector('.hero-cta a[href^="#"]');
+    if (heroButton) {
+      heroButton.addEventListener('click', (e) => {
         e.preventDefault();
-        const targetId = button.getAttribute('href').substring(1);
+        const targetId = heroButton.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {
@@ -269,13 +245,13 @@ import Button from '../ui/Button.astro';
           });
         }
       });
-    });
+    }
   }
 
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeroAnimations);
+    document.addEventListener('DOMContentLoaded', initMinimalistHeroAnimations);
   } else {
-    initHeroAnimations();
+    initMinimalistHeroAnimations();
   }
 </script>

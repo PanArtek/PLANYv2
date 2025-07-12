@@ -3,31 +3,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties for Design System - Modern 2025 Palette */
+/* CSS Custom Properties for Design System - Amethyst Wisteria Twilight Palette */
 @layer base {
   :root {
-    /* PLANY Color Palette - Based on provided image */
-    --primary: #7234fa;        /* Purple - main brand color */
-    --secondary: #334464;      /* Dark blue - secondary */
-    --accent-1: #222222;       /* Black - text/contrast */
-    --accent-2: #ddd8ce;       /* Light beige - soft backgrounds */
-    --accent-3: #312f36;       /* Dark gray - alternative dark */
-    --accent: #FFFFFF;         /* Pure white */
-    --neutral-light: #F8FAFC;  /* Subtle background */
-    --neutral: #ddd8ce;        /* Light beige from palette */
-    --neutral-medium: #334464; /* Dark blue from palette */
-    --neutral-dark: #222222;   /* Black from palette */
-    --text-primary: #222222;   /* Black text */
-    --text-secondary: #334464; /* Dark blue text */
-    --text-muted: #312f36;     /* Dark gray text */
+    /* PLANY Amethyst Wisteria Twilight Color Palette */
+    --primary-light: #EC9CCC;     /* Light pink-purple - accents, CTA */
+    --primary-dark: #6F2451;      /* Dark burgundy-purple - headings */
+    --primary-medium: #D0AFCD;    /* Medium pink-purple - underlines */
+    --neutral-light: #CCD0DC;     /* Light gray-blue - section backgrounds */
+    --neutral-dark: #683759;      /* Medium dark purple - text */
+    --accent-orange: #D45C1C;     /* Orange - accents, hover states */
     
-    /* PLANY gradients */
-    --gradient-primary: linear-gradient(135deg, #7234fa 0%, #334464 100%);
-    --gradient-secondary: linear-gradient(135deg, #334464 0%, #312f36 100%);
-    --gradient-accent: linear-gradient(135deg, #7234fa 0%, #222222 100%);
-    --gradient-warm: linear-gradient(135deg, #7234fa 0%, #ddd8ce 100%);
-    --gradient-cool: linear-gradient(135deg, #ddd8ce 0%, #334464 100%);
-    --gradient-dark: linear-gradient(135deg, #222222 0%, #312f36 100%);
+    /* Extended Palette for Geometric Design */
+    --amethyst: #9966CC;          /* Amethyst - additional accents */
+    --wisteria: #C9A0DC;          /* Wisteria - subtle backgrounds */
+    --white: #FFFFFF;             /* Pure white - dominant (70%) */
+    --black: #1A1A1A;             /* Soft black for text */
+    
+    /* Color Role Assignments */
+    --primary: #6F2451;           /* Dark burgundy-purple - main brand */
+    --secondary: #683759;         /* Medium dark purple - secondary text */
+    --accent: #FFFFFF;            /* Pure white */
+    --accent-1: #EC9CCC;          /* Light pink-purple - CTAs */
+    --accent-2: #D0AFCD;          /* Medium pink-purple - accents */
+    --accent-3: #D45C1C;          /* Orange - hover states */
+    --neutral: #CCD0DC;           /* Light gray-blue - backgrounds */
+    --neutral-medium: #683759;    /* Medium dark purple */
+    --text-primary: #683759;      /* Main text color */
+    --text-secondary: #CCD0DC;    /* Secondary text */
+    --text-muted: #D0AFCD;        /* Muted text */
+    
+    /* Amethyst Wisteria Twilight Gradients */
+    --gradient-primary: linear-gradient(135deg, #EC9CCC 0%, #6F2451 100%);
+    --gradient-secondary: linear-gradient(135deg, #683759 0%, #D0AFCD 100%);
+    --gradient-accent: linear-gradient(135deg, #D45C1C 0%, #EC9CCC 100%);
+    --gradient-warm: linear-gradient(135deg, #EC9CCC 0%, #FFFFFF 100%);
+    --gradient-cool: linear-gradient(135deg, #CCD0DC 0%, #683759 100%);
+    --gradient-geometric: linear-gradient(135deg, #9966CC 0%, #C9A0DC 100%);
     
     /* Glassmorphism variables */
     --glass-bg: rgba(255, 255, 255, 0.1);
@@ -58,13 +70,21 @@
     --space-2xl: 3rem;     /* 48px */
     --space-3xl: 4rem;     /* 64px */
     
-    /* Border radius scale */
-    --radius-sm: 0.375rem;  /* 6px */
-    --radius-md: 0.5rem;    /* 8px */
-    --radius-lg: 0.75rem;   /* 12px */
-    --radius-xl: 1rem;      /* 16px */
-    --radius-2xl: 1.5rem;   /* 24px */
-    --radius-full: 9999px;
+    /* Border radius scale - Geometric Design (sharp edges preferred) */
+    --radius-none: 0;       /* Sharp geometric edges */
+    --radius-sm: 0.25rem;   /* 4px - subtle rounding */
+    --radius-md: 0.5rem;    /* 8px - maximum for geometric design */
+    --radius-lg: 0.75rem;   /* 12px - rare use */
+    --radius-xl: 1rem;      /* 16px - rare use */
+    --radius-2xl: 1.5rem;   /* 24px - rare use */
+    --radius-full: 9999px;  /* Circles only */
+    
+    /* Geometric Design Variables */
+    --geometric-angle: 15deg;           /* Standard angle for clips */
+    --geometric-corner: 12px;           /* Corner cut size */
+    --geometric-border: 2px;            /* Standard border width */
+    --geometric-shadow: 0 4px 12px rgba(111, 36, 81, 0.15);
+    --geometric-hover-lift: -2px;       /* Hover transform amount */
     
     /* Typography scale */
     --text-xs: 0.75rem;     /* 12px */
@@ -90,7 +110,7 @@
   }
   
   body {
-    background: var(--neutral-light);
+    background: var(--white);
     color: var(--text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -259,22 +279,48 @@
     transform: scale(0.8);
   }
   
-  /* Building blocks animation classes */
-  .building-block {
-    @apply absolute w-16 h-16 rounded-lg;
+  /* Geometric Design Component System */
+  .geometric-shape {
     will-change: transform;
+    transition: all 0.3s var(--ease-out);
   }
   
-  .building-block-1 {
-    @apply bg-primary;
+  .geometric-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
   
-  .building-block-2 {
-    @apply bg-secondary;
+  .geometric-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
   
-  .building-block-3 {
-    @apply bg-primary-light;
+  .geometric-hexagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  }
+  
+  .geometric-pentagon {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+  
+  .geometric-corner-cut {
+    clip-path: polygon(
+      var(--geometric-corner) 0%, 
+      100% 0%, 
+      100% calc(100% - var(--geometric-corner)), 
+      calc(100% - var(--geometric-corner)) 100%, 
+      0% 100%, 
+      0% var(--geometric-corner)
+    );
+  }
+  
+  .geometric-angled-cut {
+    clip-path: polygon(
+      20px 0, 
+      100% 0, 
+      100% calc(100% - 20px), 
+      calc(100% - 20px) 100%, 
+      0 100%, 
+      0 20px
+    );
   }
   
   /* Floating animation for hero elements */
@@ -309,18 +355,68 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Modern card styles */
-  .card-modern {
-    background: var(--accent);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--neutral-medium);
+  /* Geometric Card System */
+  .card-geometric {
+    background: var(--white);
+    border: 1px solid var(--neutral-light);
+    transition: all 0.4s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-geometric:hover {
+    transform: translateY(var(--geometric-hover-lift));
+    box-shadow: var(--geometric-shadow);
+  }
+
+  .card-service-geometric {
+    background: var(--white);
+    border: 1px solid var(--neutral-light);
+    padding: 32px;
+    position: relative;
+    transition: all 0.4s var(--ease-out);
+  }
+
+  .card-service-geometric::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-light);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     transition: all 0.3s var(--ease-out);
   }
 
-  .card-modern:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-2xl);
+  .card-service-geometric:hover::before {
+    background: var(--accent-orange);
+    transform: rotate(120deg);
+  }
+
+  .card-portfolio-geometric {
+    background: var(--white);
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-none);
+  }
+
+  .card-portfolio-geometric::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-dark);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .card-portfolio-geometric:hover::after {
+    background: var(--accent-orange);
+    width: 80px;
+    height: 80px;
   }
 
   /* Gradient backgrounds */
@@ -346,61 +442,71 @@
     background-clip: text;
   }
 
-  /* Modern buttons */
-  .btn-modern {
+  /* Geometric Button System */
+  .btn-geometric {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-lg);
-    font-weight: 600;
-    font-size: var(--text-sm);
+    border-radius: var(--radius-none);
+    font-weight: 500;
+    font-size: var(--text-base);
     line-height: 1;
     transition: all 0.2s var(--ease-out);
-    border: none;
+    border: var(--geometric-border) solid;
     cursor: pointer;
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    padding: 20px 40px;
+    letter-spacing: 0.5px;
+    text-transform: none;
   }
 
-  .btn-modern:before {
+  .btn-geometric::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s var(--ease-out);
+    top: -2px;
+    right: -2px;
+    width: 12px;
+    height: 12px;
+    transition: all 0.2s var(--ease-out);
   }
 
-  .btn-modern:hover:before {
-    left: 100%;
+  .btn-geometric:hover {
+    transform: translateY(var(--geometric-hover-lift));
+    box-shadow: var(--geometric-shadow);
   }
 
-  .btn-primary-modern {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    box-shadow: var(--shadow-md);
+  .btn-primary-geometric {
+    background: var(--primary-light);
+    border-color: var(--primary-medium);
+    color: var(--primary-dark);
   }
 
-  .btn-primary-modern:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
+  .btn-primary-geometric::before {
+    background: var(--accent-orange);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
   }
 
-  .btn-secondary-modern {
-    background: var(--accent);
-    color: var(--secondary);
-    border: 2px solid var(--secondary);
-    padding: 0.75rem 1.5rem;
+  .btn-primary-geometric:hover {
+    background: var(--white);
+    border-color: var(--primary-dark);
   }
 
-  .btn-secondary-modern:hover {
-    background: var(--secondary);
-    color: white;
-    transform: translateY(-2px);
+  .btn-secondary-geometric {
+    background: transparent;
+    border-color: var(--primary-dark);
+    color: var(--primary-dark);
+  }
+
+  .btn-secondary-geometric::before {
+    background: var(--primary-medium);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+
+  .btn-secondary-geometric:hover {
+    background: var(--primary-dark);
+    color: var(--white);
   }
 
   /* Modern animations */

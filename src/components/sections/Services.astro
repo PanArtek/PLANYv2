@@ -4,56 +4,70 @@ import Icon from '../ui/Icon.astro';
 import { SERVICES } from '../../utils/constants';
 ---
 
-<section class="services py-20 bg-slate-50" id="uslugi">
+<section class="services-geometric py-20" id="uslugi" style="background: var(--neutral-light);">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
+    <!-- Section Header - Geometric Style -->
     <div class="services-header text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
-        Nasze <span class="text-blue-600">Specjalizacje</span>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6" style="color: var(--primary-dark);">
+        Nasze <span style="color: var(--primary-light);">Specjalizacje</span>
       </h2>
-      <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: var(--neutral-dark);">
         Oferujemy kompleksowe rozwiązania fit-out dostosowane do specyficznych wymagań różnych branż. 
         Każdy projekt realizujemy z własnym zespołem specjalistów.
       </p>
     </div>
 
-    <!-- Services Grid -->
+    <!-- Geometric Services Grid -->
     <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {SERVICES.map((service, index) => (
+      {SERVICES.map((service, index) => {
+        // Assign geometric shapes to each service
+        const geometricShapes = ['triangle', 'hexagon', 'diamond', 'circle', 'pentagon', 'square'];
+        const shapeClass = `geometric-${geometricShapes[index % geometricShapes.length]}`;
+        const shapeColors = [
+          'var(--accent-orange)', 'var(--primary-light)', 'var(--primary-medium)', 
+          'var(--primary-dark)', 'var(--neutral-dark)', 'var(--amethyst)'
+        ];
+        const shapeColor = shapeColors[index % shapeColors.length];
+        
+        return (
         <div 
-          class="service-item opacity-0 transform translate-y-8" 
+          class="service-item-geometric opacity-0 transform translate-y-8" 
           data-service-id={service.id}
           style={`animation-delay: ${index * 100}ms`}
         >
-          <Card class="service-card group h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-            <!-- Service Icon -->
-            <div class="service-icon mb-6">
-              <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
+          <div class="card-service-geometric group h-full">
+            <!-- Geometric Icon Container -->
+            <div class="service-icon-geometric mb-6 relative">
+              <div 
+                class={`w-16 h-16 geometric-shape ${shapeClass} flex items-center justify-center group-hover:scale-110 transition-all duration-300`}
+                style={`background: ${shapeColor};`}
+              >
                 <Icon 
                   name={service.icon} 
-                  class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors duration-300" 
+                  class="w-8 h-8 text-white transition-colors duration-300" 
                 />
               </div>
             </div>
 
             <!-- Service Content -->
             <div class="service-content">
-              <h3 class="text-xl font-semibold text-slate-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+              <h3 class="text-xl font-semibold mb-4 group-hover:transition-colors duration-300" style="color: var(--primary-dark);">
                 {service.title}
               </h3>
               
-              <p class="text-slate-600 mb-6 leading-relaxed">
+              <p class="mb-6 leading-relaxed" style="color: var(--neutral-dark);">
                 {service.description}
               </p>
 
               <!-- Service Features -->
               <ul class="space-y-3">
                 {service.features.map(feature => (
-                  <li class="flex items-start gap-3 text-sm text-slate-600">
-                    <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <li class="flex items-start gap-3 text-sm" style="color: var(--neutral-dark);">
+                    <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: var(--primary-light);">
                       <Icon 
                         name="Check" 
-                        class="w-3 h-3 text-green-600" 
+                        class="w-3 h-3" 
+                        style="color: var(--primary-dark);"
                       />
                     </div>
                     <span>{feature}</span>
@@ -61,11 +75,12 @@ import { SERVICES } from '../../utils/constants';
                 ))}
               </ul>
 
-              <!-- Service CTA -->
-              <div class="mt-6 pt-6 border-t border-slate-200">
+              <!-- Geometric CTA -->
+              <div class="mt-6 pt-6" style="border-top: 1px solid var(--neutral-light);">
                 <button 
-                  class="service-cta text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200 flex items-center gap-2 group/cta"
+                  class="service-cta-geometric font-medium text-sm transition-colors duration-200 flex items-center gap-2 group/cta"
                   data-service={service.id}
+                  style="color: var(--primary-dark);"
                 >
                   Dowiedz się więcej
                   <Icon 
@@ -75,31 +90,32 @@ import { SERVICES } from '../../utils/constants';
                 </button>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
-      ))}
+      )})}
+    </div>
     </div>
 
-    <!-- Bottom CTA Section -->
-    <div class="services-cta text-center mt-16 pt-16 border-t border-slate-200">
+    <!-- Geometric Bottom CTA Section -->
+    <div class="services-cta-geometric text-center mt-16 pt-16" style="border-top: 1px solid var(--neutral-light);">
       <div class="max-w-2xl mx-auto">
-        <h3 class="text-2xl font-semibold text-slate-800 mb-4">
+        <h3 class="text-2xl font-semibold mb-4" style="color: var(--primary-dark);">
           Potrzebujesz rozwiązania na miarę?
         </h3>
-        <p class="text-slate-600 mb-8 leading-relaxed">
+        <p class="mb-8 leading-relaxed" style="color: var(--neutral-dark);">
           Każdy projekt jest unikalny. Skontaktuj się z nami, aby omówić Twoje potrzeby 
           i otrzymać spersonalizowaną wycenę.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
             href="#kontakt"
-            class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+            class="btn-geometric btn-primary-geometric"
           >
             Poproś o wycenę
           </a>
           <a 
             href="tel:+48123456789"
-            class="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-medium rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors duration-200"
+            class="btn-geometric btn-secondary-geometric"
           >
             <Icon name="Phone" class="w-5 h-5 mr-2" />
             Zadzwoń teraz
@@ -120,45 +136,85 @@ import { SERVICES } from '../../utils/constants';
 </div>
 
 <style>
-  .service-item {
-    transition: all 0.3s ease;
-  }
-
-  .service-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    border: 1px solid #e2e8f0;
-  }
-
-  .service-card:hover {
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-    border-color: #cbd5e1;
-  }
-
-  /* Custom animations for service icons */
-  .service-icon {
+  /* Geometric Services Section */
+  .services-geometric {
     position: relative;
   }
 
-  .service-icon::before {
+  .service-item-geometric {
+    transition: all 0.3s ease;
+  }
+
+  /* Geometric Service Cards */
+  .card-service-geometric {
+    background: var(--white);
+    border: 1px solid var(--neutral-light);
+    padding: 32px;
+    position: relative;
+    transition: all 0.4s var(--ease-out);
+  }
+
+  .card-service-geometric::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    transition: all 0.4s ease;
-    z-index: -1;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-light);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transition: all 0.3s var(--ease-out);
   }
 
-  .service-card:hover .service-icon::before {
-    width: 120px;
-    height: 120px;
+  .card-service-geometric:hover {
+    transform: translateY(var(--geometric-hover-lift));
+    box-shadow: var(--geometric-shadow);
   }
 
-  /* Service features list styling */
+  .card-service-geometric:hover::before {
+    background: var(--accent-orange);
+    transform: rotate(120deg);
+  }
+
+  /* Geometric Shape Icons */
+  .service-icon-geometric {
+    position: relative;
+  }
+
+  .service-icon-geometric .geometric-shape {
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .card-service-geometric:hover .geometric-shape.geometric-triangle {
+    transform: rotate(120deg) scale(1.1);
+  }
+
+  .card-service-geometric:hover .geometric-shape.geometric-hexagon {
+    transform: rotate(60deg) scale(1.1);
+  }
+
+  .card-service-geometric:hover .geometric-shape.geometric-diamond {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  .card-service-geometric:hover .geometric-shape.geometric-circle {
+    transform: scale(1.1);
+  }
+
+  .card-service-geometric:hover .geometric-shape.geometric-pentagon {
+    transform: rotate(72deg) scale(1.1);
+  }
+
+  .card-service-geometric:hover .geometric-shape.geometric-square {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  /* Geometric CTA Button */
+  .service-cta-geometric:hover {
+    color: var(--accent-orange) !important;
+  }
+
+  /* Service features animation */
   .service-content ul li {
     animation: slideInLeft 0.5s ease-out both;
   }
@@ -179,29 +235,47 @@ import { SERVICES } from '../../utils/constants';
     }
   }
 
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-service-geometric {
+      padding: 24px;
+    }
+    
+    .card-service-geometric::before {
+      width: 30px;
+      height: 30px;
+      top: 15px;
+      right: 15px;
+    }
+  }
+
   /* Reduced motion fallback */
   @media (prefers-reduced-motion: reduce) {
-    .service-item,
-    .service-card,
-    .service-icon,
-    .service-cta {
+    .service-item-geometric,
+    .card-service-geometric,
+    .geometric-shape,
+    .service-cta-geometric {
       transition: none !important;
       transform: none !important;
       animation: none !important;
     }
     
-    .service-item {
+    .service-item-geometric {
       opacity: 1 !important;
     }
 
     .service-content ul li {
       animation: none !important;
     }
+
+    .card-service-geometric:hover .geometric-shape {
+      transform: none !important;
+    }
   }
 </style>
 
 <script type="module">
-  function initServicesAnimations() {
+  function initGeometricServicesAnimations() {
     if (!window.gsap || !window.ScrollTrigger) return;
     
     gsap.registerPlugin(ScrollTrigger);
@@ -209,17 +283,17 @@ import { SERVICES } from '../../utils/constants';
     
     if (prefersReducedMotion) {
       // Show all items immediately for users who prefer reduced motion
-      gsap.set('.service-item', { opacity: 1, y: 0 });
+      gsap.set('.service-item-geometric', { opacity: 1, y: 0 });
       return;
     }
 
     // Animate services header
     gsap.fromTo('.services-header', 
-      { opacity: 0, y: 30 },
+      { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: '.services-header',
@@ -228,15 +302,15 @@ import { SERVICES } from '../../utils/constants';
       }
     );
 
-    // Animate service items with stagger
-    gsap.fromTo('.service-item',
-      { opacity: 0, y: 30 },
+    // Animate geometric service items with stagger
+    gsap.fromTo('.service-item-geometric',
+      { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power2.out',
-        stagger: 0.15,
+        stagger: 0.1,
         scrollTrigger: {
           trigger: '.services-grid',
           start: 'top 70%'
@@ -244,16 +318,33 @@ import { SERVICES } from '../../utils/constants';
       }
     );
 
+    // Geometric shape entrance animations
+    gsap.fromTo('.geometric-shape',
+      { opacity: 0, scale: 0.8, rotation: -15 },
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.5,
+        ease: 'back.out(1.7)',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 65%'
+        }
+      }
+    );
+
     // Animate bottom CTA section
-    gsap.fromTo('.services-cta',
-      { opacity: 0, y: 30 },
+    gsap.fromTo('.services-cta-geometric',
+      { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: '.services-cta',
+          trigger: '.services-cta-geometric',
           start: 'top 80%'
         }
       }
@@ -261,7 +352,7 @@ import { SERVICES } from '../../utils/constants';
   }
 
   function initServiceModal() {
-    const serviceCTAs = document.querySelectorAll('.service-cta');
+    const serviceCTAs = document.querySelectorAll('.service-cta-geometric');
     const modal = document.getElementById('serviceModal');
     const modalContent = document.getElementById('serviceModalContent');
 
@@ -429,7 +520,7 @@ import { SERVICES } from '../../utils/constants';
 
   // Initialize when DOM is ready
   function init() {
-    initServicesAnimations();
+    initGeometricServicesAnimations();
     initServiceModal();
   }
 
