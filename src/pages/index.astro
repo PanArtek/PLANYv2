@@ -1,33 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import Hero from '../components/sections/Hero.astro';
-
-const currentPath = Astro.url.pathname;
 ---
 
-<Layout 
-  title="FitOut - Nowoczesne Przestrzenie Fit-Out | Aranżacja Biur, Sklepów, Restauracji"
-  description="Specjalizujemy się w kompleksowych projektach fit-out. Tworzymy nowoczesne przestrzenie biurowe, handlowe i gastronomiczne. 150+ realizacji, 15 lat doświadczenia."
->
-  <Header currentPath={currentPath} />
-  
+<Layout title="Welcome to Astro">
   <main>
-    <Hero />
-    
-    <!-- Temporary content sections - to be replaced with actual components -->
-    <section class="py-20 bg-surface">
-      <div class="max-w-6xl mx-auto px-4 md:px-8 text-center">
-        <h2 class="reveal-up text-3xl md:text-4xl font-bold text-text mb-8">
-          Więcej sekcji będzie dodanych wkrótce...
-        </h2>
-        <p class="reveal-up text-text/70 max-w-2xl mx-auto">
-          Ta strona jest obecnie w budowie. Sekcje takie jak O nas, Portfolio, Usługi będą dodane w kolejnych etapach.
-        </p>
-      </div>
-    </section>
+    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+    <p class="instructions">
+      To get started, open the directory <code>src/pages</code> in your project.<br />
+      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+    </p>
   </main>
-  
-  <Footer />
 </Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+</style>
