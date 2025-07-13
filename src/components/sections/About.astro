@@ -1,5 +1,6 @@
 ---
 import GeometricIcon from '../ui/GeometricIcon.astro';
+import Button from '../ui/Button.astro';
 ---
 
 <section id="o-nas" class="about py-20 bg-white">
@@ -16,38 +17,139 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
         </p>
       </div>
 
-      <!-- Content Grid -->
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <!-- Text Content -->
-        <div class="space-y-6">
-          <h3 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">
-            Eliminujemy problemy z koordynacją
+      <!-- Block A: Company Story & Main Message -->
+      <div class="mb-16">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+          <h3 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--primary-dark);">
+            Eliminujemy chaos koordynacji
           </h3>
-          <p class="text-lg leading-relaxed" style="color: var(--neutral-dark);">
+          <p class="text-xl leading-relaxed mb-4" style="color: var(--neutral-dark);">
             <strong style="color: var(--primary-dark);">PLANY</strong> to kompleksowy wykonawca wykończeń i instalacji 
             z <strong>17-letnim doświadczeniem</strong> na rynku. Własny zespół 20+ pracowników 
             we wszystkich branżach eliminuje chaos koordynacji wielu podwykonawców.
           </p>
-          <p class="text-lg leading-relaxed" style="color: var(--neutral-dark);">
-            <strong>Jeden punkt kontaktu, pełna odpowiedzialność za całość.</strong><br>
-            Specjalizujemy się w: <span style="color: var(--primary-light);">klinikach medycznych</span>, 
-            <span style="color: var(--primary-medium);">szkołach prywatnych</span>, <span style="color: var(--accent-orange);">biurach firm</span> 
-            oraz obiektach zarządzanych przez <span style="color: var(--primary-dark);">zarządców nieruchomości</span>.
+          <p class="text-lg font-semibold" style="color: var(--accent-orange);">
+            Jeden punkt kontaktu, pełna odpowiedzialność za całość.
           </p>
-          
-          <!-- Stats - zgodnie z PRD z Geometric Icons -->
-          <div class="grid grid-cols-2 gap-6 pt-6">
+        </div>
+      </div>
+
+      <!-- Block B: Key USPs Showcase -->
+      <div class="mb-20">
+        <div class="text-center mb-12">
+          <h3 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">
+            Nasze kluczowe przewagi
+          </h3>
+          <p class="text-lg" style="color: var(--neutral-dark);">
+            To nas odróżnia od konkurencji
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <!-- USP 1: Wizja lokalna -->
+          <div class="text-center group cursor-pointer transition-transform duration-300 hover:scale-105">
+            <div class="mb-6">
+              <GeometricIcon 
+                shape="diamond" 
+                icon="MapPin" 
+                size="lg" 
+                color="var(--primary-light)" 
+              />
+            </div>
+            <h4 class="text-2xl font-bold mb-3" style="color: var(--primary-dark);">
+              Wizja lokalna
+            </h4>
+            <p class="text-lg font-semibold mb-2" style="color: var(--accent-orange);">
+              Zawsze wymagana
+            </p>
+            <p class="text-base" style="color: var(--neutral-dark);">
+              Dokumentujemy każdy projekt dla pełnej zgodności prawnej
+            </p>
+          </div>
+
+          <!-- USP 2: Wycena 24h -->
+          <div class="text-center group cursor-pointer transition-transform duration-300 hover:scale-105">
+            <div class="mb-6">
+              <GeometricIcon 
+                shape="hexagon" 
+                icon="Clock" 
+                size="lg" 
+                color="var(--accent-orange)" 
+              />
+            </div>
+            <h4 class="text-2xl font-bold mb-3" style="color: var(--primary-dark);">
+              Wycena w 24h
+            </h4>
+            <p class="text-lg font-semibold mb-2" style="color: var(--primary-light);">
+              Szybka odpowiedź
+            </p>
+            <p class="text-base" style="color: var(--neutral-dark);">
+              Precyzyjna kalkulacja kosztów w ciągu jednego dnia roboczego
+            </p>
+          </div>
+
+          <!-- USP 3: Gwarancja 24 miesiące -->
+          <div class="text-center group cursor-pointer transition-transform duration-300 hover:scale-105">
+            <div class="mb-6">
+              <GeometricIcon 
+                shape="pentagon" 
+                icon="Shield" 
+                size="lg" 
+                color="var(--primary-dark)" 
+              />
+            </div>
+            <h4 class="text-2xl font-bold mb-3" style="color: var(--primary-dark);">
+              Gwarancja 24 miesiące
+            </h4>
+            <p class="text-lg font-semibold mb-2" style="color: var(--primary-light);">
+              Pełne zabezpieczenie
+            </p>
+            <p class="text-base" style="color: var(--neutral-dark);">
+              Dwuletnia gwarancja na wszystkie prace i materiały
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center mt-12">
+          <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+            <a 
+              href="/#kontakt" 
+              class="btn-primary btn-lg inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
+            >
+              <GeometricIcon shape="triangle" icon="Calculator" size="sm" color="white" />
+              Poproś o wycenę
+            </a>
+            <a 
+              href="tel:+48123456789" 
+              class="btn-secondary btn-lg inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
+            >
+              <GeometricIcon shape="circle" icon="Phone" size="sm" color="var(--primary-dark)" />
+              Zadzwoń teraz
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block C: Stats & Supporting Benefits -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <!-- Stats Grid -->
+        <div>
+          <h4 class="text-xl font-bold mb-8 text-center" style="color: var(--primary-dark);">
+            PLANY w liczbach
+          </h4>
+          <div class="grid grid-cols-2 gap-6">
             <div class="text-center">
               <div class="flex flex-col items-center gap-3">
                 <GeometricIcon 
                   shape="triangle" 
                   icon="Award" 
-                  size="sm" 
+                  size="md" 
                   color="var(--primary-dark)" 
                 />
                 <div>
                   <div class="text-3xl font-bold mb-2" style="color: var(--primary-dark);">17</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">lat doświadczenia w wykończeniach</div>
+                  <div class="text-sm" style="color: var(--neutral-dark);">lat doświadczenia</div>
                 </div>
               </div>
             </div>
@@ -56,12 +158,12 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
                 <GeometricIcon 
                   shape="hexagon" 
                   icon="Users" 
-                  size="sm" 
+                  size="md" 
                   color="var(--accent-orange)" 
                 />
                 <div>
                   <div class="text-3xl font-bold mb-2" style="color: var(--accent-orange);">20+</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">własnych pracowników</div>
+                  <div class="text-sm" style="color: var(--neutral-dark);">specjalistów</div>
                 </div>
               </div>
             </div>
@@ -70,12 +172,12 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
                 <GeometricIcon 
                   shape="diamond" 
                   icon="Building2" 
-                  size="sm" 
+                  size="md" 
                   color="var(--primary-light)" 
                 />
                 <div>
-                  <div class="text-3xl font-bold mb-2" style="color: var(--primary-light);">100-5000m²</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">realizacje</div>
+                  <div class="text-2xl font-bold mb-2" style="color: var(--primary-light);">100-5000m²</div>
+                  <div class="text-sm" style="color: var(--neutral-dark);">powierzchnie realizacji</div>
                 </div>
               </div>
             </div>
@@ -84,66 +186,82 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
                 <GeometricIcon 
                   shape="circle" 
                   icon="Phone" 
-                  size="sm" 
+                  size="md" 
                   color="var(--primary-medium)" 
                 />
                 <div>
                   <div class="text-3xl font-bold mb-2" style="color: var(--primary-medium);">1</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">telefon zamiast dziesięciu</div>
+                  <div class="text-sm" style="color: var(--neutral-dark);">telefon załatwia sprawę</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Image/Visual Content -->
-        <div class="relative">
-          <div class="bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl p-8 text-white">
-            <h4 class="text-2xl font-bold mb-6">Nasze przewagi</h4>
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h5 class="font-semibold mb-1">Własny zespół wszystkich branż</h5>
-                  <p class="text-sm text-blue-100">Eliminujemy problemy koordynacji podwykonawców</p>
+        <!-- Supporting Benefits -->
+        <div>
+          <h4 class="text-xl font-bold mb-8 text-center" style="color: var(--primary-dark);">
+            Dlaczego klienci nas wybierają
+          </h4>
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--primary-light);">
+                  <GeometricIcon shape="triangle" icon="Check" size="sm" color="white" />
                 </div>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h5 class="font-semibold mb-1">17 lat doświadczenia</h5>
-                  <p class="text-sm text-blue-100">Znamy specyfikę każdej branży - medycznej, biurowej, edukacyjnej</p>
+              <div>
+                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
+                  Własny zespół wszystkich branż
+                </h5>
+                <p class="text-sm" style="color: var(--neutral-dark);">
+                  Eliminujemy problemy koordynacji podwykonawców
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--accent-orange);">
+                  <GeometricIcon shape="hexagon" icon="Check" size="sm" color="white" />
                 </div>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h5 class="font-semibold mb-1">Terminowość i elastyczność</h5>
-                  <p class="text-sm text-blue-100">Dotrzymujemy harmonogramów, dostosowujemy się do potrzeb</p>
+              <div>
+                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
+                  Specjalizacja w różnych branżach
+                </h5>
+                <p class="text-sm" style="color: var(--neutral-dark);">
+                  Medyczne, edukacyjne, biurowe, handlowe - znamy wymagania każdej
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--primary-dark);">
+                  <GeometricIcon shape="diamond" icon="Check" size="sm" color="white" />
                 </div>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
+              <div>
+                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
+                  Terminowość i elastyczność
+                </h5>
+                <p class="text-sm" style="color: var(--neutral-dark);">
+                  Dostosowujemy harmonogram do potrzeb klienta
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--primary-medium);">
+                  <GeometricIcon shape="pentagon" icon="Check" size="sm" color="white" />
                 </div>
-                <div>
-                  <h5 class="font-semibold mb-1">Realizacje "pod klucz"</h5>
-                  <p class="text-sm text-blue-100">Od wizji lokalnej po odbiór z 24-miesięczną gwarancją</p>
-                </div>
+              </div>
+              <div>
+                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
+                  Kompleksowa obsługa "pod klucz"
+                </h5>
+                <p class="text-sm" style="color: var(--neutral-dark);">
+                  Od wizji lokalnej po odbiór końcowy z gwarancją
+                </p>
               </div>
             </div>
           </div>
@@ -173,12 +291,34 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
   function initAboutAnimations() {
     if (!window.gsap || !window.ScrollTrigger) return;
 
-    // Animate stats on scroll
-    gsap.fromTo('.about .grid .text-center', 
+    // Animate USP cards on scroll
+    gsap.fromTo('.about [class*="md:grid-cols-3"] > div', 
       {
         opacity: 0,
-        y: 30,
-        scale: 0.8
+        y: 40,
+        scale: 0.9
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '[class*="md:grid-cols-3"]',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    // Animate stats grid
+    gsap.fromTo('.about .grid.grid-cols-2 .text-center', 
+      {
+        opacity: 0,
+        y: 20,
+        scale: 0.85
       },
       {
         opacity: 1,
@@ -188,18 +328,18 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
         stagger: 0.1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: '.about .grid .text-center',
+          trigger: '.about .grid.grid-cols-2',
           start: 'top 80%',
           toggleActions: 'play none none reverse'
         }
       }
     );
 
-    // Animate values cards
-    gsap.fromTo('.about .space-y-4 > div', 
+    // Animate supporting benefits
+    gsap.fromTo('.about .space-y-6 > div', 
       {
         opacity: 0,
-        x: 20
+        x: 30
       },
       {
         opacity: 1,
@@ -208,8 +348,30 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
         stagger: 0.1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: '.about .space-y-4',
+          trigger: '.about .space-y-6',
           start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    // Animate CTAs with special attention
+    gsap.fromTo('.about .btn-primary, .about .btn-secondary', 
+      {
+        opacity: 0,
+        scale: 0.8,
+        y: 20
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '.about .btn-primary',
+          start: 'top 85%',
           toggleActions: 'play none none reverse'
         }
       }

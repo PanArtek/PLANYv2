@@ -123,5 +123,38 @@ src/
 • **Testing**: Manual testing, visual verification
 • **Personal Setup**: See `CLAUDE.local.md` for personal development preferences
 
+## Ostatnie zmiany:
+
+### 2025-01-13 - GSAP Refactor (COMPLETED)
+• **Status**: ✅ UKOŃCZONE
+• **Problem**: GSAP console errors `target .geometric-shape not found`
+• **Rozwiązanie**: 
+  - Fixed GSAP selectors: `.geometric-shape` → `.geometric-icon-container`
+  - Added missing CSS classes: `btn-geometric`, `btn-primary-geometric`, `btn-secondary-geometric`
+  - Location: `global.css:400-460`
+• **Pliki zmodyfikowane**:
+  - `src/styles/global.css` - added geometric button variants
+  - `src/components/sections/Services.astro:187-213` - updated hover animations
+  - `src/components/sections/Services.astro:324-339` - fixed GSAP animation selectors
+• **Build Result**: ✅ SUCCESS (14.49s)
+• **Console Errors**: ✅ RESOLVED - no GSAP errors
+• **Deployment**: ✅ Live na https://panartek.github.io/PLANYv2
+
+### 2025-01-13 - About Section Refactor (COMPLETED)
+• **Status**: ✅ UKOŃCZONE
+• **Problem**: Monotonny layout "Eliminujemy chaos koordynacji" - słaba hierarchia, brak USPs, brak CTA
+• **Rozwiązanie**: 
+  - Restructured into 3 clear blocks: company story → USPs showcase → stats + benefits
+  - Added prominent USPs: Wizja lokalna, Wycena 24h, Gwarancja 24 miesiące
+  - Implemented typography hierarchy: text-3xl/4xl headings, text-2xl USP titles
+  - Added dual CTAs with geometric icons and hover animations
+  - Enhanced GSAP animations with proper staggered reveals
+• **Pliki zmodyfikowane**:
+  - `src/components/sections/About.astro` - complete content restructure and animation updates
+  - `docs/guidelines-documentation.md` - documented refactor details
+• **Build Result**: ✅ SUCCESS (10.09s)
+• **Console Errors**: ✅ RESOLVED - no issues
+• **Deployment**: 🔄 PENDING - ready for GitHub Pages deploy
+
 ---
 **Note**: This file contains team standards and project-specific configuration. Personal development preferences can override these settings in `CLAUDE.local.md`. Universal coding standards are defined in `~/.claude/CLAUDE.md`.
