@@ -211,39 +211,20 @@
 
 /* Component layer for reusable patterns */
 @layer components {
-  /* PLANY Hero Button Styles - Main Focus Elements */
+  /* PRD Base Button Component */
   .btn {
-    @apply inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300 transform;
-    @apply focus:outline-none focus:ring-4 focus:ring-opacity-50 shadow-2xl;
-    @apply hover:scale-110 active:scale-95;
-    background: linear-gradient(135deg, #7234fa 0%, #334464 100%);
-    color: white;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: 0;                          /* Sharp geometric edges */
+    transition: all 0.3s var(--ease-out);
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    overflow: hidden;
-    font-size: 1.25rem;
-    padding: 1rem 2.5rem;
-    min-width: 200px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 10px 40px rgba(114, 52, 250, 0.5);
-  }
-  
-  .btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-  }
-  
-  .btn:hover:before {
-    left: 100%;
+    border: 2px solid;
+    letter-spacing: 0.5px;
   }
   
   /* PRD Geometric Button System - Amethyst Wisteria Twilight */
@@ -666,72 +647,7 @@
     background-clip: text;
   }
 
-  /* Geometric Button System */
-  .btn-geometric {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-none);
-    font-weight: 500;
-    font-size: var(--text-base);
-    line-height: 1;
-    transition: all 0.2s var(--ease-out);
-    border: var(--geometric-border) solid;
-    cursor: pointer;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    padding: 20px 40px;
-    letter-spacing: 0.5px;
-    text-transform: none;
-  }
-
-  .btn-geometric::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 12px;
-    height: 12px;
-    transition: all 0.2s var(--ease-out);
-  }
-
-  .btn-geometric:hover {
-    transform: translateY(var(--geometric-hover-lift));
-    box-shadow: var(--geometric-shadow);
-  }
-
-  .btn-primary-geometric {
-    background: var(--primary-light);
-    border-color: var(--primary-medium);
-    color: var(--primary-dark);
-  }
-
-  .btn-primary-geometric::before {
-    background: var(--accent-orange);
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-  }
-
-  .btn-primary-geometric:hover {
-    background: var(--white);
-    border-color: var(--primary-dark);
-  }
-
-  .btn-secondary-geometric {
-    background: transparent;
-    border-color: var(--primary-dark);
-    color: var(--primary-dark);
-  }
-
-  .btn-secondary-geometric::before {
-    background: var(--primary-medium);
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-  }
-
-  .btn-secondary-geometric:hover {
-    background: var(--primary-dark);
-    color: var(--white);
-  }
+  /* Geometric Button utilities - removed redundancy, using main button system above */
 
   /* Modern animations */
   .animate-fade-in {
