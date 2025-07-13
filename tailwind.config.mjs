@@ -4,16 +4,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Professional color palette from claude.md
-        primary: '#2a2a2a',      // Professional charcoal
-        secondary: '#3b82f6',     // Trust blue  
-        accent: '#ffffff',        // Clean white
-        neutral: '#f1f5f9',       // Soft gray
-        text: '#374151',          // Readable dark gray
+        // Enhanced Amethyst Wisteria Twilight Palette
+        'primary-light': '#EC9CCC',
+        'primary-dark': '#6F2451',
+        'primary-medium': '#D0AFCD',
+        'neutral-light': '#CCD0DC',
+        'neutral-dark': '#683759',
+        'accent-orange': '#D45C1C',
+        'amethyst': '#9966CC',
+        'wisteria': '#C9A0DC',
+        'white': '#FFFFFF',
+        'black': '#1A1A1A',
+        
+        // Backwards compatibility
+        primary: '#6F2451',
+        secondary: '#683759',
+        accent: '#FFFFFF',
+        neutral: '#CCD0DC',
+        text: '#683759',
       },
       fontFamily: {
-        // Inter font for professional appearance
+        // Enhanced typography system
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // Typography scale from claude.md specifications
@@ -32,10 +45,14 @@ export default {
         relaxed: '1.6',      // Body text default from specs
       },
       animation: {
-        // GSAP-compatible animation classes
+        // Enhanced animation system
         'fade-in': 'fadeIn 0.6s ease-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'float': 'float 3s ease-in-out infinite',
+        'gradient-shift': 'gradientShift 3s ease-in-out infinite',
+        'pulse-subtle': 'pulseSubtle 2s ease-in-out infinite',
+        'glow': 'glow 2s ease-in-out infinite alternate',
+        'shimmer': 'shimmer 1.5s infinite',
       },
       keyframes: {
         fadeIn: {
@@ -49,6 +66,22 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.02)' },
+        },
+        glow: {
+          'from': { boxShadow: '0 0 5px rgba(236, 156, 204, 0.5), 0 0 10px rgba(236, 156, 204, 0.3)' },
+          'to': { boxShadow: '0 0 10px rgba(236, 156, 204, 0.8), 0 0 20px rgba(236, 156, 204, 0.5), 0 0 30px rgba(236, 156, 204, 0.3)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200px 0' },
+          '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
         },
       },
     },
