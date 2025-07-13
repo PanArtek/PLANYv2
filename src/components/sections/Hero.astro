@@ -2,61 +2,48 @@
 import Button from '../ui/Button.astro';
 ---
 
-<section class="hero-minimalist section-gradient-hero relative overflow-hidden min-h-screen flex items-center" id="home">
-  <!-- Enhanced Dynamic Background -->
+<section class="hero-organic section-organic relative overflow-hidden min-h-screen flex items-center" id="home">
+  <!-- Modern Organic Background -->
   <div class="hero-background absolute inset-0 pointer-events-none">
-    <!-- Dynamic gradient background with depth -->
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, #FEFCF3 0%, #F5F1EB 40%, #B4A7D6 100%);"></div>
+    <!-- Premium organic gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-neutral-50 via-primary-50 to-neutral-100"></div>
     
-    <!-- Subtle geometric accents - positioned strategically -->
-    <div class="geometric-accent-group absolute bottom-24 right-10 sm:right-20 flex gap-4 opacity-80">
-      <div class="accent-triangle w-6 h-6 geometric-triangle" style="background: #E76F51;"></div>
-      <div class="accent-circle w-5 h-5 rounded-full" style="background: #B4A7D6;"></div>
-      <div class="accent-square w-4 h-4 transform rotate-45" style="background: #87A96B;"></div>
-      <div class="accent-hexagon w-5 h-5 geometric-hexagon" style="background: #F5F1EB; border: 2px solid #87A96B;"></div>
-    </div>
+    <!-- Abstract organic shapes - flowing design -->
+    <div class="organic-decoration organic-decoration-1 absolute top-20 right-16 animate-float opacity-40"></div>
+    <div class="organic-decoration organic-decoration-2 absolute bottom-32 left-20 animate-organic opacity-30"></div>
+    <div class="organic-decoration organic-decoration-3 absolute top-1/2 right-1/4 animate-pulse-organic opacity-25"></div>
     
-    <!-- Logo geometric accent -->
-    <div class="logo-accent absolute top-8 left-4 sm:left-8 w-2 h-2 rounded-full" style="background: #87A96B;"></div>
+    <!-- Floating organic accent -->
+    <div class="organic-accent absolute top-10 left-8 w-4 h-4 bg-coral-400 rounded-full animate-flow opacity-60"></div>
+    <div class="organic-accent absolute bottom-20 right-8 w-3 h-3 bg-lavender-400 rounded-full animate-organic opacity-50"></div>
   </div>
 
-  <!-- Hero Content - Modern Minimalist -->
-  <div class="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
-    <div class="max-w-4xl text-center mx-auto">
+  <!-- Hero Content - Modern Organic -->
+  <div class="container-custom relative z-10">
+    <div class="max-w-5xl text-center mx-auto">
       
-      <!-- Main headline - Bold and impactful -->
-      <h1 class="hero-title mb-8" style="
-        font-size: clamp(56px, 10vw, 84px);
-        font-weight: 700;
-        line-height: 1.05;
-        color: #87A96B;
+      <!-- Main headline - Bold and contemporary -->
+      <h1 class="hero-title font-heading font-extrabold text-primary-700 mb-8 animate-fade-in" style="
+        font-size: clamp(3rem, 8vw, 5rem);
+        line-height: 1.1;
         letter-spacing: -0.03em;
-        margin-bottom: 32px;
       ">
         Profesjonalne wykonawstwo<br>
-        <span style="background: linear-gradient(135deg, #B4A7D6 0%, #87A96B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">na każdym etapie</span>
+        <span class="text-gradient-hero inline-block">na każdym etapie</span>
       </h1>
       
-      <!-- Supporting text - Clean and focused -->
-      <p class="hero-subtitle mb-16" style="
-        font-size: 28px;
-        font-weight: 400;
-        line-height: 1.4;
-        color: #87A96B;
-        margin-bottom: 64px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      ">
-        Własny zespół 20+ specjalistów<br>
+      <!-- Supporting text - Premium feel -->
+      <p class="hero-subtitle text-xl md:text-2xl text-neutral-600 font-medium mb-12 max-w-2xl mx-auto animate-slide-up">
+        Własny zespół <span class="text-primary-600 font-semibold">20+ specjalistów</span><br>
         realizuje kompleksowo prace budowlane i instalacyjne
       </p>
       
-      <!-- Main CTAs - PRD Geometric Button System -->
-      <div class="hero-cta-group flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+      <!-- Modern Organic CTAs -->
+      <div class="hero-cta-group flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-scale-in">
         <Button 
           variant="primary-hero" 
           href="#kontakt"
+          class="btn-primary-hero shadow-organic transition-all duration-500 hover:shadow-coral"
           aria-label="Skontaktuj się z nami w celu umówienia bezpłatnej wyceny"
         >
           Poproś o wycenę
@@ -64,30 +51,30 @@ import Button from '../ui/Button.astro';
         <Button 
           variant="secondary-hero" 
           href="#realizacje"
+          class="btn-secondary-hero glass-premium transition-all duration-500"
           aria-label="Sprawdź nasze dotychczasowe realizacje projektów"
         >
           Zobacz nasze realizacje
         </Button>
       </div>
       
-      <!-- Minimal trust indicators -->
-      <div class="hero-trust-minimal flex justify-center gap-12 items-center opacity-70" style="
-        padding-top: 40px;
-        border-top: 1px solid var(--neutral-light);
-        max-width: 600px;
-        margin: 0 auto;
-      ">
-        <div class="trust-stat text-center">
-          <div style="font-size: 24px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">17</div>
-          <div style="font-size: 13px; color: var(--neutral-dark); text-transform: uppercase; letter-spacing: 0.5px;">lat doświadczenia</div>
-        </div>
-        <div class="trust-stat text-center">
-          <div style="font-size: 24px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">20+</div>
-          <div style="font-size: 13px; color: var(--neutral-dark); text-transform: uppercase; letter-spacing: 0.5px;">specjalistów</div>
-        </div>
-        <div class="trust-stat text-center">
-          <div style="font-size: 24px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">100-5000m²</div>
-          <div style="font-size: 13px; color: var(--neutral-dark); text-transform: uppercase; letter-spacing: 0.5px;">realizacje</div>
+      <!-- Modern trust indicators -->
+      <div class="hero-trust-modern bg-white/50 backdrop-blur-sm rounded-organic-lg p-8 max-w-2xl mx-auto border border-primary-100 animate-slide-up">
+        <div class="flex justify-center gap-8 md:gap-12 items-center">
+          <div class="trust-stat text-center">
+            <div class="text-3xl font-bold text-primary-700 mb-1">17</div>
+            <div class="text-sm text-neutral-500 uppercase tracking-wider">lat doświadczenia</div>
+          </div>
+          <div class="w-px h-12 bg-primary-200"></div>
+          <div class="trust-stat text-center">
+            <div class="text-3xl font-bold text-primary-700 mb-1">20+</div>
+            <div class="text-sm text-neutral-500 uppercase tracking-wider">specjalistów</div>
+          </div>
+          <div class="w-px h-12 bg-primary-200"></div>
+          <div class="trust-stat text-center">
+            <div class="text-3xl font-bold text-primary-700 mb-1">100-5000m²</div>
+            <div class="text-sm text-neutral-500 uppercase tracking-wider">realizacje</div>
+          </div>
         </div>
       </div>
     </div>
@@ -95,40 +82,24 @@ import Button from '../ui/Button.astro';
 </section>
 
 <style>
-  /* Minimalist Hero with 70% white space */
-  .hero-minimalist {
+  /* Modern Organic Hero - 2025 Design */
+  .hero-organic {
     position: relative;
-    background: var(--white);
     min-height: 100vh;
-    padding: 120px 0;
+    padding: 140px 0 100px;
     display: flex;
     align-items: center;
   }
 
-  /* Geometric accent animations - subtle for minimalism */
-  .geometric-accent-group:hover .accent-triangle {
-    transform: rotate(120deg);
-    transition: transform 0.4s ease;
+  /* Organic decoration animations */
+  .organic-decoration:hover {
+    transform: scale(1.1) rotate(5deg);
+    transition: all 0.6s var(--ease-organic);
   }
 
-  .geometric-accent-group:hover .accent-square {
-    transform: rotate(90deg);
-    transition: transform 0.4s ease;
-  }
-
-  .geometric-accent-group:hover .accent-circle {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-  }
-
-  .geometric-accent-group:hover .accent-hexagon {
-    transform: rotate(60deg);
-    transition: transform 0.4s ease;
-  }
-
-  /* Modern minimalist typography */
+  /* Modern typography */
   .hero-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-display: swap;
   }
 
@@ -137,105 +108,99 @@ import Button from '../ui/Button.astro';
     font-display: swap;
   }
 
-  /* Enhanced CTA buttons */
-  .hero-cta-group .btn-geometric {
-    min-width: 280px;
+  /* Enhanced organic buttons */
+  .hero-cta-group .btn-primary-hero {
+    min-width: 240px;
+    font-weight: 700;
+    transform: translateY(0);
+    transition: all 0.5s var(--ease-organic);
+  }
+
+  .hero-cta-group .btn-secondary-hero {
+    min-width: 240px;
     font-weight: 600;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.5s var(--ease-organic);
   }
 
-  .hero-cta-group .btn-primary-geometric {
-    box-shadow: 0 8px 32px rgba(111, 36, 81, 0.2);
+  .hero-cta-group .btn-primary-hero:hover {
+    transform: translateY(-4px) scale(1.02);
   }
 
-  .hero-cta-group .btn-primary-geometric:hover {
-    box-shadow: 0 12px 40px rgba(111, 36, 81, 0.3);
-    transform: translateY(-3px);
+  .hero-cta-group .btn-secondary-hero:hover {
+    transform: translateY(-3px) scale(1.02);
   }
 
-  .hero-cta-group .btn-secondary-geometric:hover {
-    box-shadow: 0 8px 24px rgba(111, 36, 81, 0.15);
-    transform: translateY(-2px);
-  }
-
-  /* Trust indicators styling */
+  /* Trust indicators with organic styling */
   .trust-stat {
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.4s var(--ease-organic);
   }
 
   .trust-stat:hover {
-    opacity: 1;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
   }
 
-  /* Responsive adjustments for mobile */
+  .hero-trust-modern {
+    transition: all 0.6s var(--ease-organic);
+  }
+
+  .hero-trust-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(74, 155, 94, 0.15);
+  }
+
+  /* Responsive design for mobile */
   @media (max-width: 768px) {
-    .hero-minimalist {
-      padding: 100px 0 80px 0;
-    }
-    
-    .hero-title {
-      font-size: 48px !important;
-      margin-bottom: 24px !important;
-    }
-    
-    .hero-subtitle {
-      font-size: 22px !important;
-      margin-bottom: 48px !important;
+    .hero-organic {
+      padding: 120px 0 80px;
     }
     
     .hero-cta-group {
       flex-direction: column;
-      gap: 16px !important;
+      gap: 1rem !important;
     }
     
-    .hero-cta-group .btn-geometric {
-      min-width: 100%;
+    .hero-cta-group .btn-primary-hero,
+    .hero-cta-group .btn-secondary-hero {
+      width: 100%;
       max-width: 320px;
     }
     
-    .geometric-accent-group {
-      position: static !important;
-      justify-content: center;
-      margin-top: 48px;
-      opacity: 0.5 !important;
+    .hero-trust-modern {
+      padding: 1.5rem !important;
+      margin-top: 2rem;
     }
     
-    .hero-trust-minimal {
-      gap: 32px !important;
+    .hero-trust-modern .flex {
+      gap: 1.5rem !important;
       flex-wrap: wrap;
     }
     
-    .trust-stat {
-      min-width: 80px;
+    .organic-decoration {
+      opacity: 0.2 !important;
+      animation: none;
     }
   }
 
-  /* Fallback for when JavaScript fails */
+  /* Fallback styles */
   .hero-title,
   .hero-subtitle,
   .hero-cta-group,
-  .hero-trust-minimal,
-  .geometric-accent-group {
+  .hero-trust-modern {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Reduced motion support */
+  /* Accessibility - Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .geometric-accent-group:hover .accent-triangle,
-    .geometric-accent-group:hover .accent-square,
-    .geometric-accent-group:hover .accent-circle,
-    .geometric-accent-group:hover .accent-hexagon {
-      transform: none;
-      transition: none;
+    .organic-decoration,
+    .organic-accent {
+      animation: none !important;
     }
     
     .hero-title,
     .hero-subtitle,
     .hero-cta-group,
-    .hero-trust-minimal,
-    .geometric-accent-group {
+    .hero-trust-modern {
       opacity: 1 !important;
       transform: translateY(0) !important;
     }
@@ -243,12 +208,12 @@ import Button from '../ui/Button.astro';
 </style>
 
 <script type="module">
-  function initMinimalistHeroAnimations() {
+  function initOrganicHeroAnimations() {
     // Check if GSAP is available
     if (typeof gsap === 'undefined') {
-      console.warn('GSAP not loaded, skipping hero animations');
+      console.warn('GSAP not loaded, showing elements immediately');
       // Show elements immediately if GSAP fails
-      document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta-group, .hero-trust-minimal, .geometric-accent-group').forEach(el => {
+      document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta-group, .hero-trust-modern, .organic-decoration').forEach(el => {
         if (el) {
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
@@ -261,81 +226,121 @@ import Button from '../ui/Button.astro';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       // Show all elements immediately
-      gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta-group', '.hero-trust-minimal', '.geometric-accent-group'], {
+      gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta-group', '.hero-trust-modern', '.organic-decoration'], {
         autoAlpha: 1,
-        y: 0
+        y: 0,
+        scale: 1
       });
       return;
     }
 
-    const tl = gsap.timeline({ delay: 0.5 });
+    const tl = gsap.timeline({ delay: 0.3 });
 
-    // 1. Set initial states for modern hero
-    gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta-group', '.hero-trust-minimal', '.geometric-accent-group'], {
+    // 1. Set initial states for organic hero
+    gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta-group', '.hero-trust-modern'], {
       autoAlpha: 0,
-      y: 30,
+      y: 20,
+      scale: 0.98,
       force3D: true
     });
 
-    // 2. Modern entrance sequence with stagger
+    gsap.set('.organic-decoration', {
+      autoAlpha: 0,
+      scale: 0.8,
+      rotation: -10,
+      force3D: true
+    });
+
+    // 2. Organic entrance sequence with natural flow
     tl.to('.hero-title', {
-      duration: 0.8,
+      duration: 1,
       autoAlpha: 1,
       y: 0,
+      scale: 1,
       ease: 'power3.out',
       force3D: true
     })
     .to('.hero-subtitle', {
+      duration: 0.8,
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      ease: 'power2.out',
+      force3D: true
+    }, '-=0.5')
+    .to('.hero-cta-group', {
+      duration: 0.7,
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      ease: 'back.out(1.2)',
+      force3D: true
+    }, '-=0.4')
+    .to('.hero-trust-modern', {
       duration: 0.6,
       autoAlpha: 1,
       y: 0,
-      ease: 'power2.out',
-      force3D: true
-    }, '-=0.4')
-    .to('.hero-cta-group', {
-      duration: 0.5,
-      autoAlpha: 1,
-      y: 0,
+      scale: 1,
       ease: 'power2.out',
       force3D: true
     }, '-=0.3')
-    .to('.hero-trust-minimal', {
-      duration: 0.4,
+    .to('.organic-decoration', {
+      duration: 0.8,
       autoAlpha: 1,
-      y: 0,
+      scale: 1,
+      rotation: 0,
       ease: 'power2.out',
+      stagger: 0.1,
       force3D: true
-    }, '-=0.2')
-    .to('.geometric-accent-group', {
-      duration: 0.4,
-      autoAlpha: 1,
-      y: 0,
-      ease: 'power2.out',
-      force3D: true
-    }, '-=0.2');
+    }, '-=0.6');
 
-    // 3. Setup button interactions
-    setupButtonInteractions();
+    // 3. Setup organic interactions
+    setupOrganicInteractions();
     
     // 4. Setup smooth scroll
     setupSmoothScroll();
   }
 
-  function setupButtonInteractions() {
-    const buttons = document.querySelectorAll('.hero-cta-group .btn-geometric');
+  function setupOrganicInteractions() {
+    const buttons = document.querySelectorAll('.hero-cta-group [class*="btn-"]');
+    const decorations = document.querySelectorAll('.organic-decoration');
     
+    // Enhanced button interactions
     buttons.forEach(button => {
       button.addEventListener('mouseenter', () => {
         if (typeof gsap !== 'undefined') {
-          gsap.to(button, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+          gsap.to(button, { 
+            scale: 1.02, 
+            y: -3,
+            duration: 0.4, 
+            ease: 'power2.out' 
+          });
         }
       });
       
       button.addEventListener('mouseleave', () => {
         if (typeof gsap !== 'undefined') {
-          gsap.to(button, { scale: 1, duration: 0.3, ease: 'power2.out' });
+          gsap.to(button, { 
+            scale: 1, 
+            y: 0,
+            duration: 0.4, 
+            ease: 'power2.out' 
+          });
         }
       });
+    });
+
+    // Organic decoration interactions
+    decorations.forEach((decoration, index) => {
+      if (typeof gsap !== 'undefined') {
+        gsap.to(decoration, {
+          rotation: index % 2 === 0 ? 5 : -5,
+          duration: 4 + index,
+          ease: 'power1.inOut',
+          repeat: -1,
+          yoyo: true
+        });
+      }
     });
   }
 
@@ -352,10 +357,19 @@ import Button from '../ui/Button.astro';
           const navHeight = navbar ? navbar.offsetHeight : 80;
           const targetPosition = targetElement.offsetTop - navHeight - 20;
           
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+          // Enhanced scroll with GSAP if available
+          if (typeof gsap !== 'undefined') {
+            gsap.to(window, {
+              duration: 1.2,
+              scrollTo: targetPosition,
+              ease: 'power2.inOut'
+            });
+          } else {
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
         }
       });
     });
@@ -363,8 +377,8 @@ import Button from '../ui/Button.astro';
 
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMinimalistHeroAnimations);
+    document.addEventListener('DOMContentLoaded', initOrganicHeroAnimations);
   } else {
-    initMinimalistHeroAnimations();
+    initOrganicHeroAnimations();
   }
 </script>

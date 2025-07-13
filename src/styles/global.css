@@ -1,814 +1,533 @@
-/* Global CSS with Tailwind and custom animations */
+/* Modern 2025 Design System - Organic & Contemporary */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* 
-   PLANY Extended Color System - Amethyst Wisteria Twilight Palette
+   PLANY 2025 Modern Color System
    
-   USAGE GUIDELINES:
-   
-   1. COLOR HIERARCHY:
-      - Primary: Main brand colors (pink-purple spectrum, 100-900)
-      - Neutral: Text and backgrounds (gray-purple spectrum, 100-900)
-      - Accent: Interactive elements (orange, yellow, green, coral, lavender)
-      - Semantic: State indicators (success, warning, error, info)
-   
-   2. SHADE SYSTEM (100-900):
-      - 50-200: Very light tints for backgrounds
-      - 300-500: Medium shades for UI elements  
-      - 600-800: Dark shades for text and primary elements
-      - 900: Darkest shade for high contrast
-   
-   3. SEMANTIC TOKENS:
-      - Use --color-* tokens for consistent component styling
-      - Interactive states: hover, active, focus, disabled
-      - Form states: border, background, validation
-      - Text hierarchy: primary, secondary, muted
-   
-   4. GRADIENTS:
-      - Section-specific: --gradient-hero, --gradient-about, etc.
-      - Interactive: --gradient-cta-*, --gradient-button-*
-      - State: --gradient-success, --gradient-warning, etc.
-      - Modern: --gradient-mesh-* for complex backgrounds
-   
-   5. DARK MODE:
-      - Automatic inversion via [data-theme="dark"]
-      - All tokens adapt automatically
-      - Contrast preserved across themes
-   
-   6. TAILWIND INTEGRATION:
-      - Use Tailwind classes: text-primary-800, bg-neutral-100
-      - Legacy support: primary-light, neutral-dark
-      - Semantic classes: text-success, border-warning
+   DESIGN PHILOSOPHY:
+   - Organic gradients over geometric shapes
+   - Flowing curves instead of sharp angles
+   - 2025 trending colors: Forest Green, Warm Beige, Soft Lavender
+   - Premium contemporary aesthetics
+   - GitHub Pages optimized (direct hex values)
 */
 
 @layer base {
   :root {
-    /* PLANY Professional Industrial Color Palette - Portfolio Revolution */
+    /* 2025 Modern Color Palette - Premium Contemporary */
     
-    /* Primary Colors - Industrial Charcoal Spectrum (100-900) */
-    --primary-50: #F7FAFC;        /* Platinum White - headlines */
-    --primary-100: #EDF2F7;       /* Very light grey */
-    --primary-200: #E2E8F0;       /* Light grey */
-    --primary-300: #CBD5E0;       /* Light grey - body text */
-    --primary-400: #A0AEC0;       /* Medium-light grey */
-    --primary-500: #718096;       /* Medium grey */
-    --primary-600: #4A5568;       /* Medium-dark grey */
-    --primary-700: #2D3748;       /* Dark grey */
-    --primary-800: #1A202C;       /* Very dark grey */
-    --primary-900: #171923;       /* Near black */
+    /* Primary Forest Green System */
+    --primary-50: #F6FAF7;
+    --primary-100: #E8F3EA;
+    --primary-200: #D1E7D5;
+    --primary-300: #A8D2B1;
+    --primary-400: #6FB87A;
+    --primary-500: #4A9B5E;
+    --primary-600: #2D6B3E;
+    --primary-700: #1F4A2A;
+    --primary-800: #173B21;
+    --primary-900: #0F2917;
     
-    /* Background Colors - Industrial Charcoal System (100-900) */
-    --neutral-50: #1A1A1A;        /* Deep Charcoal - primary background */
-    --neutral-100: #0A1821;       /* Cerulean Dark - secondary background */
-    --neutral-200: #2C3E50;       /* Graphite Blue - surface */
-    --neutral-300: #34495E;       /* Steel Blue - cards */
-    --neutral-400: #3F4C5F;       /* Dark slate */
-    --neutral-500: #5A6C7D;       /* Medium steel */
-    --neutral-600: #7B8FA3;       /* Light steel */
-    --neutral-700: #94A3B8;       /* Steel grey - accents */
-    --neutral-800: #CBD5E0;       /* Light grey - body text */
-    --neutral-900: #F7FAFC;       /* Platinum white - headlines */
+    /* Neutral Warm System */
+    --neutral-50: #FDFCFB;
+    --neutral-100: #F8F6F3;
+    --neutral-200: #F0EDE7;
+    --neutral-300: #E3DDD4;
+    --neutral-400: #CDC4B8;
+    --neutral-500: #A69B8C;
+    --neutral-600: #8B7D6B;
+    --neutral-700: #6B5F4F;
+    --neutral-800: #4A4037;
+    --neutral-900: #2D2520;
     
-    /* Accent Colors - Professional Industrial Palette */
-    --accent-orange: #FFA500;     /* Industrial Orange - hover states */
-    --accent-orange-light: #FFB347; /* Light orange */
-    --accent-orange-dark: #FF8C00;  /* Dark orange */
-    --accent-yellow: #FFD700;     /* Construction Yellow - Primary CTA */
-    --accent-yellow-light: #FFDF32; /* Light yellow */
-    --accent-yellow-dark: #FFC400;  /* Dark yellow */
-    --accent-green: #28A745;      /* Success green */
-    --accent-green-light: #5CBF69;  /* Light green */
-    --accent-green-dark: #1E7E34;   /* Dark green */
-    --accent-coral: #DC3545;      /* Error red */
-    --accent-coral-light: #E57373;  /* Light red */
-    --accent-coral-dark: #C62828;   /* Dark red */
-    --accent-lavender: #C0C0C0;   /* Chrome Silver - Secondary CTA */
-    --accent-lavender-light: #D3D3D3; /* Light silver */
-    --accent-lavender-dark: #A9A9A9;  /* Dark silver */
+    /* Accent Colors - 2025 Trends */
+    --accent-coral: #FF7B54;      /* Vibrant coral for CTAs */
+    --accent-coral-light: #FF9F7D;
+    --accent-coral-dark: #E65A3D;
+    --accent-lavender: #A78BFA;   /* Soft lavender for elegance */
+    --accent-lavender-light: #C4B5FD;
+    --accent-lavender-dark: #8B5CF6;
+    --accent-gold: #F59E0B;       /* Warm gold for premium feel */
+    --accent-gold-light: #FCD34D;
+    --accent-gold-dark: #D97706;
+    --accent-sage: #84CC16;       /* Fresh sage green */
+    --accent-sage-light: #A3E635;
+    --accent-sage-dark: #65A30D;
     
-    /* Industrial Palette Extensions */
-    --industrial-blue: #2C3E50;   /* Graphite Blue - surfaces */
-    --industrial-steel: #34495E;  /* Steel Blue - elements */
-    --white: #F7FAFC;             /* Platinum White - text/accents */
-    --black: #1A1A1A;             /* Deep Charcoal - backgrounds */
+    /* Semantic Colors */
+    --success: #10B981;
+    --success-light: #34D399;
+    --warning: #F59E0B;
+    --warning-light: #FCD34D;
+    --error: #EF4444;
+    --error-light: #F87171;
+    --info: #3B82F6;
+    --info-light: #60A5FA;
     
-    /* Legacy Color Role Assignments (for backwards compatibility) */
-    --primary-light: #EC9CCC;     /* Light pink-purple - accents, CTA */
-    --primary-dark: #6F2451;      /* Dark burgundy-purple - headings */
-    --primary-medium: #D0AFCD;    /* Medium pink-purple - underlines */
-    --neutral-light: #CCD0DC;     /* Light gray-blue - section backgrounds */
-    --neutral-dark: #683759;      /* Medium dark purple - text */
-    --primary: #6F2451;           /* Dark burgundy-purple - main brand */
-    --secondary: #683759;         /* Medium dark purple - secondary text */
-    --accent: #FFFFFF;            /* Pure white */
-    --accent-1: #EC9CCC;          /* Light pink-purple - CTAs */
-    --accent-2: #D0AFCD;          /* Medium pink-purple - accents */
-    --accent-3: #D45C1C;          /* Orange - hover states */
-    --neutral: #CCD0DC;           /* Light gray-blue - backgrounds */
-    --neutral-medium: #683759;    /* Medium dark purple */
-    --text-primary: #683759;      /* Main text color */
-    --text-secondary: #CCD0DC;    /* Secondary text */
-    --text-muted: #D0AFCD;        /* Muted text */
+    /* Modern Organic Gradients */
+    --gradient-primary: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%);
+    --gradient-secondary: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
+    --gradient-hero: radial-gradient(ellipse at top, #F6FAF7 0%, #E8F3EA 50%, #D1E7D5 100%);
+    --gradient-warm: linear-gradient(135deg, #FDFCFB 0%, #F8F6F3 100%);
+    --gradient-premium: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 50%, #7C3AED 100%);
     
-    /* Professional Industrial Gradients - Dark Theme Optimized */
-    --gradient-primary: linear-gradient(135deg, #2C3E50 0%, #1A1A1A 100%);
-    --gradient-secondary: linear-gradient(135deg, #34495E 0%, #2C3E50 100%);
-    --gradient-accent: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    --gradient-warm: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
-    --gradient-cool: linear-gradient(135deg, #718096 0%, #4A5568 100%);
-    --gradient-geometric: linear-gradient(135deg, #C0C0C0 0%, #A9A9A9 100%);
+    /* Organic Shape Gradients */
+    --gradient-organic-1: radial-gradient(circle at 20% 80%, #FF7B54 0%, transparent 50%), 
+                         radial-gradient(circle at 80% 20%, #A78BFA 0%, transparent 50%),
+                         radial-gradient(circle at 40% 40%, #4A9B5E 0%, transparent 50%);
     
-    /* Industrial Background Gradients - Dark Theme */
-    --gradient-hero: linear-gradient(135deg, #1A1A1A 0%, #0A1821 40%, #2C3E50 100%);
-    --gradient-section-light: linear-gradient(135deg, #1A1A1A 0%, #0A1821 100%);
-    --gradient-section-medium: linear-gradient(135deg, #0A1821 0%, #2C3E50 100%);
-    --gradient-section-dark: linear-gradient(135deg, #171923 0%, #1A202C 100%);
-    --gradient-card: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-    --gradient-card-hover: linear-gradient(135deg, #34495E 0%, #4A5568 15%, #2C3E50 100%);
+    --gradient-organic-2: radial-gradient(ellipse at 60% 20%, #F59E0B 0%, transparent 40%),
+                         radial-gradient(ellipse at 20% 70%, #84CC16 0%, transparent 40%),
+                         linear-gradient(135deg, #FDFCFB 0%, #F8F6F3 100%);
     
-    /* Enhanced Gradient Variations for Sections */
-    --gradient-hero-alt: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-yellow-light) 20%, var(--primary-200) 100%);
-    --gradient-about: linear-gradient(135deg, var(--neutral-100) 0%, var(--primary-100) 50%, var(--accent-lavender-light) 100%);
-    --gradient-services: linear-gradient(135deg, var(--primary-50) 0%, var(--neutral-100) 100%);
-    --gradient-portfolio: linear-gradient(135deg, var(--neutral-200) 0%, var(--primary-200) 100%);
-    --gradient-contact: linear-gradient(135deg, var(--primary-800) 0%, var(--neutral-800) 100%);
+    /* Modern Shadows - Soft & Organic */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 16px 40px rgba(0, 0, 0, 0.16);
+    --shadow-colored: 0 8px 25px rgba(74, 155, 94, 0.15);
     
-    /* CTA and Interactive Gradients */
-    --gradient-cta-primary: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
-    --gradient-cta-secondary: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-yellow-light) 100%);
-    --gradient-cta-hover: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--accent-orange) 100%);
-    --gradient-button-primary: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
-    --gradient-button-secondary: linear-gradient(135deg, var(--neutral-400) 0%, var(--neutral-600) 100%);
+    /* Organic Border Radius */
+    --radius-organic-sm: 12px;
+    --radius-organic-md: 20px;
+    --radius-organic-lg: 32px;
+    --radius-organic-xl: 48px;
     
-    /* State Gradients */
-    --gradient-success: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%);
-    --gradient-warning: linear-gradient(135deg, var(--accent-yellow-light) 0%, var(--accent-yellow) 100%);
-    --gradient-error: linear-gradient(135deg, var(--accent-coral-light) 0%, var(--accent-coral) 100%);
-    --gradient-info: linear-gradient(135deg, var(--accent-lavender-light) 0%, var(--accent-lavender) 100%);
-    
-    /* Radial Gradients for Depth with Extended Colors */
-    --gradient-radial-primary: radial-gradient(circle at 30% 30%, var(--primary-300) 0%, transparent 70%);
-    --gradient-radial-secondary: radial-gradient(circle at 70% 70%, var(--accent-orange) 0%, transparent 60%);
-    --gradient-radial-accent: radial-gradient(circle at 50% 50%, var(--accent-yellow) 0%, transparent 50%);
-    --gradient-overlay: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(204,208,220,0.3) 100%);
-    
-    /* Mesh Gradients for Modern Backgrounds */
-    --gradient-mesh-1: radial-gradient(at 40% 20%, var(--primary-200) 0px, transparent 50%),
-                       radial-gradient(at 80% 0%, var(--accent-yellow-light) 0px, transparent 50%),
-                       radial-gradient(at 0% 50%, var(--accent-lavender-light) 0px, transparent 50%),
-                       radial-gradient(at 80% 50%, var(--primary-100) 0px, transparent 50%),
-                       radial-gradient(at 0% 100%, var(--accent-orange-light) 0px, transparent 50%),
-                       radial-gradient(at 80% 100%, var(--primary-200) 0px, transparent 50%),
-                       radial-gradient(at 0% 0%, var(--neutral-100) 0px, transparent 50%);
-    
-    --gradient-mesh-2: radial-gradient(at 20% 80%, var(--accent-green-light) 0px, transparent 50%),
-                       radial-gradient(at 80% 20%, var(--primary-300) 0px, transparent 50%),
-                       radial-gradient(at 40% 40%, var(--accent-coral-light) 0px, transparent 50%),
-                       radial-gradient(at 0% 0%, var(--neutral-50) 0px, transparent 50%);
-    
-    /* Glassmorphism variables */
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    
-    /* Semantic Color Tokens - Light Mode */
-    --color-background: var(--white);
-    --color-background-alt: var(--neutral-50);
-    --color-surface: var(--white);
-    --color-surface-elevated: var(--neutral-50);
-    --color-overlay: rgba(255, 255, 255, 0.9);
-    
-    /* Text Semantic Colors */
-    --color-text: var(--neutral-600);
-    --color-text-light: var(--neutral-500);
-    --color-text-muted: var(--neutral-400);
-    --color-text-on-primary: var(--white);
-    --color-text-on-dark: var(--neutral-50);
-    
-    /* State Colors */
-    --color-success: var(--accent-green);
-    --color-success-light: var(--accent-green-light);
-    --color-success-dark: var(--accent-green-dark);
-    --color-warning: var(--accent-yellow);
-    --color-warning-light: var(--accent-yellow-light);
-    --color-warning-dark: var(--accent-yellow-dark);
-    --color-error: var(--accent-coral);
-    --color-error-light: var(--accent-coral-light);
-    --color-error-dark: var(--accent-coral-dark);
-    --color-info: var(--accent-lavender);
-    --color-info-light: var(--accent-lavender-light);
-    --color-info-dark: var(--accent-lavender-dark);
-    
-    /* Interactive States */
-    --color-hover: var(--accent-orange);
-    --color-hover-light: var(--accent-orange-light);
-    --color-active: var(--primary-800);
-    --color-focus: var(--accent-yellow);
-    --color-focus-ring: rgba(255, 210, 63, 0.4);
-    --color-disabled: var(--neutral-300);
-    --color-disabled-text: var(--neutral-400);
-    
-    /* Form States */
-    --color-input-border: var(--neutral-300);
-    --color-input-border-hover: var(--neutral-400);
-    --color-input-border-focus: var(--primary-300);
-    --color-input-background: var(--white);
-    --color-input-error: var(--color-error);
-    --color-input-success: var(--color-success);
-    
-    /* Border Colors */
-    --color-border: var(--neutral-200);
-    --color-border-light: var(--neutral-100);
-    --color-border-dark: var(--neutral-400);
-    --color-border-focus: var(--primary-300);
-    
-    /* Industrial shadows with dramatic depth for dark theme */
-    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(255 215 0 / 0.1);
-    --shadow-md: 0 4px 8px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(255 215 0 / 0.15);
-    --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.6), 0 4px 8px -4px rgb(255 165 0 / 0.2);
-    --shadow-xl: 0 20px 30px -5px rgb(0 0 0 / 0.7), 0 8px 12px -6px rgb(255 215 0 / 0.25);
-    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.8), 0 12px 20px -8px rgb(192 192 192 / 0.2);
-    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.3);
-    
-    /* Industrial colored shadows for dramatic effect */
-    --shadow-primary: 0 8px 25px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(255, 215, 0, 0.2);
-    --shadow-accent: 0 6px 20px rgba(255, 165, 0, 0.4), 0 2px 8px rgba(255, 215, 0, 0.3);
-    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(192, 192, 192, 0.1);
-    --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.7), 0 6px 15px rgba(255, 215, 0, 0.3);
-    
-    /* Modern animation curves */
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Animation Curves - Natural Feel */
+    --ease-organic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
-    /* Spacing scale */
-    --space-xs: 0.25rem;   /* 4px */
-    --space-sm: 0.5rem;    /* 8px */
-    --space-md: 1rem;      /* 16px */
-    --space-lg: 1.5rem;    /* 24px */
-    --space-xl: 2rem;      /* 32px */
-    --space-2xl: 3rem;     /* 48px */
-    --space-3xl: 4rem;     /* 64px */
-    
-    /* Border radius scale - Geometric Design (sharp edges preferred) */
-    --radius-none: 0;       /* Sharp geometric edges */
-    --radius-sm: 0.25rem;   /* 4px - subtle rounding */
-    --radius-md: 0.5rem;    /* 8px - maximum for geometric design */
-    --radius-lg: 0.75rem;   /* 12px - rare use */
-    --radius-xl: 1rem;      /* 16px - rare use */
-    --radius-2xl: 1.5rem;   /* 24px - rare use */
-    --radius-full: 9999px;  /* Circles only */
-    
-    /* Geometric Design Variables */
-    --geometric-angle: 15deg;           /* Standard angle for clips */
-    --geometric-corner: 12px;           /* Corner cut size */
-    --geometric-border: 2px;            /* Standard border width */
-    --geometric-shadow: 0 4px 12px rgba(111, 36, 81, 0.15);
-    --geometric-hover-lift: -2px;       /* Hover transform amount */
-    
-    /* Typography scale */
-    --text-xs: 0.75rem;     /* 12px */
-    --text-sm: 0.875rem;    /* 14px */
-    --text-base: 1rem;      /* 16px */
-    --text-lg: 1.125rem;    /* 18px */
-    --text-xl: 1.25rem;     /* 20px */
-    --text-2xl: 1.5rem;     /* 24px */
-    --text-3xl: 1.875rem;   /* 30px */
-    --text-4xl: 2.25rem;    /* 36px */
-    --text-5xl: 3rem;       /* 48px */
-    --text-6xl: 3.75rem;    /* 60px */
-    --text-7xl: 4.5rem;     /* 72px */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  /* Dark Mode Color System - Inverted Amethyst Wisteria Twilight */
+  /* Dark Mode - Modern Professional */
   [data-theme="dark"] {
-    /* Dark Mode Primary Colors - Inverted Pink-Purple Spectrum */
-    --primary-50: var(--primary-900);     /* Darkest burgundy */
-    --primary-100: var(--primary-800);    /* Dark burgundy-purple */
-    --primary-200: var(--primary-700);    /* Dark pink-purple */
-    --primary-300: var(--primary-600);    /* Medium-dark pink-purple */
-    --primary-400: var(--primary-500);    /* Medium pink-purple */
-    --primary-500: var(--primary-400);    /* Medium-light pink-purple */
-    --primary-600: var(--primary-300);    /* Light pink-purple */
-    --primary-700: var(--primary-200);    /* Light pink */
-    --primary-800: var(--primary-100);    /* Very light pink */
-    --primary-900: var(--primary-50);     /* Lightest pink tint */
+    /* Dark Mode Primary Colors */
+    --primary-50: #0F2917;
+    --primary-100: #173B21;
+    --primary-200: #1F4A2A;
+    --primary-300: #2D6B3E;
+    --primary-400: #4A9B5E;
+    --primary-500: #6FB87A;
+    --primary-600: #A8D2B1;
+    --primary-700: #D1E7D5;
+    --primary-800: #E8F3EA;
+    --primary-900: #F6FAF7;
     
-    /* Dark Mode Neutral Colors - Inverted Gray-Purple Spectrum */
-    --neutral-50: #0F0F0F;          /* Pure dark */
-    --neutral-100: #1A1A1A;         /* Near black */
-    --neutral-200: #252525;         /* Very dark gray */
-    --neutral-300: #2F2F2F;         /* Dark gray */
-    --neutral-400: #3F3F3F;         /* Medium-dark gray */
-    --neutral-500: #5A5A5A;         /* Medium gray */
-    --neutral-600: #A8B0C1;         /* Medium-light gray-blue (from light mode) */
-    --neutral-700: #CCD0DC;         /* Light gray-blue (from light mode) */
-    --neutral-800: #D9DEE6;         /* Light gray-blue */
-    --neutral-900: #E9ECF1;         /* Very light gray-blue */
-    
-    /* Dark Mode Accent Colors - Adjusted for Dark Backgrounds */
-    --accent-orange: #FF8C42;       /* Softer orange for dark mode */
-    --accent-orange-light: #FFB366; /* Lighter orange */
-    --accent-orange-dark: #E64A19;  /* Darker orange */
-    --accent-yellow: #FFC107;       /* Softer yellow for dark mode */
-    --accent-yellow-light: #FFD54F; /* Lighter yellow */
-    --accent-yellow-dark: #FF8F00;  /* Darker yellow */
-    --accent-green: #3FBDB5;        /* Darker teal for contrast */
-    --accent-green-light: #66D9CF;  /* Lighter teal */
-    --accent-green-dark: #26A69A;   /* Darker teal */
-    --accent-coral: #FF8C8C;        /* Softer coral for dark mode */
-    --accent-coral-light: #FFB3B3;  /* Lighter coral */
-    --accent-coral-dark: #FF5252;   /* Darker coral */
-    --accent-lavender: #C9B8DF;     /* Brighter lavender for dark mode */
-    --accent-lavender-light: #E1D5F0; /* Lighter lavender */
-    --accent-lavender-dark: #B39BC7;  /* Darker lavender */
-    
-    /* Dark Mode Semantic Color Tokens */
-    --color-background: var(--neutral-50);
-    --color-background-alt: var(--neutral-100);
-    --color-surface: var(--neutral-100);
-    --color-surface-elevated: var(--neutral-200);
-    --color-overlay: rgba(0, 0, 0, 0.8);
-    
-    /* Dark Mode Text Colors */
-    --color-text: var(--neutral-800);
-    --color-text-light: var(--neutral-700);
-    --color-text-muted: var(--neutral-600);
-    --color-text-on-primary: var(--neutral-50);
-    --color-text-on-dark: var(--neutral-900);
-    
-    /* Dark Mode Interactive States */
-    --color-hover: var(--accent-orange);
-    --color-hover-light: var(--accent-orange-light);
-    --color-active: var(--primary-300);
-    --color-focus: var(--accent-yellow);
-    --color-focus-ring: rgba(255, 193, 7, 0.4);
-    --color-disabled: var(--neutral-400);
-    --color-disabled-text: var(--neutral-500);
-    
-    /* Dark Mode Form States */
-    --color-input-border: var(--neutral-400);
-    --color-input-border-hover: var(--neutral-500);
-    --color-input-border-focus: var(--primary-400);
-    --color-input-background: var(--neutral-200);
-    
-    /* Dark Mode Border Colors */
-    --color-border: var(--neutral-300);
-    --color-border-light: var(--neutral-200);
-    --color-border-dark: var(--neutral-500);
-    --color-border-focus: var(--primary-400);
+    /* Dark Mode Neutrals */
+    --neutral-50: #2D2520;
+    --neutral-100: #4A4037;
+    --neutral-200: #6B5F4F;
+    --neutral-300: #8B7D6B;
+    --neutral-400: #A69B8C;
+    --neutral-500: #CDC4B8;
+    --neutral-600: #E3DDD4;
+    --neutral-700: #F0EDE7;
+    --neutral-800: #F8F6F3;
+    --neutral-900: #FDFCFB;
     
     /* Dark Mode Gradients */
-    --gradient-hero: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 40%, var(--primary-800) 100%);
-    --gradient-section-light: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
-    --gradient-section-medium: linear-gradient(135deg, var(--neutral-200) 0%, var(--primary-700) 100%);
-    --gradient-card: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
-    --gradient-card-hover: linear-gradient(135deg, var(--neutral-200) 0%, var(--primary-700) 15%, var(--neutral-100) 100%);
-    
-    /* Dark Mode Shadows - Reduced intensity */
-    --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.15);
-    --shadow-md: 0 4px 8px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.25);
-    --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.45), 0 4px 8px -4px rgb(0 0 0 / 0.35);
-    --shadow-xl: 0 20px 30px -5px rgb(0 0 0 / 0.55), 0 8px 12px -6px rgb(0 0 0 / 0.45);
-    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.65), 0 12px 20px -8px rgba(255, 140, 66, 0.25);
-    
-    /* Dark Mode Glassmorphism */
-    --glass-bg: rgba(0, 0, 0, 0.2);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --gradient-hero: radial-gradient(ellipse at top, #2D2520 0%, #4A4037 50%, #6B5F4F 100%);
+    --gradient-organic-1: radial-gradient(circle at 20% 80%, #E65A3D 0%, transparent 50%), 
+                         radial-gradient(circle at 80% 20%, #8B5CF6 0%, transparent 50%),
+                         radial-gradient(circle at 40% 40%, #4A9B5E 0%, transparent 50%);
   }
   
-  /* PRD Typography System - Montserrat + Inter */
+  /* Modern 2025 Typography - Plus Jakarta Sans + Inter */
   html {
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1;
+    font-feature-settings: 'kern' 1, 'liga' 1;
     text-rendering: optimizeLegibility;
   }
   
   body {
-    background: #1A1A1A;                       /* Professional Industrial: Deep Charcoal */
-    color: #CBD5E0;                            /* Professional Industrial: Light Grey text */
-    line-height: 1.6;
+    background: #FDFCFB;                       /* Warm neutral base */
+    color: #4A4037;                            /* Warm dark text */
+    line-height: 1.7;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    font-size: var(--text-lg);
+    font-size: 16px;
     letter-spacing: -0.01em;
     min-height: 100vh;
   }
 
-  /* PRD Typography Scale - Montserrat for Headings */
+  /* Modern Typography - Plus Jakarta Sans for Headings */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;   /* Headings - Montserrat */
-    color: #F7FAFC;                          /* Platinum White for dark backgrounds */
-    font-weight: 600;                        /* Semibold for geometric elegance */
-    line-height: 1.1;                        /* Tight for geometric impact */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #2D6B3E;                          /* Forest green headings */
+    font-weight: 700;                        /* Bold for impact */
+    line-height: 1.2;                        /* Comfortable reading */
     letter-spacing: -0.02em;
     margin: 0;
   }
 
-  /* Enhanced PRD Font Hierarchy - Dynamic & Modern */
+  /* Modern Typography Hierarchy */
   h1 { 
-    font-size: clamp(3rem, 8vw, 4.5rem);     /* Responsive 48px-72px */
-    font-weight: 700;                         /* Increased weight for impact */
+    font-size: clamp(2.5rem, 8vw, 4rem);     /* 40px-64px responsive */
+    font-weight: 800;
     letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-  h2 { 
-    font-size: clamp(2.25rem, 6vw, 3rem);    /* Responsive 36px-48px */
-    font-weight: 600;
-    letter-spacing: -0.025em;
     line-height: 1.1;
   }
-  h3 { 
-    font-size: clamp(1.875rem, 4vw, 2.25rem); /* Responsive 30px-36px */
-    font-weight: 600;                         /* Increased weight */
-    letter-spacing: -0.02em;
+  h2 { 
+    font-size: clamp(2rem, 6vw, 3rem);       /* 32px-48px responsive */
+    font-weight: 700;
+    letter-spacing: -0.025em;
     line-height: 1.15;
   }
-  h4 { 
-    font-size: clamp(1.25rem, 3vw, 1.5rem);  /* Responsive 20px-24px */
-    font-weight: 600;                         /* Increased weight */
-    letter-spacing: -0.015em;
+  h3 { 
+    font-size: clamp(1.5rem, 4vw, 2.25rem);  /* 24px-36px responsive */
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.2;
   }
+  h4 { 
+    font-size: clamp(1.25rem, 3vw, 1.75rem); /* 20px-28px responsive */
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
   h5 { 
-    font-size: clamp(1rem, 2.5vw, 1.125rem); /* Responsive 16px-18px */
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* 18px-24px responsive */
     font-weight: 500;
     letter-spacing: -0.01em;
+    line-height: 1.3;
   }
   h6 { 
-    font-size: var(--text-base);
+    font-size: 1.125rem;                     /* 18px */
     font-weight: 500;
     letter-spacing: 0;
+    line-height: 1.4;
   }
 
-  /* Responsive typography adjustments */
+  /* Mobile Typography Optimization */
   @media (max-width: 768px) {
-    h1 { font-size: clamp(2.5rem, 8vw, 3rem); }    /* 48px max on mobile */
-    h2 { font-size: clamp(2rem, 6vw, 2.5rem); }    /* 36px max on mobile */
-    h3 { font-size: clamp(1.5rem, 5vw, 2rem); }    /* 28px max on mobile */
+    h1 { font-size: clamp(2rem, 8vw, 2.75rem); }   /* 32px-44px on mobile */
+    h2 { font-size: clamp(1.75rem, 6vw, 2.25rem); } /* 28px-36px on mobile */
+    h3 { font-size: clamp(1.5rem, 5vw, 1.875rem); } /* 24px-30px on mobile */
+    
+    body {
+      font-size: 15px;                              /* Slightly smaller body text */
+      line-height: 1.6;
+    }
   }
 
   /* Body text styling - Inter font */
   p {
     font-family: 'Inter', sans-serif;
-    color: #CBD5E0;                          /* Light Grey for readability on dark */
-    line-height: 1.7;                        /* Loose for comfort per PRD */
-    font-size: var(--text-lg);               /* 18px - Body text per PRD */
+    color: #6B5F4F;                          /* Warm neutral for readability */
+    line-height: 1.7;
+    font-size: 16px;
     font-weight: 400;
     margin: 0;
   }
 
   /* Supporting text styling */
   .text-supporting {
-    color: #94A3B8;                          /* Steel Grey for supporting text */
-    font-size: var(--text-base);             /* 16px */
+    color: #8B7D6B;                          /* Lighter warm neutral */
+    font-size: 15px;
   }
 
   /* Small text styling */
   .text-small {
-    font-size: var(--text-sm);               /* 14px - Captions per PRD */
-    color: #94A3B8;                          /* Steel Grey for small text */
+    font-size: 14px;
+    color: #A69B8C;                          /* Muted warm neutral */
     opacity: 0.9;
   }
 
+  /* Modern Text Gradients */
   .text-gradient {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
   }
   
-  /* Enhanced text gradient variants - FIXED */
   .text-gradient-hero {
-    background: var(--gradient-accent);
+    background: linear-gradient(135deg, #FF7B54 0%, #A78BFA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
-    display: inline-block;                     /* Fix: Ensure proper rendering */
+    display: inline-block;
   }
   
-  .text-gradient-secondary {
-    background: var(--gradient-secondary);
+  .text-gradient-premium {
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 50%, #7C3AED 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;                     /* Fix: Ensure proper rendering */
-  }
-  
-  .text-gradient-primary {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;                     /* Fix: Ensure proper rendering */
+    display: inline-block;
     font-weight: 600;
   }
   
-  /* Improved focus states for accessibility */
+  /* Modern focus states */
   :focus-visible {
-    outline: 2px solid var(--secondary);
-    outline-offset: 2px;
-    border-radius: 4px;
+    outline: 2px solid #A78BFA;
+    outline-offset: 3px;
+    border-radius: 12px;
   }
   
   /* Selection colors */
   ::selection {
-    background-color: var(--secondary);
-    color: var(--accent);
+    background-color: #4A9B5E;
+    color: #FDFCFB;
   }
 }
 
-/* Component layer for reusable patterns */
+/* Modern 2025 Component System */
 @layer components {
-  /* PRD Base Button Component */
+  /* Base Button - Organic Design */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    border-radius: 0;                          /* Sharp geometric edges */
-    transition: all 0.3s var(--ease-out);
+    border-radius: 24px;                       /* Organic curves */
+    transition: all 0.4s var(--ease-organic);
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    border: 2px solid;
-    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    letter-spacing: -0.01em;
+    overflow: hidden;
   }
   
-  /* PRD Geometric Button System - Amethyst Wisteria Twilight */
-  
-  /* Primary CTA Button (Main Action) - Construction Yellow Industrial */
+  /* Primary CTA - Forest Green with Organic Flow */
   .btn-primary {
-    background: #FFD700;                       /* Construction Yellow */
-    border: 2px solid #FFD700;
-    color: #1A1A1A;                            /* Deep Charcoal text for contrast */
-    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%);
+    color: #FDFCFB;
+    padding: 16px 32px;
     font-weight: 600;
-    border-radius: 0;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+    border-radius: 32px;
+    box-shadow: 0 8px 25px rgba(74, 155, 94, 0.25);
+    transform: translateY(0);
   }
 
   .btn-primary::before {
     content: '';
     position: absolute;
-    top: -2px; 
-    right: -2px;
-    width: 12px; 
-    height: 12px;
-    background: #FFA500;                       /* Industrial Orange accent corner */
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
   }
 
   .btn-primary:hover {
-    background: #FFA500;                       /* Industrial Orange on hover */
-    color: #F7FAFC;                            /* Platinum White text on hover */
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(255, 165, 0, 0.4);
+    background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 123, 84, 0.3);
   }
 
   .btn-primary:hover::before {
-    background: #FFD700;                       /* Construction Yellow corner on hover */
+    left: 100%;
   }
   
-  /* Secondary CTA Button (Alternative Action) - Chrome Silver Industrial */
+  /* Secondary CTA - Coral Outline with Organic Accent */
   .btn-secondary {
     background: transparent;
-    border: 2px solid #C0C0C0;                /* Chrome Silver border */
-    color: #C0C0C0;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    border-radius: 0;
+    border: 2px solid #FF7B54;
+    color: #FF7B54;
+    padding: 16px 32px;
+    border-radius: 32px;
     position: relative;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
   }
 
-  .btn-secondary::before {
+  .btn-secondary::after {
     content: '';
     position: absolute;
-    top: -2px; 
-    left: -2px;
-    width: 12px; 
-    height: 12px;
-    background: #FFD700;                       /* Construction Yellow corner */
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: #A78BFA;
+    border-radius: 50%;
+    transition: all 0.4s var(--ease-bounce);
   }
 
   .btn-secondary:hover {
-    background: #C0C0C0;                      /* Chrome Silver background on hover */
-    color: #1A1A1A;                           /* Deep Charcoal text on hover */
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(192, 192, 192, 0.3);
+    background: #FF7B54;
+    color: #FDFCFB;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 123, 84, 0.25);
   }
 
-  .btn-secondary:hover::before {
-    background: #FFA500;                       /* Industrial Orange corner on hover */
+  .btn-secondary:hover::after {
+    background: #FDFCFB;
+    transform: translateY(-50%) scale(1.5);
   }
   
-  /* Tertiary CTA Button (Support Action) - Warm Beige with Sage Green Dot */
+  /* Tertiary - Lavender Minimal */
   .btn-outline {
     background: transparent;
-    border: 2px solid #F5F1EB;                /* Warm Beige border */
-    color: #87A96B;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
+    border: 1px solid #A78BFA;
+    color: #A78BFA;
+    padding: 12px 24px;
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 0;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .btn-outline::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; 
-    right: -2px;
-    width: 8px; 
-    height: 8px;
-    background: #87A96B;                       /* Sage Green accent dot */
-    border-radius: 50%;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   .btn-outline:hover {
-    background: #F5F1EB;
-    color: #87A96B;
-    transform: scale(1.05) translateY(-1px);
-    box-shadow: 0 4px 16px rgba(245, 241, 235, 0.4);
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+    color: #FDFCFB;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.3);
   }
 
-  .btn-outline:hover::after {
-    background: #E76F51;
-  }
-
-  /* Geometric Button Size Variants */
-  .btn.px-4.py-2 {
-    padding: 16px 32px;                        /* Consistent geometric padding */
+  /* Organic Button Size Variants */
+  .btn-sm {
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 20px;
   }
   
-  .btn.px-6.py-3 {
-    padding: 20px 40px;                        /* Standard PRD button size */
+  .btn-md {
+    padding: 16px 32px;
+    font-size: 16px;
+    border-radius: 24px;
   }
   
-  .btn.px-8.py-4 {
-    padding: 24px 48px;                        /* Large geometric button */
-  }
-
-  /* Hero-specific button variants for CTAs - Digital Wellness */
-  .btn-primary-hero {
-    background: #87A96B;                       /* Sage Green */
-    border: 2px solid #87A96B;
+  .btn-lg {
     padding: 20px 40px;
-    color: #FFFFFF;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    border-radius: 0;
+    font-size: 18px;
+    border-radius: 32px;
+  }
+
+  /* Hero Button Variants - Premium Large */
+  .btn-primary-hero {
+    background: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%);
+    color: #FDFCFB;
+    padding: 24px 48px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 40px;
+    box-shadow: 0 12px 40px rgba(74, 155, 94, 0.3);
     position: relative;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 4px 16px rgba(135, 169, 107, 0.2);
+    overflow: hidden;
   }
 
   .btn-primary-hero::before {
     content: '';
     position: absolute;
-    top: -2px; right: -2px;
-    width: 12px; height: 12px;
-    background: #E76F51;                       /* Terracotta corner */
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s var(--ease-organic);
   }
 
   .btn-primary-hero:hover {
-    background: #E76F51;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 32px rgba(231, 111, 81, 0.3);
+    background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(255, 123, 84, 0.4);
   }
 
   .btn-primary-hero:hover::before {
-    background: #87A96B;
+    transform: scale(1);
   }
 
   .btn-secondary-hero {
-    background: transparent;
-    border: 2px solid #E76F51;                /* Terracotta border */
-    padding: 20px 40px;
-    color: #E76F51;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    border-radius: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 123, 84, 0.5);
+    color: #FF7B54;
+    padding: 24px 48px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 40px;
     position: relative;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .btn-secondary-hero::before {
-    content: '';
-    position: absolute;
-    top: -2px; left: -2px;
-    width: 12px; height: 12px;
-    background: #B4A7D6;                      /* Soft Lavender corner */
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-secondary-hero:hover {
-    background: #E76F51;
-    color: #FFFFFF;
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(231, 111, 81, 0.2);
+    background: #FF7B54;
+    color: #FDFCFB;
+    border-color: #FF7B54;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255, 123, 84, 0.3);
   }
 
-  .btn-secondary-hero:hover::before {
-    background: #87A96B;
-  }
-
-  /* Geometric button variants (Services.astro compatibility) - Digital Wellness */
+  /* Service Button Variants - Organic Icons */
   .btn-geometric,
   .btn-primary-geometric,
   .btn-secondary-geometric {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-size: 14px;
     font-weight: 500;
-    border-radius: 8px;
-    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 24px;
+    transition: all 0.4s var(--ease-organic);
     position: relative;
     overflow: hidden;
   }
 
   .btn-geometric,
   .btn-primary-geometric {
-    background: #B4A7D6;                      /* Soft Lavender background */
-    color: #87A96B;                           /* Sage Green text */
-    border: 1px solid #B4A7D6;
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+    color: #FDFCFB;
+    border: none;
   }
 
   .btn-geometric:hover,
   .btn-primary-geometric:hover {
-    background: #E76F51;                      /* Terracotta on hover */
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 123, 84, 0.3);
   }
 
   .btn-secondary-geometric {
     background: transparent;
-    color: #87A96B;                           /* Sage Green text */
-    border: 2px solid #B4A7D6;               /* Soft Lavender border */
+    color: #4A9B5E;
+    border: 2px solid #A78BFA;
   }
 
   .btn-secondary-geometric:hover {
-    background: #B4A7D6;
-    color: #87A96B;
+    background: #A78BFA;
+    color: #FDFCFB;
+    transform: translateY(-2px);
   }
 
-  /* Geometric corner accent for button variants */
-  .btn-geometric::before,
-  .btn-primary-geometric::before,
-  .btn-secondary-geometric::before {
+  /* Organic floating dot accent */
+  .btn-geometric::after,
+  .btn-primary-geometric::after,
+  .btn-secondary-geometric::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 12px;
-    height: 12px;
-    background: var(--accent-orange);
-    clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
-    transition: all 0.2s ease;
+    top: 8px;
+    right: 12px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transition: all 0.4s var(--ease-bounce);
   }
 
-  .btn-secondary-geometric::before {
-    background: var(--primary-light);
+  .btn-geometric:hover::after,
+  .btn-primary-geometric:hover::after,
+  .btn-secondary-geometric:hover::after {
+    transform: scale(1.5);
+    background: rgba(255, 255, 255, 0.9);
   }
 
-  .btn-geometric:hover::before,
-  .btn-primary-geometric:hover::before,
-  .btn-secondary-geometric:hover::before {
-    width: 16px;
-    height: 16px;
-  }
-
-  /* Focus states for accessibility */
+  /* Modern Focus States */
   .btn-primary:focus,
   .btn-secondary:focus,
   .btn-outline:focus,
@@ -817,17 +536,18 @@
   .btn-geometric:focus,
   .btn-primary-geometric:focus,
   .btn-secondary-geometric:focus {
-    outline: 3px solid var(--primary-light);
+    outline: 3px solid #A78BFA;
     outline-offset: 4px;
+    border-radius: 32px;
   }
   
-  /* Enhanced Card component styles */
+  /* Modern Card System - Organic Design */
   .card {
-    background: var(--gradient-card);
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-card);
-    border: 1px solid rgba(111, 36, 81, 0.15);
-    transition: all 0.4s var(--ease-out);
+    background: #FDFCFB;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(74, 155, 94, 0.1);
+    transition: all 0.4s var(--ease-organic);
     position: relative;
     overflow: hidden;
   }
@@ -835,503 +555,645 @@
   .card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-primary);
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
     opacity: 0;
-    transition: opacity 0.3s var(--ease-out);
+    transition: all 0.6s var(--ease-organic);
+    transform: scale(0);
   }
   
   .card-hover {
-    transition: all 0.4s var(--ease-out);
+    transition: all 0.4s var(--ease-organic);
   }
   
   .card-hover:hover {
-    background: var(--gradient-card-hover);
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-4px);
+    background: linear-gradient(135deg, #FDFCFB 0%, #F8F6F3 100%);
+    box-shadow: 0 12px 40px rgba(74, 155, 94, 0.15);
+    transform: translateY(-6px);
   }
   
   .card-hover:hover::before {
     opacity: 1;
+    transform: scale(1);
   }
   
-  /* Container utilities */
+  /* Modern Container */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
   
-  /* Typography utilities */
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  @media (min-width: 640px) {
+    .container-custom { padding: 0 32px; }
   }
   
-  /* Animation utilities for GSAP */
-  .gsap-fade-in {
+  @media (min-width: 1024px) {
+    .container-custom { padding: 0 40px; }
+  }
+  
+  /* Modern Animation Utilities */
+  .animate-fade-in {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   
-  .gsap-slide-left {
+  .animate-slide-left {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-30px);
   }
   
-  .gsap-slide-right {
+  .animate-slide-right {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(30px);
   }
   
-  .gsap-scale-in {
+  .animate-scale-in {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.95);
   }
   
-  /* Geometric Design Component System */
-  .geometric-shape {
+  .animate-float {
+    animation: organicFloat 6s ease-in-out infinite;
+  }
+  
+  @keyframes organicFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(1deg); }
+    66% { transform: translateY(4px) rotate(-1deg); }
+  }
+  
+  /* Organic Abstract Shapes System - 2025 Modern */
+  .organic-shape {
     will-change: transform;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.6s var(--ease-organic);
+    position: relative;
   }
   
-  /* PRD Complete 6 Geometric Shapes System */
-  .geometric-triangle {
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  /* Abstract Organic Shapes */
+  .organic-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob 8s ease-in-out infinite;
   }
   
-  .geometric-circle {
-    border-radius: 50%;                        /* Perfect circle */
-    clip-path: none;                           /* Override any clip-path */
+  .organic-flow {
+    border-radius: 50% 20% 80% 30% / 40% 60% 30% 80%;
+    animation: morphFlow 10s ease-in-out infinite;
   }
   
-  .geometric-square {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    border-radius: 0;                          /* Sharp square edges */
+  .organic-wave {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morphWave 6s ease-in-out infinite;
   }
   
-  .geometric-hexagon {
-    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  .organic-fluid {
+    border-radius: 80% 20% 60% 40% / 50% 70% 30% 50%;
+    animation: morphFluid 12s ease-in-out infinite;
   }
   
-  .geometric-diamond {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  .organic-cloud {
+    border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+    animation: morphCloud 9s ease-in-out infinite;
   }
   
-  .geometric-pentagon {
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  .organic-pebble {
+    border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%;
+    animation: morphPebble 7s ease-in-out infinite;
   }
 
-  /* Service-specific geometric shape assignments (PRD compliance) */
-  .service-electrical .geometric-shape {
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle */
+  /* Service-specific organic shape assignments */
+  .service-electrical .organic-shape {
+    background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
   }
   
-  .service-plumbing .geometric-shape {
-    border-radius: 50%;                        /* Circle */
-    clip-path: none;
+  .service-plumbing .organic-shape {
+    background: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%);
   }
   
-  .service-telecom .geometric-shape {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Square */
+  .service-telecom .organic-shape {
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
   }
   
-  .service-safety .geometric-shape {
-    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%); /* Hexagon */
+  .service-safety .organic-shape {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   }
   
-  .service-finishing .geometric-shape {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond */
+  .service-finishing .organic-shape {
+    background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
   }
   
-  .service-coordination .geometric-shape {
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Pentagon */
+  .service-coordination .organic-shape {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
   }
   
-  .geometric-corner-cut {
-    clip-path: polygon(
-      var(--geometric-corner) 0%, 
-      100% 0%, 
-      100% calc(100% - var(--geometric-corner)), 
-      calc(100% - var(--geometric-corner)) 100%, 
-      0% 100%, 
-      0% var(--geometric-corner)
-    );
+  /* Organic morphing animations */
+  @keyframes morphBlob {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 30% 70% 40% 60% / 50% 60% 30% 60%; }
+    50% { border-radius: 70% 30% 60% 40% / 40% 70% 60% 30%; }
+    75% { border-radius: 40% 60% 70% 30% / 70% 40% 50% 60%; }
   }
   
-  .geometric-angled-cut {
-    clip-path: polygon(
-      20px 0, 
-      100% 0, 
-      100% calc(100% - 20px), 
-      calc(100% - 20px) 100%, 
-      0 100%, 
-      0 20px
-    );
+  @keyframes morphFlow {
+    0%, 100% { border-radius: 50% 20% 80% 30% / 40% 60% 30% 80%; }
+    33% { border-radius: 30% 60% 40% 80% / 60% 40% 80% 20%; }
+    66% { border-radius: 80% 40% 20% 60% / 30% 80% 60% 40%; }
   }
   
-  /* Floating animation for hero elements */
-  .floating {
-    animation: float 3s ease-in-out infinite;
+  @keyframes morphWave {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
   }
   
-  .floating:nth-child(2) {
-    animation-delay: -1s;
+  @keyframes morphFluid {
+    0%, 100% { border-radius: 80% 20% 60% 40% / 50% 70% 30% 50%; }
+    25% { border-radius: 40% 80% 30% 70% / 60% 30% 50% 70%; }
+    50% { border-radius: 60% 40% 80% 20% / 30% 50% 70% 50%; }
+    75% { border-radius: 20% 60% 50% 80% / 70% 50% 30% 70%; }
   }
   
-  .floating:nth-child(3) {
-    animation-delay: -2s;
+  @keyframes morphCloud {
+    0%, 100% { border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%; }
+    50% { border-radius: 60% 40% 40% 60% / 40% 60% 60% 40%; }
+  }
+  
+  @keyframes morphPebble {
+    0%, 100% { border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; }
+    33% { border-radius: 50% 50% 70% 30% / 60% 40% 60% 40%; }
+    66% { border-radius: 30% 70% 50% 50% / 40% 60% 40% 60%; }
   }
 }
 
-/* Modern component utilities */
+/* Modern Glassmorphism - 2025 Style */
 @layer components {
-  /* Enhanced Glassmorphism effects */
   .glass {
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
   }
 
-  .glass-dark {
-    background: rgba(10, 14, 26, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-brand {
-    background: rgba(236, 156, 204, 0.15);
+  .glass-organic {
+    background: rgba(74, 155, 94, 0.1);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(236, 156, 204, 0.2);
-    box-shadow: 0 8px 32px rgba(111, 36, 81, 0.1);
+    border: 1px solid rgba(74, 155, 94, 0.2);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   }
   
-  /* Section Background Variants */
-  .section-gradient-light {
-    background: var(--gradient-section-light);
-    position: relative;
+  .glass-premium {
+    background: rgba(167, 139, 250, 0.1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    box-shadow: 0 12px 40px rgba(167, 139, 250, 0.15);
+    border-radius: 32px;
   }
   
-  .section-gradient-medium {
-    background: var(--gradient-section-medium);
-    position: relative;
-  }
-  
-  .section-gradient-dark {
-    background: var(--gradient-section-dark);
-    color: var(--white);
-    position: relative;
-  }
-  
-  .section-gradient-hero {
-    background: var(--gradient-hero);
+  /* Modern Section Backgrounds */
+  .section-organic {
+    background: radial-gradient(ellipse at top, #F6FAF7 0%, #E8F3EA 50%, #D1E7D5 100%);
     position: relative;
     overflow: hidden;
   }
   
-  .section-gradient-hero::before {
+  .section-organic::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: var(--gradient-radial-primary);
-    pointer-events: none;
-  }
-  
-  .section-gradient-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    top: -10%;
+    right: -10%;
     width: 40%;
-    height: 60%;
-    background: var(--gradient-radial-secondary);
-    pointer-events: none;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255, 123, 84, 0.1) 0%, transparent 70%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob 12s ease-in-out infinite;
   }
-
-  /* Geometric Card System */
-  .card-geometric {
-    background: var(--white);
-    border: 1px solid var(--neutral-light);
-    transition: all 0.4s var(--ease-out);
+  
+  .section-organic::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 30%;
+    height: 30%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+    border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+    animation: morphCloud 15s ease-in-out infinite;
+  }
+  
+  .section-premium {
+    background: linear-gradient(135deg, #FDFCFB 0%, #F8F6F3 100%);
+    position: relative;
+  }
+  
+  .section-flowing {
+    background: radial-gradient(ellipse at bottom, #F8F6F3 0%, #F0EDE7 100%);
     position: relative;
     overflow: hidden;
   }
 
-  .card-geometric:hover {
-    transform: translateY(var(--geometric-hover-lift));
-    box-shadow: var(--geometric-shadow);
+  /* Organic Card System */
+  .card-organic {
+    background: #FDFCFB;
+    border: 1px solid rgba(74, 155, 94, 0.1);
+    border-radius: 24px;
+    transition: all 0.6s var(--ease-organic);
+    position: relative;
+    overflow: hidden;
   }
 
-  .card-service-geometric {
-    background: var(--white);
-    border: 1px solid var(--neutral-light);
+  .card-organic:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(74, 155, 94, 0.15);
+  }
+
+  .card-service {
+    background: #FDFCFB;
+    border: 1px solid rgba(167, 139, 250, 0.1);
+    border-radius: 32px;
     padding: 32px;
     position: relative;
-    transition: all 0.4s var(--ease-out);
+    transition: all 0.6s var(--ease-organic);
+    overflow: hidden;
   }
 
-  .card-service-geometric::before {
+  .card-service::before {
     content: '';
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
-    background: var(--primary-light);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    transition: all 0.3s var(--ease-out);
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transition: all 0.6s var(--ease-organic);
   }
 
-  .card-service-geometric:hover::before {
-    background: var(--accent-orange);
-    transform: rotate(120deg);
+  .card-service:hover::before {
+    background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
+    transform: scale(1.2);
+    border-radius: 40% 60% 70% 30% / 50% 60% 40% 50%;
   }
 
-  .card-portfolio-geometric {
-    background: var(--white);
+  .card-portfolio {
+    background: #FDFCFB;
     overflow: hidden;
     position: relative;
-    border-radius: var(--radius-none);
+    border-radius: 24px;
+    transition: all 0.6s var(--ease-organic);
   }
 
-  .card-portfolio-geometric::after {
+  .card-portfolio::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px;
-    height: 60px;
-    background: var(--primary-dark);
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    transition: all 0.3s var(--ease-out);
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%);
+    border-radius: 50% 20% 80% 30% / 40% 60% 30% 80%;
+    opacity: 0.8;
+    transition: all 0.6s var(--ease-organic);
   }
 
-  .card-portfolio-geometric:hover::after {
-    background: var(--accent-orange);
+  .card-portfolio:hover::after {
+    background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%);
+    transform: scale(1.3) rotate(45deg);
+    border-radius: 30% 70% 40% 60% / 60% 30% 70% 40%;
+  }
+
+  /* Modern Gradient Utilities */
+  .bg-gradient-primary { background: linear-gradient(135deg, #4A9B5E 0%, #2D6B3E 100%); }
+  .bg-gradient-coral { background: linear-gradient(135deg, #FF7B54 0%, #E65A3D 100%); }
+  .bg-gradient-lavender { background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%); }
+  .bg-gradient-organic { background: radial-gradient(ellipse at top, #F6FAF7 0%, #E8F3EA 50%, #D1E7D5 100%); }
+  .bg-gradient-premium { background: linear-gradient(135deg, #FDFCFB 0%, #F8F6F3 100%); }
+  
+  /* Organic Flow Backgrounds */
+  .bg-flow-1 {
+    background: radial-gradient(circle at 20% 80%, rgba(255, 123, 84, 0.1) 0%, transparent 50%), 
+               radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
+               radial-gradient(circle at 40% 40%, rgba(74, 155, 94, 0.1) 0%, transparent 50%),
+               #FDFCFB;
+  }
+  
+  .bg-flow-2 {
+    background: radial-gradient(ellipse at 60% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
+               radial-gradient(ellipse at 20% 70%, rgba(132, 204, 22, 0.1) 0%, transparent 40%),
+               linear-gradient(135deg, #FDFCFB 0%, #F8F6F3 100%);
+  }
+
+  /* Organic Elements Utilities */
+  .organic-accent {
+    position: absolute;
+    background: linear-gradient(135deg, #FF7B54 0%, #A78BFA 100%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob 8s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  
+  .organic-accent-small {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .organic-accent-medium {
     width: 80px;
     height: 80px;
   }
-
-  /* Enhanced Gradient backgrounds */
-  .bg-gradient-primary { background: var(--gradient-primary); }
-  .bg-gradient-secondary { background: var(--gradient-secondary); }
-  .bg-gradient-accent { background: var(--gradient-accent); }
-  .bg-gradient-warm { background: var(--gradient-warm); }
-  .bg-gradient-cool { background: var(--gradient-cool); }
-  .bg-gradient-hero { background: var(--gradient-hero); }
-  .bg-gradient-light { background: var(--gradient-section-light); }
-  .bg-gradient-medium { background: var(--gradient-section-medium); }
-  .bg-gradient-dark { background: var(--gradient-section-dark); }
-
-  /* Text gradients */
-  .text-gradient-primary {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  
+  .organic-accent-large {
+    width: 120px;
+    height: 120px;
   }
 
-  .text-gradient-secondary {
-    background: var(--gradient-secondary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Geometric Button utilities - removed redundancy, using main button system above */
-
-  /* Enhanced Modern animations */
+  /* Modern 2025 Animations */
   .animate-fade-in {
-    animation: fadeIn 0.6s var(--ease-out) forwards;
+    animation: fadeIn 0.8s var(--ease-organic) forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.8s var(--ease-out) forwards;
+    animation: slideUp 1s var(--ease-organic) forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.5s var(--ease-spring) forwards;
+    animation: scaleIn 0.6s var(--ease-bounce) forwards;
   }
   
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease-in-out infinite;
+  .animate-organic {
+    animation: organicMove 8s ease-in-out infinite;
   }
   
-  .animate-pulse-subtle {
-    animation: pulseSubtle 2s ease-in-out infinite;
+  .animate-pulse-organic {
+    animation: pulseOrganic 3s ease-in-out infinite;
   }
   
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
+  .animate-flow {
+    animation: flowAnimation 6s ease-in-out infinite;
   }
   
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+  .animate-glow-soft {
+    animation: glowSoft 4s ease-in-out infinite alternate;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes slideUp {
     from { 
       opacity: 0; 
-      transform: translateY(30px); 
+      transform: translateY(20px) scale(0.98); 
     }
     to { 
       opacity: 1; 
-      transform: translateY(0); 
+      transform: translateY(0) scale(1); 
     }
   }
 
   @keyframes scaleIn {
     from { 
       opacity: 0; 
-      transform: scale(0.95); 
+      transform: scale(0.96) rotate(-1deg); 
     }
     to { 
       opacity: 1; 
-      transform: scale(1); 
+      transform: scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes organicMove {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    25% { transform: translateY(-12px) rotate(2deg) scale(1.02); }
+    50% { transform: translateY(0px) rotate(0deg) scale(1); }
+    75% { transform: translateY(6px) rotate(-1deg) scale(0.98); }
+  }
+  
+  @keyframes pulseOrganic {
+    0%, 100% { 
+      opacity: 0.8; 
+      transform: scale(1) rotate(0deg); 
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.05) rotate(2deg); 
+      border-radius: 40% 60% 70% 30% / 50% 70% 30% 50%;
+    }
+  }
+  
+  @keyframes flowAnimation {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    33% { transform: translateX(4px) rotate(1deg); }
+    66% { transform: translateX(-4px) rotate(-1deg); }
+  }
+  
+  @keyframes glowSoft {
+    from {
+      box-shadow: 0 0 20px rgba(74, 155, 94, 0.2), 0 0 40px rgba(74, 155, 94, 0.1);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(74, 155, 94, 0.4), 0 0 60px rgba(74, 155, 94, 0.2);
     }
   }
 }
 
-/* Utility layer for specific overrides */
+/* Modern Utility Layer */
 @layer utilities {
-  /* Hardware acceleration for animations */
+  /* Performance Optimizations */
   .gpu-accelerated {
     transform: translateZ(0);
     will-change: transform;
   }
   
-  /* Smooth scrolling sections */
-  .scroll-smooth {
+  .scroll-organic {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
   }
   
-  /* Hide scrollbar but keep functionality */
-  .scrollbar-hidden {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .scrollbar-organic {
+    scrollbar-width: thin;
+    scrollbar-color: #A78BFA #F6FAF7;
   }
   
-  .scrollbar-hidden::-webkit-scrollbar {
-    display: none;
+  .scrollbar-organic::-webkit-scrollbar {
+    width: 8px;
   }
   
-  /* Performance optimization utilities */
-  .perf-contain {
+  .scrollbar-organic::-webkit-scrollbar-track {
+    background: #F6FAF7;
+    border-radius: 4px;
+  }
+  
+  .scrollbar-organic::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+    border-radius: 4px;
+  }
+  
+  /* Modern Performance */
+  .perf-organic {
     contain: layout style paint;
+    content-visibility: auto;
   }
   
   .perf-will-change {
-    will-change: transform;
+    will-change: transform, opacity;
   }
   
   .perf-will-change:not(:hover):not(:focus):not(.animating) {
     will-change: auto;
   }
   
-  /* Image optimization utilities */
-  .img-optimized {
-    @apply object-cover object-center;
-    image-rendering: -webkit-optimize-contrast;
+  /* Image Utilities */
+  .img-organic {
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    transition: all 0.4s var(--ease-organic);
+  }
+  
+  .img-organic:hover {
+    transform: scale(1.02);
+    border-radius: 24px;
   }
   
   .img-lazy {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.6s var(--ease-organic);
   }
   
   .img-lazy.loaded {
     opacity: 1;
   }
   
-  /* Critical path optimization */
-  .above-fold {
-    content-visibility: visible;
+  /* Layout Utilities */
+  .content-organic {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
   }
   
-  .below-fold {
-    content-visibility: auto;
-    contain-intrinsic-size: 200px;
+  .snap-organic {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Organic Design Elements - Abstract Accents */
+  .organic-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .organic-decoration-1 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(74, 155, 94, 0.1) 0%, transparent 70%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob 12s ease-in-out infinite;
+  }
+
+  .organic-decoration-2 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 123, 84, 0.08) 0%, transparent 70%);
+    border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+    animation: morphCloud 15s ease-in-out infinite;
+  }
+
+  .organic-decoration-3 {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, transparent 70%);
+    border-radius: 50% 20% 80% 30% / 40% 60% 30% 80%;
+    animation: morphFlow 10s ease-in-out infinite;
+  }
+
+  /* Text Enhancement - Organic Flow */
+  .text-flow {
+    background: linear-gradient(135deg, #4A9B5E 0%, #FF7B54 50%, #A78BFA 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 6s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+
+  /* Modern Shadows - Organic Depth */
+  .shadow-organic {
+    box-shadow: 0 10px 40px rgba(74, 155, 94, 0.15), 0 4px 20px rgba(74, 155, 94, 0.1);
+  }
+
+  .shadow-organic-hover:hover {
+    box-shadow: 0 20px 60px rgba(74, 155, 94, 0.2), 0 8px 30px rgba(74, 155, 94, 0.15);
+  }
+
+  .shadow-premium {
+    box-shadow: 0 12px 45px rgba(167, 139, 250, 0.2), 0 6px 25px rgba(167, 139, 250, 0.1);
+  }
+
+  .shadow-coral {
+    box-shadow: 0 8px 35px rgba(255, 123, 84, 0.18), 0 4px 18px rgba(255, 123, 84, 0.12);
   }
 }
 
-/* Keyframes for CSS animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse-subtle {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-@keyframes shimmer {
+/* Modern 2025 Keyframes */
+@keyframes shimmerOrganic {
   0% {
     background-position: -200px 0;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 40% 60% 70% 30% / 50% 60% 40% 50%;
   }
   100% {
     background-position: calc(200px + 100%) 0;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 }
 
-@keyframes gradientShift {
+@keyframes gradientFlow {
   0%, 100% {
     background-position: 0% 50%;
+    filter: hue-rotate(0deg);
   }
-  50% {
+  25% {
     background-position: 100% 50%;
-  }
-}
-
-@keyframes pulseSubtle {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
+    filter: hue-rotate(5deg);
   }
   50% {
-    opacity: 0.8;
-    transform: scale(1.02);
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  75% {
+    background-position: 100% 50%;
+    filter: hue-rotate(-5deg);
   }
 }
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 5px rgba(236, 156, 204, 0.5), 0 0 10px rgba(236, 156, 204, 0.3);
-  }
-  to {
-    box-shadow: 0 0 10px rgba(236, 156, 204, 0.8), 0 0 20px rgba(236, 156, 204, 0.5), 0 0 30px rgba(236, 156, 204, 0.3);
-  }
-}
-
-/* Loading states */
-.loading-shimmer {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+/* Modern Loading States */
+.loading-organic {
+  background: linear-gradient(90deg, #F6FAF7 25%, #E8F3EA 50%, #F6FAF7 75%);
   background-size: 200px 100%;
-  animation: shimmer 1.5s infinite;
+  animation: shimmerOrganic 2s infinite;
+  border-radius: 20px;
 }
 
-/* Reduced motion preferences */
+.loading-flow {
+  background: linear-gradient(135deg, #4A9B5E 0%, #FF7B54 50%, #A78BFA 100%);
+  background-size: 300% 300%;
+  animation: gradientFlow 3s ease-in-out infinite;
+  border-radius: 24px;
+  opacity: 0.1;
+}
+
+/* Accessibility - Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1345,19 +1207,33 @@
     scroll-behavior: auto !important;
   }
   
-  .floating {
+  .animate-float,
+  .animate-organic,
+  .animate-flow {
     animation: none;
+  }
+  
+  .organic-shape {
+    border-radius: 24px !important;
   }
 }
 
-/* Print styles */
+/* Print Optimization */
 @media print {
-  .no-print {
+  .no-print,
+  .organic-accent,
+  .animate-organic {
     display: none !important;
   }
   
   body {
-    color: black !important;
+    color: #2D2520 !important;
     background: white !important;
+    font-size: 12pt !important;
+  }
+  
+  .organic-shape {
+    border-radius: 8px !important;
+    background: #f5f5f5 !important;
   }
 }

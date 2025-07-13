@@ -4,141 +4,212 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Extended Amethyst Wisteria Twilight Palette with Full Shade System
+        // 2025 Modern Color System - Forest Green & Organic
         primary: {
-          50: '#FDF7FB',
-          100: '#FAE8F3',
-          200: '#F5D1E6',
-          300: '#EC9CCC',
-          400: '#E06BA8',
-          500: '#D0AFCD',
-          600: '#A94F8A',
-          700: '#833D6B',
-          800: '#6F2451',
-          900: '#4A1836',
+          50: '#F6FAF7',
+          100: '#E8F3EA',
+          200: '#D1E7D5',
+          300: '#A8D2B1',
+          400: '#6FB87A',
+          500: '#4A9B5E',
+          600: '#2D6B3E',
+          700: '#1F4A2A',
+          800: '#173B21',
+          900: '#0F2917',
         },
         neutral: {
-          50: '#F8F9FA',
-          100: '#E9ECF1',
-          200: '#D9DEE6',
-          300: '#CCD0DC',
-          400: '#A8B0C1',
-          500: '#8691A7',
-          600: '#683759',
-          700: '#4D2A42',
-          800: '#341D2C',
-          900: '#1A0E16',
-        },
-        orange: {
-          light: '#FF8C5C',
-          DEFAULT: '#FF6B35',
-          dark: '#D45C1C',
-        },
-        yellow: {
-          light: '#FFE066',
-          DEFAULT: '#FFD23F',
-          dark: '#E6B800',
-        },
-        green: {
-          light: '#7FE5DF',
-          DEFAULT: '#4ECDC4',
-          dark: '#2BA39C',
+          50: '#FDFCFB',
+          100: '#F8F6F3',
+          200: '#F0EDE7',
+          300: '#E3DDD4',
+          400: '#CDC4B8',
+          500: '#A69B8C',
+          600: '#8B7D6B',
+          700: '#6B5F4F',
+          800: '#4A4037',
+          900: '#2D2520',
         },
         coral: {
-          light: '#FF9999',
-          DEFAULT: '#FF6B6B',
-          dark: '#E64545',
+          50: '#FFF4F2',
+          100: '#FFE5E0',
+          200: '#FFCFC7',
+          300: '#FFB3A1',
+          400: '#FF9F7D',
+          500: '#FF7B54',
+          600: '#E65A3D',
+          700: '#CC4A2F',
+          800: '#B33B21',
+          900: '#9A2C13',
         },
         lavender: {
-          light: '#D0C4DF',
-          DEFAULT: '#B8A7CE',
-          dark: '#9B88B5',
+          50: '#F7F5FF',
+          100: '#EEEBFF',
+          200: '#DDD6FE',
+          300: '#C4B5FD',
+          400: '#A78BFA',
+          500: '#8B5CF6',
+          600: '#7C3AED',
+          700: '#6D28D9',
+          800: '#5B21B6',
+          900: '#4C1D95',
+        },
+        gold: {
+          50: '#FFFBEB',
+          100: '#FEF3C7',
+          200: '#FDE68A',
+          300: '#FCD34D',
+          400: '#FBBF24',
+          500: '#F59E0B',
+          600: '#D97706',
+          700: '#B45309',
+          800: '#92400E',
+          900: '#78350F',
+        },
+        sage: {
+          50: '#F7FEE7',
+          100: '#ECFCCB',
+          200: '#D9F99D',
+          300: '#BEF264',
+          400: '#A3E635',
+          500: '#84CC16',
+          600: '#65A30D',
+          700: '#4D7C0F',
+          800: '#365314',
+          900: '#1A2E05',
         },
         
-        // Backwards compatibility - Legacy color names
-        'primary-light': '#EC9CCC',
-        'primary-dark': '#6F2451',
-        'primary-medium': '#D0AFCD',
-        'neutral-light': '#CCD0DC',
-        'neutral-dark': '#683759',
-        'accent-orange': '#FF6B35',
-        'amethyst': '#9966CC',
-        'wisteria': '#C9A0DC',
-        'white': '#FFFFFF',
-        'black': '#1A1A1A',
+        // Backwards compatibility - Legacy support
+        'primary-light': '#A8D2B1',
+        'primary-dark': '#2D6B3E',
+        'neutral-light': '#F0EDE7',
+        'neutral-dark': '#6B5F4F',
+        'accent-orange': '#FF7B54',
+        'white': '#FDFCFB',
+        'black': '#2D2520',
         
-        // Semantic color mappings
-        success: '#4ECDC4',
-        warning: '#FFD23F',
-        error: '#FF6B6B',
-        info: '#B8A7CE',
+        // Modern semantic colors
+        success: '#4A9B5E',
+        warning: '#F59E0B',
+        error: '#EF4444',
+        info: '#3B82F6',
         
-        // Legacy aliases for existing components
-        primary: '#6F2451',
-        secondary: '#683759',
-        accent: '#FFFFFF',
-        text: '#683759',
+        // Legacy aliases (maintain compatibility)
+        primary: '#4A9B5E',
+        secondary: '#FF7B54',
+        accent: '#A78BFA',
+        text: '#4A4037',
       },
       fontFamily: {
-        // Enhanced typography system
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+        // Modern 2025 Typography
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // Typography scale from claude.md specifications
-        'xs': '0.75rem',     // 12px
-        'sm': '0.875rem',    // 14px  
-        'base': '1rem',      // 16px (body default)
-        'lg': '1.125rem',    // 18px
-        'xl': '1.25rem',     // 20px
-        '2xl': '1.5rem',     // 24px
-        '3xl': '1.875rem',   // 30px
-        '4xl': '2.25rem',    // 36px
-        '5xl': '3rem',       // 48px
-        '6xl': '3.75rem',    // 60px
+        // Modern responsive typography scale
+        'xs': ['0.75rem', { lineHeight: '1.5' }],
+        'sm': ['0.875rem', { lineHeight: '1.6' }],
+        'base': ['1rem', { lineHeight: '1.7' }],
+        'lg': ['1.125rem', { lineHeight: '1.7' }],
+        'xl': ['1.25rem', { lineHeight: '1.6' }],
+        '2xl': ['1.5rem', { lineHeight: '1.5' }],
+        '3xl': ['1.875rem', { lineHeight: '1.4' }],
+        '4xl': ['2.25rem', { lineHeight: '1.3' }],
+        '5xl': ['3rem', { lineHeight: '1.2' }],
+        '6xl': ['3.75rem', { lineHeight: '1.1' }],
+        '7xl': ['4.5rem', { lineHeight: '1.1' }],
       },
       lineHeight: {
-        relaxed: '1.6',      // Body text default from specs
+        'tight': '1.2',
+        'snug': '1.4', 
+        'normal': '1.6',
+        'relaxed': '1.7',
+        'loose': '1.8',
+      },
+      borderRadius: {
+        'organic-sm': '12px',
+        'organic': '20px',
+        'organic-md': '24px',
+        'organic-lg': '32px',
+        'organic-xl': '40px',
+        'organic-2xl': '48px',
       },
       animation: {
-        // Enhanced animation system
-        'fade-in': 'fadeIn 0.6s ease-out',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'float': 'float 3s ease-in-out infinite',
-        'gradient-shift': 'gradientShift 3s ease-in-out infinite',
-        'pulse-subtle': 'pulseSubtle 2s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'shimmer': 'shimmer 1.5s infinite',
+        // Modern 2025 animations
+        'fade-in': 'fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        'slide-up': 'slideUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        'organic': 'organicMove 8s ease-in-out infinite',
+        'flow': 'flowAnimation 6s ease-in-out infinite',
+        'morph': 'morphBlob 8s ease-in-out infinite',
+        'gradient-flow': 'gradientFlow 6s ease-in-out infinite',
+        'pulse-organic': 'pulseOrganic 3s ease-in-out infinite',
+        'glow-soft': 'glowSoft 4s ease-in-out infinite alternate',
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(50px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+          '0%': { opacity: '0', transform: 'translateY(20px) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+        organicMove: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg) scale(1)' },
+          '25%': { transform: 'translateY(-12px) rotate(2deg) scale(1.02)' },
+          '50%': { transform: 'translateY(0px) rotate(0deg) scale(1)' },
+          '75%': { transform: 'translateY(6px) rotate(-1deg) scale(0.98)' },
         },
-        gradientShift: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
+        flowAnimation: {
+          '0%, 100%': { transform: 'translateX(0px) rotate(0deg)' },
+          '33%': { transform: 'translateX(4px) rotate(1deg)' },
+          '66%': { transform: 'translateX(-4px) rotate(-1deg)' },
         },
-        pulseSubtle: {
-          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-          '50%': { opacity: '0.8', transform: 'scale(1.02)' },
+        morphBlob: {
+          '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+          '25%': { borderRadius: '30% 70% 40% 60% / 50% 60% 30% 60%' },
+          '50%': { borderRadius: '70% 30% 60% 40% / 40% 70% 60% 30%' },
+          '75%': { borderRadius: '40% 60% 70% 30% / 70% 40% 50% 60%' },
         },
-        glow: {
-          'from': { boxShadow: '0 0 5px rgba(236, 156, 204, 0.5), 0 0 10px rgba(236, 156, 204, 0.3)' },
-          'to': { boxShadow: '0 0 10px rgba(236, 156, 204, 0.8), 0 0 20px rgba(236, 156, 204, 0.5), 0 0 30px rgba(236, 156, 204, 0.3)' },
+        gradientFlow: {
+          '0%, 100%': { backgroundPosition: '0% 50%', filter: 'hue-rotate(0deg)' },
+          '25%': { backgroundPosition: '100% 50%', filter: 'hue-rotate(5deg)' },
+          '50%': { backgroundPosition: '0% 50%', filter: 'hue-rotate(0deg)' },
+          '75%': { backgroundPosition: '100% 50%', filter: 'hue-rotate(-5deg)' },
         },
-        shimmer: {
-          '0%': { backgroundPosition: '-200px 0' },
-          '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
+        pulseOrganic: {
+          '0%, 100%': { 
+            opacity: '0.8', 
+            transform: 'scale(1) rotate(0deg)',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
+          },
+          '50%': { 
+            opacity: '1', 
+            transform: 'scale(1.05) rotate(2deg)',
+            borderRadius: '40% 60% 70% 30% / 50% 70% 30% 50%'
+          },
         },
+        glowSoft: {
+          'from': { boxShadow: '0 0 20px rgba(74, 155, 94, 0.2), 0 0 40px rgba(74, 155, 94, 0.1)' },
+          'to': { boxShadow: '0 0 30px rgba(74, 155, 94, 0.4), 0 0 60px rgba(74, 155, 94, 0.2)' },
+        },
+      },
+      backdropBlur: {
+        'organic': '16px',
+        'premium': '24px',
+      },
+      transitionTimingFunction: {
+        'organic': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+      boxShadow: {
+        'organic': '0 10px 40px rgba(74, 155, 94, 0.15), 0 4px 20px rgba(74, 155, 94, 0.1)',
+        'premium': '0 12px 45px rgba(167, 139, 250, 0.2), 0 6px 25px rgba(167, 139, 250, 0.1)',
+        'coral': '0 8px 35px rgba(255, 123, 84, 0.18), 0 4px 18px rgba(255, 123, 84, 0.12)',
+        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'medium': '0 8px 30px rgba(0, 0, 0, 0.12)',
+        'strong': '0 16px 40px rgba(0, 0, 0, 0.16)',
       },
     },
   },
