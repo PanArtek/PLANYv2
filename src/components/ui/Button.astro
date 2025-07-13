@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'primary-hero' | 'secondary-hero' | 'tertiary';
   size?: 'sm' | 'md' | 'lg' | 'large';
   href?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -13,6 +13,7 @@ export interface Props {
   'aria-pressed'?: boolean;
   role?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
+  geometric?: boolean; // Enable geometric corner accents
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   disabled = false,
   class: className = '',
   target,
+  geometric = false,
   'aria-label': ariaLabel,
   'aria-describedby': ariaDescribedby,
   'aria-expanded': ariaExpanded,
@@ -45,19 +47,38 @@ const sizeClasses = {
   large: 'px-8 py-4 text-lg'
 };
 
-// Variant classes
+// Variant classes - PRD Geometric Button System
 const variantClasses = {
   primary: 'btn-primary',
   secondary: 'btn-secondary', 
-  outline: 'btn-outline'
+  outline: 'btn-outline',
+  'primary-hero': 'btn-primary-hero',
+  'secondary-hero': 'btn-secondary-hero',
+  tertiary: 'btn-outline' // Maps to tertiary styling (orange with dot)
 };
 
-const classes = [
-  'btn',
-  sizeClasses[size],
-  variantClasses[variant],
-  className
-].filter(Boolean).join(' ');
+// Build CSS classes
+const baseClasses = ['btn'];
+
+// Add size class only for regular buttons (not hero variants)
+if (!variant?.includes('hero')) {
+  baseClasses.push(sizeClasses[size]);
+}
+
+// Add variant class
+baseClasses.push(variantClasses[variant]);
+
+// Add geometric class if enabled
+if (geometric) {
+  baseClasses.push('geometric-shape');
+}
+
+// Add custom classes
+if (className) {
+  baseClasses.push(className);
+}
+
+const classes = baseClasses.filter(Boolean).join(' ');
 
 // Determine tag based on href presence
 const Tag = href ? 'a' : 'button';

@@ -52,14 +52,22 @@ import Button from '../ui/Button.astro';
         realizuje kompleksowo prace budowlane i instalacyjne
       </p>
       
-      <!-- Main CTAs - Focused on two buttons -->
+      <!-- Main CTAs - PRD Geometric Button System -->
       <div class="hero-cta-group flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
-        <a href="#kontakt" class="btn-geometric btn-primary-geometric text-xl px-12 py-5">
+        <Button 
+          variant="primary-hero" 
+          href="#kontakt"
+          aria-label="Skontaktuj się z nami w celu umówienia bezpłatnej wyceny"
+        >
           Poproś o wycenę
-        </a>
-        <a href="#realizacje" class="btn-geometric btn-secondary-geometric text-xl px-12 py-5">
+        </Button>
+        <Button 
+          variant="secondary-hero" 
+          href="#realizacje"
+          aria-label="Sprawdź nasze dotychczasowe realizacje projektów"
+        >
           Zobacz nasze realizacje
-        </a>
+        </Button>
       </div>
       
       <!-- Minimal trust indicators -->

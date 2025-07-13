@@ -1,5 +1,6 @@
 ---
 import Icon from '../ui/Icon.astro';
+import Card from '../ui/Card.astro';
 ---
 
 <section class="contact py-20 bg-white" id="kontakt">
@@ -19,7 +20,7 @@ import Icon from '../ui/Icon.astro';
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <!-- Company Info -->
         <div class="company-info">
-          <div class="card-geometric rounded-2xl p-8" style="background: var(--primary-light);">
+          <Card variant="contact" clipPath="corner-cut" padding="lg" class="rounded-2xl" style="background: var(--primary-light);">
             <h3 class="text-2xl font-semibold mb-6" style="color: var(--primary-dark);">PLANY</h3>
             <div class="space-y-4">
               <p class="text-lg leading-relaxed" style="color: var(--primary-dark);">
@@ -39,13 +40,13 @@ import Icon from '../ui/Icon.astro';
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
 
         <!-- Contact Information -->
         <div class="contact-info space-y-8">
           <!-- Direct Contact -->
-          <div class="card-geometric rounded-2xl p-8" style="background: var(--white); border: 2px solid var(--primary-medium);">
+          <Card variant="contact" clipPath="angled-cut" padding="lg" class="rounded-2xl" style="background: var(--white); border: 2px solid var(--primary-medium);">
             <h3 class="text-2xl font-semibold mb-6" style="color: var(--primary-dark);">Jeden telefon załatwia sprawę</h3>
             
             <div class="space-y-6">
@@ -88,10 +89,10 @@ import Icon from '../ui/Icon.astro';
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
 
           <!-- Process Steps -->
-          <div class="card-geometric rounded-2xl p-8" style="background: var(--neutral-light);">
+          <Card variant="contact" clipPath="diamond" padding="lg" class="rounded-2xl" style="background: var(--neutral-light);">
             <h3 class="text-2xl font-semibold mb-6" style="color: var(--primary-dark);">Eliminujemy chaos koordynacji</h3>
             
             <div class="space-y-6">
@@ -135,18 +136,18 @@ import Icon from '../ui/Icon.astro';
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
 
           <!-- Trust Indicators -->
           <div class="trust-indicators grid grid-cols-2 gap-4">
-            <div class="trust-item text-center p-4 rounded-lg" style="background: var(--white); border: 2px solid var(--primary-medium);">
+            <Card variant="geometric" clipPath="hexagon" padding="md" class="trust-item text-center rounded-lg" style="background: var(--white); border: 2px solid var(--primary-medium);">
               <div class="text-2xl font-bold mb-1" style="color: var(--accent-orange);">20+</div>
               <div class="text-sm" style="color: var(--neutral-dark);">Specjalistów</div>
-            </div>
-            <div class="trust-item text-center p-4 rounded-lg" style="background: var(--white); border: 2px solid var(--primary-medium);">
+            </Card>
+            <Card variant="geometric" clipPath="pentagon" padding="md" class="trust-item text-center rounded-lg" style="background: var(--white); border: 2px solid var(--primary-medium);">
               <div class="text-2xl font-bold mb-1" style="color: var(--accent-orange);">17</div>
               <div class="text-sm" style="color: var(--neutral-dark);">Lat doświadczenia</div>
-            </div>
+            </Card>
           </div>
         </div>
       </div>

@@ -1,14 +1,16 @@
 ---
 export interface Props {
-  variant?: 'default' | 'hover' | 'bordered';
+  variant?: 'default' | 'hover' | 'bordered' | 'geometric' | 'service' | 'portfolio' | 'contact';
   class?: string;
   padding?: 'sm' | 'md' | 'lg';
+  clipPath?: 'corner-cut' | 'angled-cut' | 'triangle' | 'diamond' | 'hexagon' | 'pentagon';
 }
 
 const {
   variant = 'default',
   class: className = '',
-  padding = 'md'
+  padding = 'md',
+  clipPath
 } = Astro.props;
 
 // Padding classes
@@ -18,16 +20,31 @@ const paddingClasses = {
   lg: 'p-8'
 };
 
-// Variant classes
+// Variant classes - Enhanced with geometric variants
 const variantClasses = {
   default: 'card',
   hover: 'card card-hover',
-  bordered: 'card border-2'
+  bordered: 'card border-2',
+  geometric: 'card-geometric',
+  service: 'card-service-geometric',
+  portfolio: 'card-portfolio-geometric',
+  contact: 'card-geometric'
+};
+
+// Clip-path classes for geometric shapes
+const clipPathClasses = {
+  'corner-cut': 'geometric-corner-cut',
+  'angled-cut': 'geometric-angled-cut',
+  'triangle': 'geometric-triangle',
+  'diamond': 'geometric-diamond',
+  'hexagon': 'geometric-hexagon',
+  'pentagon': 'geometric-pentagon'
 };
 
 const classes = [
   variantClasses[variant],
   paddingClasses[padding],
+  clipPath ? clipPathClasses[clipPath] : '',
   className
 ].filter(Boolean).join(' ');
 ---

@@ -1,0 +1,106 @@
+---
+import Icon from './Icon.astro';
+
+export interface Props {
+  shape: 'triangle' | 'circle' | 'square' | 'hexagon' | 'diamond' | 'pentagon';
+  icon: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  color?: string;
+  class?: string;
+}
+
+const {
+  shape,
+  icon,
+  size = 'md',
+  color = 'var(--primary-light)',
+  class: className = ''
+} = Astro.props;
+
+// Size configurations
+const sizeConfig = {
+  sm: { container: 'w-8 h-8', icon: 'w-4 h-4' },
+  md: { container: 'w-12 h-12', icon: 'w-6 h-6' },
+  lg: { container: 'w-16 h-16', icon: 'w-8 h-8' },
+  xl: { container: 'w-20 h-20', icon: 'w-10 h-10' }
+};
+
+// Shape to CSS class mapping
+const shapeClasses = {
+  triangle: 'geometric-triangle',
+  circle: 'geometric-circle',
+  square: 'geometric-square',
+  hexagon: 'geometric-hexagon',
+  diamond: 'geometric-diamond',
+  pentagon: 'geometric-pentagon'
+};
+
+const containerClasses = [
+  sizeConfig[size].container,
+  shapeClasses[shape],
+  'geometric-icon-container',
+  'flex items-center justify-center',
+  'transition-all duration-300',
+  className
+].filter(Boolean).join(' ');
+---
+
+<div 
+  class={containerClasses}
+  style={`background: ${color};`}
+>
+  <Icon 
+    name={icon} 
+    class={`${sizeConfig[size].icon} text-white geometric-icon transition-colors duration-300`}
+  />
+</div>
+
+<style>
+  .geometric-icon-container {
+    position: relative;
+    will-change: transform;
+  }
+
+  /* Hover effects for geometric shapes */
+  .geometric-icon-container:hover {
+    transform: scale(1.1);
+  }
+
+  .geometric-icon-container:hover .geometric-icon {
+    color: var(--white);
+  }
+
+  /* Shape-specific hover animations */
+  .geometric-icon-container.geometric-triangle:hover {
+    transform: rotate(120deg) scale(1.1);
+  }
+
+  .geometric-icon-container.geometric-hexagon:hover {
+    transform: rotate(60deg) scale(1.1);
+  }
+
+  .geometric-icon-container.geometric-diamond:hover {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  .geometric-icon-container.geometric-pentagon:hover {
+    transform: rotate(72deg) scale(1.1);
+  }
+
+  .geometric-icon-container.geometric-square:hover {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  .geometric-icon-container.geometric-circle:hover {
+    transform: scale(1.15);
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .geometric-icon-container,
+    .geometric-icon-container:hover {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>

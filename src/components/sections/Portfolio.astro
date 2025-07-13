@@ -29,14 +29,14 @@ const categoryLabels = {
 
 <section class="portfolio py-20 bg-white" id="realizacje">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
+    <!-- Section Header - PRD Geometric Style -->
     <div class="portfolio-header text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
-        Nasze <span class="text-blue-600">Realizacje</span>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6" style="color: var(--primary-dark);">
+        Wyzwania które <span style="color: var(--primary-light);">rozwiązaliśmy</span>
       </h2>
-      <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-        Odkryj nasze najnowsze projekty fit-out realizowane w całej Polsce. 
-        Każda inwestycja to unikalne rozwiązanie dostosowane do specyficznych potrzeb klienta.
+      <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: var(--neutral-dark);">
+        17 lat doświadczenia w rozwiązywaniu skomplikowanych wyzwań branżowych. 
+        Każdy projekt to dowód na to, że własny zespół specjalistów eliminuje problemy koordynacji.
       </p>
     </div>
 
@@ -65,7 +65,7 @@ const categoryLabels = {
       </div>
     )}
 
-    <!-- Portfolio Grid -->
+    <!-- PRD Portfolio Grid - Geometric Tiles -->
     <div 
       class="portfolio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" 
       id="portfolioGrid"
@@ -80,97 +80,70 @@ const categoryLabels = {
           role="gridcell"
           aria-describedby={`project-${project.id}-desc`}
         >
-          <Card 
-            class="portfolio-card group cursor-pointer h-full"
+          <div 
+            class={`portfolio-card-geometric portfolio-clip-${project.category} group cursor-pointer h-full bg-white transition-all duration-300 hover:transform hover:translateY(-4px)`}
+            style="box-shadow: var(--geometric-shadow);"
             role="button"
             tabindex="0"
             aria-label={`Szczegóły projektu: ${project.title}`}
           >
-            <!-- Project Image -->
-            <div class="relative overflow-hidden rounded-lg mb-4 bg-slate-200 aspect-[4/3]">
-              <div class="portfolio-image-placeholder w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                <div class="text-slate-500 text-center">
-                  <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+            <!-- PRD Geometric Project Image -->
+            <div class="relative overflow-hidden mb-6 aspect-[4/3]" style="background: linear-gradient(135deg, var(--neutral-light) 0%, var(--primary-medium) 100%);">
+              <div class="portfolio-image-placeholder w-full h-full flex items-center justify-center">
+                <div class="text-center" style="color: var(--neutral-dark);">
+                  <svg class="w-16 h-16 mx-auto mb-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                   </svg>
-                  <p class="text-sm">{project.title}</p>
+                  <p class="text-sm font-medium">{project.title}</p>
                 </div>
               </div>
               
-              <!-- Overlay -->
-              <div class="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/80 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <!-- PRD Geometric Overlay -->
+              <div class="absolute inset-0 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100" style="background: rgba(111, 36, 81, 0.85);">
                 <Button variant="secondary" size="sm" class="transform scale-90 group-hover:scale-100 transition-transform duration-300">
                   Zobacz szczegóły
                 </Button>
               </div>
+              
+              <!-- PRD Geometric Category Indicator -->
+              <div class="absolute top-4 right-4 w-12 h-12 flex items-center justify-center" style="background: var(--primary-light); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);">
+                <span class="text-white text-xs font-bold">{project.category.charAt(0).toUpperCase()}</span>
+              </div>
             </div>
 
-            <!-- Project Info -->
-            <div class="space-y-3" id={`project-${project.id}-desc`}>
-              <!-- Category Badge -->
-              <div class="flex items-center justify-between">
-                <span 
-                  class={`inline-block px-3 py-1 text-xs font-medium rounded-full ${
-                    project.category === 'medical' ? 'bg-red-100 text-red-700' :
-                    project.category === 'education' ? 'bg-green-100 text-green-700' :
-                    project.category === 'retail' ? 'bg-purple-100 text-purple-700' :
-                    project.category === 'office' ? 'bg-blue-100 text-blue-700' :
-                    'bg-gray-100 text-gray-700'
-                  }`}
-                  aria-label={`Kategoria: ${categoryLabels[project.category as keyof typeof categoryLabels]}`}
-                >
-                  {categoryLabels[project.category as keyof typeof categoryLabels]}
-                </span>
-                <time class="text-sm text-slate-500" datetime={project.year.toString()}>
+            <!-- PRD Project Info -->
+            <div class="px-6 pb-6 space-y-4" id={`project-${project.id}-desc`}>
+              <!-- Title & Year -->
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-xl font-semibold transition-colors duration-300" style="color: var(--primary-dark);">
+                  {project.title}
+                </h3>
+                <time class="text-sm text-nowrap" style="color: var(--neutral-dark); opacity: 0.7;" datetime={project.year.toString()}>
                   {project.year}
                 </time>
               </div>
 
-              <!-- Title -->
-              <h3 class="text-xl font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
-                {project.title}
-              </h3>
-
-              <!-- Location & Area -->
-              <div class="flex items-center gap-4 text-sm text-slate-600">
-                <div class="flex items-center gap-1">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                  </svg>
-                  <span aria-label={`Lokalizacja: ${project.location}`}>
-                    {project.location}
-                  </span>
-                </div>
-                <div class="flex items-center gap-1">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                  </svg>
-                  <span aria-label={`Powierzchnia: ${project.area} metrów kwadratowych`}>
-                    {project.area} m²
-                  </span>
-                </div>
+              <!-- Challenge/Solution Preview -->
+              <div class="text-sm leading-relaxed" style="color: var(--neutral-dark);">
+                <p class="mb-2">
+                  <strong style="color: var(--primary-dark);">Wyzwanie:</strong> {project.description || 'Specjalistyczne wymagania branżowe'}
+                </p>
+                <p>
+                  <strong style="color: var(--primary-dark);">Rozwiązanie:</strong> Własny zespół specjalistów
+                </p>
               </div>
 
-              <!-- Description -->
-              <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
-                {project.description}
-              </p>
-
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-2">
-                {project.tags.slice(0, 3).map(tag => (
-                  <span class="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded">
-                    {tag}
-                  </span>
-                ))}
-                {project.tags.length > 3 && (
-                  <span class="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded">
-                    +{project.tags.length - 3}
-                  </span>
-                )}
+              <!-- Category Badge & Area -->
+              <div class="flex items-center justify-between pt-3 border-t" style="border-color: var(--neutral-light);">
+                <span class="inline-block px-3 py-1 text-xs font-medium" style={`background: var(--primary-light); color: var(--primary-dark); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);`}>
+                  {categoryLabels[project.category as keyof typeof categoryLabels]}
+                </span>
+                <div class="text-xs font-medium" style="color: var(--neutral-dark);">
+                  {project.area ? `${project.area}m²` : '100-5000m²'}
+                </div>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
       ))}
     </div>
@@ -222,6 +195,27 @@ const categoryLabels = {
   .portfolio-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* PRD Geometric Portfolio Clips */
+  .portfolio-clip-medical {
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+  }
+
+  .portfolio-clip-education {
+    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  }
+
+  .portfolio-clip-office {
+    clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+  }
+
+  .portfolio-clip-retail {
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  }
+
+  .portfolio-clip-other {
+    clip-path: polygon(25px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%, 0 25px);
   }
 
   .filter-btn.active {

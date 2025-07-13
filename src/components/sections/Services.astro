@@ -1,6 +1,7 @@
 ---
 import Card from '../ui/Card.astro';
 import Icon from '../ui/Icon.astro';
+import GeometricIcon from '../ui/GeometricIcon.astro';
 import { SERVICES } from '../../utils/constants';
 ---
 
@@ -17,36 +18,38 @@ import { SERVICES } from '../../utils/constants';
       </p>
     </div>
 
-    <!-- Geometric Services Grid -->
+    <!-- PRD Geometric Services Grid - 6 Shapes System -->
     <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {SERVICES.map((service, index) => {
-        // Assign geometric shapes to each service
-        const geometricShapes = ['triangle', 'hexagon', 'diamond', 'circle', 'pentagon', 'square'];
-        const shapeClass = `geometric-${geometricShapes[index % geometricShapes.length]}`;
-        const shapeColors = [
-          'var(--accent-orange)', 'var(--primary-light)', 'var(--primary-medium)', 
-          'var(--primary-dark)', 'var(--neutral-dark)', 'var(--amethyst)'
-        ];
-        const shapeColor = shapeColors[index % shapeColors.length];
+        // PRD Service to Shape Mapping
+        const serviceShapeMapping = {
+          'medical': { shape: 'triangle', color: 'var(--primary-light)' },      // Triangle - Emergency/Medical
+          'education': { shape: 'circle', color: 'var(--primary-dark)' },       // Circle - Unity/Community
+          'office': { shape: 'square', color: 'var(--accent-orange)' },         // Square - Structure/Business
+          'retail': { shape: 'hexagon', color: 'var(--primary-medium)' },       // Hexagon - Commerce/Efficiency
+          'installations': { shape: 'diamond', color: 'var(--neutral-dark)' },  // Diamond - Precision/Technical
+          'turnkey': { shape: 'pentagon', color: 'var(--amethyst)' }            // Pentagon - Completeness/Stability
+        };
+        
+        const serviceMapping = serviceShapeMapping[service.id] || serviceShapeMapping['medical'];
+        const serviceClass = `service-${service.id}`;
         
         return (
         <div 
-          class="service-item-geometric opacity-0 transform translate-y-8" 
+          class={`service-item-geometric ${serviceClass} opacity-0 transform translate-y-8`}
           data-service-id={service.id}
           style={`animation-delay: ${index * 100}ms`}
         >
           <div class="card-service-geometric group h-full">
-            <!-- Geometric Icon Container -->
+            <!-- PRD Geometric Icon Container -->
             <div class="service-icon-geometric mb-6 relative">
-              <div 
-                class={`w-16 h-16 geometric-shape ${shapeClass} flex items-center justify-center group-hover:scale-110 transition-all duration-300`}
-                style={`background: ${shapeColor};`}
-              >
-                <Icon 
-                  name={service.icon} 
-                  class="w-8 h-8 text-white transition-colors duration-300" 
-                />
-              </div>
+              <GeometricIcon 
+                shape={serviceMapping.shape as any}
+                icon={service.icon}
+                size="lg"
+                color={serviceMapping.color}
+                class="group-hover:scale-110"
+              />
             </div>
 
             <!-- Service Content -->

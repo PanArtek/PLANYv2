@@ -100,7 +100,7 @@
     --text-7xl: 4.5rem;     /* 72px */
   }
   
-  /* Enhanced typography with modern hierarchy */
+  /* PRD Typography System - Montserrat + Inter */
   html {
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     scroll-behavior: smooth;
@@ -111,35 +111,81 @@
   
   body {
     background: var(--white);
-    color: var(--text-primary);
+    color: var(--neutral-dark);               /* Updated to use PRD color */
     line-height: 1.6;
+    font-family: 'Inter', sans-serif;         /* Body text - Inter */
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    font-size: var(--text-base);
+    font-size: var(--text-lg);               /* 18px base size per PRD */
     letter-spacing: -0.01em;
   }
 
-  /* Enhanced typography scale */
+  /* PRD Typography Scale - Montserrat for Headings */
   h1, h2, h3, h4, h5, h6 {
-    color: var(--text-primary);
-    font-weight: 700;
-    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;   /* Headings - Montserrat */
+    color: var(--primary-dark);              /* Dark burgundy-purple */
+    font-weight: 600;                        /* Semibold for geometric elegance */
+    line-height: 1.1;                        /* Tight for geometric impact */
     letter-spacing: -0.02em;
     margin: 0;
   }
 
-  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-  h2 { font-size: clamp(2rem, 4vw, 3.75rem); }
-  h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
-  h4 { font-size: clamp(1.25rem, 2.5vw, 1.875rem); }
-  h5 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
-  h6 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
+  /* PRD Font Hierarchy - Geometric Scale */
+  h1 { 
+    font-size: var(--text-7xl);              /* 72px - Hero titles */
+    font-weight: 600;
+  }
+  h2 { 
+    font-size: var(--text-5xl);              /* 48px - Main headings */
+    font-weight: 600;
+  }
+  h3 { 
+    font-size: var(--text-4xl);              /* 36px - Section headers */
+    font-weight: 500;
+  }
+  h4 { 
+    font-size: var(--text-2xl);              /* 24px - Subsections */
+    font-weight: 500;
+  }
+  h5 { 
+    font-size: var(--text-lg);               /* 18px - Small headings */
+    font-weight: 500;
+  }
+  h6 { 
+    font-size: var(--text-base);             /* 16px - Minimal headings */
+    font-weight: 500;
+  }
 
+  /* Responsive typography adjustments */
+  @media (max-width: 768px) {
+    h1 { font-size: clamp(2.5rem, 8vw, 3rem); }    /* 48px max on mobile */
+    h2 { font-size: clamp(2rem, 6vw, 2.5rem); }    /* 36px max on mobile */
+    h3 { font-size: clamp(1.5rem, 5vw, 2rem); }    /* 28px max on mobile */
+  }
+
+  /* Body text styling - Inter font */
   p {
-    color: var(--text-secondary);
-    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    color: var(--neutral-dark);              /* #683759 - Medium dark purple */
+    line-height: 1.7;                        /* Loose for comfort per PRD */
+    font-size: var(--text-lg);               /* 18px - Body text per PRD */
+    font-weight: 400;
     margin: 0;
+  }
+
+  /* Supporting text styling */
+  .text-supporting {
+    color: var(--neutral-light);             /* Lighter color for supporting text */
+    font-size: var(--text-base);             /* 16px */
+  }
+
+  /* Small text styling */
+  .text-small {
+    font-size: var(--text-sm);               /* 14px - Captions per PRD */
+    color: var(--neutral-dark);
+    opacity: 0.8;
   }
 
   .text-gradient {
@@ -200,43 +246,184 @@
     left: 100%;
   }
   
+  /* PRD Geometric Button System - Amethyst Wisteria Twilight */
+  
+  /* Primary CTA Button (Main Action) - Pink with Orange Corner */
   .btn-primary {
-    background: linear-gradient(135deg, #7234fa 0%, #334464 100%);
-    color: white;
-    box-shadow: 0 15px 50px rgba(114, 52, 250, 0.6);
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    background: var(--primary-light);          /* #EC9CCC - Light pink-purple */
+    border: 2px solid var(--primary-dark);    /* #6F2451 - Dark burgundy-purple */
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    border-radius: 0;                          /* Sharp geometric edges */
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+    box-shadow: var(--geometric-shadow);
   }
-  
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: -2px; 
+    right: -2px;
+    width: 12px; 
+    height: 12px;
+    background: var(--accent-orange);          /* #D45C1C - Orange accent corner */
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transition: all 0.3s var(--ease-out);
+  }
+
   .btn-primary:hover {
-    box-shadow: 0 20px 60px rgba(114, 52, 250, 0.8);
-    transform: translateY(-5px) scale(1.05);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--primary-dark);           /* Dark purple on hover */
+    transform: translateY(var(--geometric-hover-lift));
+    box-shadow: 0 8px 24px rgba(236, 156, 204, 0.4);
+  }
+
+  .btn-primary:hover::before {
+    background: var(--primary-light);         /* Swap colors on hover */
   }
   
+  /* Secondary CTA Button (Alternative Action) - Outline with Corner */
   .btn-secondary {
-    background: linear-gradient(135deg, #334464 0%, #222222 100%);
-    color: white;
-    box-shadow: 0 15px 50px rgba(51, 68, 100, 0.6);
-    border: 3px solid rgba(114, 52, 250, 0.3);
-  }
-  
-  .btn-secondary:hover {
-    box-shadow: 0 20px 60px rgba(51, 68, 100, 0.8);
-    transform: translateY(-5px) scale(1.05);
-    border-color: #7234fa;
-  }
-  
-  .btn-outline {
     background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    box-shadow: none;
+    border: 2px solid var(--primary-dark);    /* #6F2451 - Dark burgundy-purple */
+    color: var(--primary-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: 0;                          /* Sharp geometric edges */
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: -2px; 
+    left: -2px;
+    width: 12px; 
+    height: 12px;
+    background: var(--primary-medium);         /* #D0AFCD - Medium pink-purple */
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .btn-secondary:hover {
+    background: var(--primary-dark);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(111, 36, 81, 0.3);
+  }
+
+  .btn-secondary:hover::before {
+    background: var(--accent-orange);
   }
   
+  /* Tertiary CTA Button (Support Action) - Orange with Dot */
+  .btn-outline {
+    background: var(--accent-orange);          /* #D45C1C - Orange */
+    border: 2px solid var(--accent-orange);
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0;                          /* Sharp geometric edges */
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .btn-outline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; 
+    right: -2px;
+    width: 8px; 
+    height: 8px;
+    background: var(--primary-light);         /* #EC9CCC - Pink accent dot */
+    border-radius: 50%;
+    transition: all 0.3s var(--ease-out);
+  }
+
   .btn-outline:hover {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 4px 15px rgba(10, 14, 26, 0.3);
+    background: transparent;
+    color: var(--accent-orange);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(212, 92, 28, 0.3);
+  }
+
+  .btn-outline:hover::after {
+    background: var(--primary-dark);
+  }
+
+  /* Geometric Button Size Variants */
+  .btn.px-4.py-2 {
+    padding: 16px 32px;                        /* Consistent geometric padding */
+  }
+  
+  .btn.px-6.py-3 {
+    padding: 20px 40px;                        /* Standard PRD button size */
+  }
+  
+  .btn.px-8.py-4 {
+    padding: 24px 48px;                        /* Large geometric button */
+  }
+
+  /* Hero-specific button variants for CTAs */
+  .btn-primary-hero {
+    background: var(--primary-light);
+    border: 2px solid var(--primary-dark);
+    padding: 20px 40px;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary-hero::before {
+    content: '';
+    position: absolute;
+    top: -2px; right: -2px;
+    width: 12px; height: 12px;
+    background: var(--accent-orange);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+
+  .btn-secondary-hero {
+    background: transparent;
+    border: 2px solid var(--primary-dark);
+    padding: 20px 40px;
+    color: var(--primary-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary-hero::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 12px; height: 12px;
+    background: var(--primary-medium);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  /* Focus states for accessibility */
+  .btn-primary:focus,
+  .btn-secondary:focus,
+  .btn-outline:focus,
+  .btn-primary-hero:focus,
+  .btn-secondary-hero:focus {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 4px;
   }
   
   /* Card component styles */
@@ -285,20 +472,57 @@
     transition: all 0.3s var(--ease-out);
   }
   
+  /* PRD Complete 6 Geometric Shapes System */
   .geometric-triangle {
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
   
-  .geometric-diamond {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  .geometric-circle {
+    border-radius: 50%;                        /* Perfect circle */
+    clip-path: none;                           /* Override any clip-path */
+  }
+  
+  .geometric-square {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 0;                          /* Sharp square edges */
   }
   
   .geometric-hexagon {
     clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
   }
   
+  .geometric-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  
   .geometric-pentagon {
     clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+
+  /* Service-specific geometric shape assignments (PRD compliance) */
+  .service-electrical .geometric-shape {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle */
+  }
+  
+  .service-plumbing .geometric-shape {
+    border-radius: 50%;                        /* Circle */
+    clip-path: none;
+  }
+  
+  .service-telecom .geometric-shape {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Square */
+  }
+  
+  .service-safety .geometric-shape {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%); /* Hexagon */
+  }
+  
+  .service-finishing .geometric-shape {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond */
+  }
+  
+  .service-coordination .geometric-shape {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Pentagon */
   }
   
   .geometric-corner-cut {
