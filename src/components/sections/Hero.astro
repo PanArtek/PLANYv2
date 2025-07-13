@@ -6,18 +6,18 @@ import Button from '../ui/Button.astro';
   <!-- Enhanced Dynamic Background -->
   <div class="hero-background absolute inset-0 pointer-events-none">
     <!-- Dynamic gradient background with depth -->
-    <div class="absolute inset-0 bg-gradient-hero"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #F8F9FA 0%, #FAE8F3 40%, #EC9CCC 100%);"></div>
     
     <!-- Subtle geometric accents - positioned strategically -->
     <div class="geometric-accent-group absolute bottom-24 right-10 sm:right-20 flex gap-4 opacity-80">
-      <div class="accent-triangle w-6 h-6 geometric-triangle" style="background: var(--accent-orange);"></div>
-      <div class="accent-circle w-5 h-5 rounded-full" style="background: var(--primary-medium);"></div>
-      <div class="accent-square w-4 h-4 transform rotate-45" style="background: var(--primary-dark);"></div>
-      <div class="accent-hexagon w-5 h-5 geometric-hexagon" style="background: var(--primary-light);"></div>
+      <div class="accent-triangle w-6 h-6 geometric-triangle" style="background: #FF6B35;"></div>
+      <div class="accent-circle w-5 h-5 rounded-full" style="background: #D0AFCD;"></div>
+      <div class="accent-square w-4 h-4 transform rotate-45" style="background: #6F2451;"></div>
+      <div class="accent-hexagon w-5 h-5 geometric-hexagon" style="background: #EC9CCC;"></div>
     </div>
     
     <!-- Logo geometric accent -->
-    <div class="logo-accent absolute top-8 left-4 sm:left-8 w-2 h-2 rounded-full" style="background: var(--neutral-light);"></div>
+    <div class="logo-accent absolute top-8 left-4 sm:left-8 w-2 h-2 rounded-full" style="background: #CCD0DC;"></div>
   </div>
 
   <!-- Hero Content - Modern Minimalist -->
@@ -29,12 +29,12 @@ import Button from '../ui/Button.astro';
         font-size: clamp(56px, 10vw, 84px);
         font-weight: 700;
         line-height: 1.05;
-        color: var(--primary-dark);
+        color: #6F2451;
         letter-spacing: -0.03em;
         margin-bottom: 32px;
       ">
         Profesjonalne wykonawstwo<br>
-        <span class="text-gradient-hero">na każdym etapie</span>
+        <span style="background: linear-gradient(135deg, #EC9CCC 0%, #6F2451 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">na każdym etapie</span>
       </h1>
       
       <!-- Supporting text - Clean and focused -->
@@ -42,7 +42,7 @@ import Button from '../ui/Button.astro';
         font-size: 28px;
         font-weight: 400;
         line-height: 1.4;
-        color: var(--neutral-dark);
+        color: #683759;
         margin-bottom: 64px;
         max-width: 600px;
         margin-left: auto;
