@@ -211,13 +211,14 @@ const imageUrl = new URL(image, siteUrl).toString();
     
     <!-- Theme and initial styles to prevent FOUC -->
     <style>
-      /* Critical CSS - inline for performance */
+      /* Critical CSS - inline for performance - Professional Industrial Palette */
       :root {
-        --primary: #2a2a2a;
-        --secondary: #3b82f6;
-        --accent: #ffffff;
-        --neutral: #f1f5f9;
-        --text: #374151;
+        --primary: #1A1A1A;        /* Deep Charcoal */
+        --secondary: #FFD700;      /* Construction Yellow */
+        --accent: #1A1A1A;         /* Deep Charcoal background */
+        --neutral: #2C3E50;        /* Graphite Blue surfaces */
+        --text: #CBD5E0;           /* Light Grey text */
+        --text-heading: #F7FAFC;   /* Platinum White headings */
       }
       
       * {
@@ -232,8 +233,8 @@ const imageUrl = new URL(image, siteUrl).toString();
       }
       
       body {
-        background-color: var(--accent);
-        color: var(--text);
+        background-color: #1A1A1A;  /* Professional Industrial: Deep Charcoal */
+        color: #CBD5E0;             /* Professional Industrial: Light Grey text */
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
