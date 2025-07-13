@@ -125,6 +125,23 @@ src/
 
 ## Ostatnie zmiany:
 
+### 2025-01-13 - Layout & Design Fix (COMPLETED)
+• **Status**: ✅ UKOŃCZONE
+• **Problem**: Problemy z kolorystyką, chaos w sekcji "O nas", problemy nawigacyjne
+• **Rozwiązanie**: 
+  - Kolorystyka: Fixed text-gradient classes z display:inline-block, przywrócono białe tło body
+  - Sekcja O nas: Eliminacja duplikacji "chaos koordynacji", nowy layout 4 USPs + stats
+  - Navigation: Poprawiono styling logo i obsługę anchor links
+• **Pliki zmodyfikowane**:
+  - `src/styles/global.css` - naprawa text-gradient classes i body background
+  - `src/components/sections/About.astro` - kompletna restrukturyzacja layoutu
+  - `src/components/layout/Navigation.astro` - poprawki logo i navigation
+• **Nowy layout About**: 4 numerowane USPs (Wizja/Wycena/Harmonogram/Gwarancja) + czyste stats
+• **Build Result**: ✅ SUCCESS (9.62s)
+• **Bundle Size**: ✅ 187.44 kB (59.07 kB gzipped) - maintained performance
+• **Console Errors**: ✅ RESOLVED
+• **Deployment**: ✅ Live na https://panartek.github.io/PLANYv2
+
 ### 2025-01-13 - CSS Modernization (COMPLETED)
 • **Status**: ✅ UKOŃCZONE
 • **Problem**: Monotonous design lacking visual dynamism and modern appeal

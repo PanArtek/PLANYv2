@@ -4,23 +4,79 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Enhanced Amethyst Wisteria Twilight Palette
+        // Extended Amethyst Wisteria Twilight Palette with Full Shade System
+        primary: {
+          50: '#FDF7FB',
+          100: '#FAE8F3',
+          200: '#F5D1E6',
+          300: '#EC9CCC',
+          400: '#E06BA8',
+          500: '#D0AFCD',
+          600: '#A94F8A',
+          700: '#833D6B',
+          800: '#6F2451',
+          900: '#4A1836',
+        },
+        neutral: {
+          50: '#F8F9FA',
+          100: '#E9ECF1',
+          200: '#D9DEE6',
+          300: '#CCD0DC',
+          400: '#A8B0C1',
+          500: '#8691A7',
+          600: '#683759',
+          700: '#4D2A42',
+          800: '#341D2C',
+          900: '#1A0E16',
+        },
+        orange: {
+          light: '#FF8C5C',
+          DEFAULT: '#FF6B35',
+          dark: '#D45C1C',
+        },
+        yellow: {
+          light: '#FFE066',
+          DEFAULT: '#FFD23F',
+          dark: '#E6B800',
+        },
+        green: {
+          light: '#7FE5DF',
+          DEFAULT: '#4ECDC4',
+          dark: '#2BA39C',
+        },
+        coral: {
+          light: '#FF9999',
+          DEFAULT: '#FF6B6B',
+          dark: '#E64545',
+        },
+        lavender: {
+          light: '#D0C4DF',
+          DEFAULT: '#B8A7CE',
+          dark: '#9B88B5',
+        },
+        
+        // Backwards compatibility - Legacy color names
         'primary-light': '#EC9CCC',
         'primary-dark': '#6F2451',
         'primary-medium': '#D0AFCD',
         'neutral-light': '#CCD0DC',
         'neutral-dark': '#683759',
-        'accent-orange': '#D45C1C',
+        'accent-orange': '#FF6B35',
         'amethyst': '#9966CC',
         'wisteria': '#C9A0DC',
         'white': '#FFFFFF',
         'black': '#1A1A1A',
         
-        // Backwards compatibility
+        // Semantic color mappings
+        success: '#4ECDC4',
+        warning: '#FFD23F',
+        error: '#FF6B6B',
+        info: '#B8A7CE',
+        
+        // Legacy aliases for existing components
         primary: '#6F2451',
         secondary: '#683759',
         accent: '#FFFFFF',
-        neutral: '#CCD0DC',
         text: '#683759',
       },
       fontFamily: {
