@@ -397,12 +397,64 @@
     clip-path: polygon(0 0, 100% 0, 0 100%);
   }
 
+  /* Geometric button variants (Services.astro compatibility) */
+  .btn-geometric,
+  .btn-primary-geometric,
+  .btn-secondary-geometric {
+    @apply inline-flex items-center justify-center;
+    @apply px-6 py-3 text-sm font-medium rounded-lg;
+    @apply transition-all duration-200;
+    @apply relative overflow-hidden;
+  }
+
+  .btn-geometric,
+  .btn-primary-geometric {
+    @apply bg-primary-light text-primary-dark;
+    @apply hover:bg-accent-orange hover:text-white;
+    @apply border border-primary-light;
+  }
+
+  .btn-secondary-geometric {
+    @apply bg-transparent text-primary-dark;
+    @apply border-2 border-primary-light;
+    @apply hover:bg-primary-light hover:text-primary-dark;
+  }
+
+  /* Geometric corner accent for button variants */
+  .btn-geometric::before,
+  .btn-primary-geometric::before,
+  .btn-secondary-geometric::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-orange);
+    clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary-geometric::before {
+    background: var(--primary-light);
+  }
+
+  .btn-geometric:hover::before,
+  .btn-primary-geometric:hover::before,
+  .btn-secondary-geometric:hover::before {
+    width: 16px;
+    height: 16px;
+  }
+
   /* Focus states for accessibility */
   .btn-primary:focus,
   .btn-secondary:focus,
   .btn-outline:focus,
   .btn-primary-hero:focus,
-  .btn-secondary-hero:focus {
+  .btn-secondary-hero:focus,
+  .btn-geometric:focus,
+  .btn-primary-geometric:focus,
+  .btn-secondary-geometric:focus {
     outline: 3px solid var(--primary-light);
     outline-offset: 4px;
   }

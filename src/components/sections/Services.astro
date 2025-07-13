@@ -184,31 +184,31 @@ import { SERVICES } from '../../utils/constants';
     position: relative;
   }
 
-  .service-icon-geometric .geometric-shape {
+  .service-icon-geometric .geometric-icon-container {
     transition: all 0.3s var(--ease-out);
   }
 
-  .card-service-geometric:hover .geometric-shape.geometric-triangle {
+  .card-service-geometric:hover .geometric-icon-container.geometric-triangle {
     transform: rotate(120deg) scale(1.1);
   }
 
-  .card-service-geometric:hover .geometric-shape.geometric-hexagon {
+  .card-service-geometric:hover .geometric-icon-container.geometric-hexagon {
     transform: rotate(60deg) scale(1.1);
   }
 
-  .card-service-geometric:hover .geometric-shape.geometric-diamond {
+  .card-service-geometric:hover .geometric-icon-container.geometric-diamond {
     transform: rotate(45deg) scale(1.1);
   }
 
-  .card-service-geometric:hover .geometric-shape.geometric-circle {
+  .card-service-geometric:hover .geometric-icon-container.geometric-circle {
     transform: scale(1.1);
   }
 
-  .card-service-geometric:hover .geometric-shape.geometric-pentagon {
+  .card-service-geometric:hover .geometric-icon-container.geometric-pentagon {
     transform: rotate(72deg) scale(1.1);
   }
 
-  .card-service-geometric:hover .geometric-shape.geometric-square {
+  .card-service-geometric:hover .geometric-icon-container.geometric-square {
     transform: rotate(45deg) scale(1.1);
   }
 
@@ -256,7 +256,7 @@ import { SERVICES } from '../../utils/constants';
   @media (prefers-reduced-motion: reduce) {
     .service-item-geometric,
     .card-service-geometric,
-    .geometric-shape,
+    .geometric-icon-container,
     .service-cta-geometric {
       transition: none !important;
       transform: none !important;
@@ -271,7 +271,7 @@ import { SERVICES } from '../../utils/constants';
       animation: none !important;
     }
 
-    .card-service-geometric:hover .geometric-shape {
+    .card-service-geometric:hover .geometric-icon-container {
       transform: none !important;
     }
   }
@@ -321,8 +321,8 @@ import { SERVICES } from '../../utils/constants';
       }
     );
 
-    // Geometric shape entrance animations
-    gsap.fromTo('.geometric-shape',
+    // Geometric shape entrance animations - fix selector
+    gsap.fromTo('.geometric-icon-container',
       { opacity: 0, scale: 0.8, rotation: -15 },
       {
         opacity: 1,
