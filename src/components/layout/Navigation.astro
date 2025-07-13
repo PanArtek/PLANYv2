@@ -24,11 +24,11 @@ import Button from '../ui/Button.astro';
         {NAVIGATION.map((item) => (
           <a 
             href={item.href} 
-            class="nav-link text-slate-600 hover:text-slate-900 font-medium transition-colors duration-300 relative group"
+            class="nav-link text-neutral-600 hover:text-neutral-800 font-medium transition-colors duration-300 relative group"
             data-section={item.href.replace('#', '')}
           >
             {item.label}
-            <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+            <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-primary-800 group-hover:w-full transition-all duration-300"></span>
           </a>
         ))}
       </div>
@@ -49,15 +49,15 @@ import Button from '../ui/Button.astro';
 
         <!-- Mobile Menu Button -->
         <button 
-          class="lg:hidden mobile-menu-button p-2 rounded-lg hover:bg-slate-100 transition-colors duration-300"
+          class="lg:hidden mobile-menu-button p-2 rounded-lg hover:bg-neutral-100 transition-colors duration-300"
           id="mobileMenuButton"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
         >
-          <svg class="w-6 h-6 text-slate-600" id="menuIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-neutral-600" id="menuIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <svg class="w-6 h-6 text-slate-600 hidden" id="closeIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-neutral-600 hidden" id="closeIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -68,19 +68,19 @@ import Button from '../ui/Button.astro';
   <!-- Mobile Menu -->
   <div class="mobile-menu lg:hidden hidden" id="mobileMenu">
     <div class="mobile-menu-backdrop fixed inset-0 bg-black/20 backdrop-blur-sm"></div>
-    <div class="mobile-menu-panel absolute top-full left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-slate-200/50 shadow-xl">
+    <div class="mobile-menu-panel absolute top-full left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-neutral-200/50 shadow-xl">
       <div class="container mx-auto px-4 py-6">
         <div class="space-y-4">
           {NAVIGATION.map((item) => (
             <a 
               href={item.href} 
-              class="mobile-nav-link block py-3 px-4 text-slate-700 hover:text-slate-900 hover:bg-slate-50/50 rounded-lg font-medium transition-all duration-300"
+              class="mobile-nav-link block py-3 px-4 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50/50 rounded-lg font-medium transition-all duration-300"
               data-section={item.href.replace('#', '')}
             >
               {item.label}
             </a>
           ))}
-          <div class="pt-4 border-t border-slate-200">
+          <div class="pt-4 border-t border-neutral-200">
             <Button 
               variant="primary" 
               size="large"
