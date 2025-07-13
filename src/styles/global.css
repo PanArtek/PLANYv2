@@ -45,54 +45,54 @@
 
 @layer base {
   :root {
-    /* PLANY Amethyst Wisteria Twilight Color Palette - Extended with Shades */
+    /* PLANY Professional Industrial Color Palette - Portfolio Revolution */
     
-    /* Primary Colors - Pink-Purple Spectrum (100-900) */
-    --primary-50: #FDF7FB;        /* Lightest pink tint */
-    --primary-100: #FAE8F3;       /* Very light pink */
-    --primary-200: #F5D1E6;       /* Light pink */
-    --primary-300: #EC9CCC;       /* Light pink-purple (original) */
-    --primary-400: #E06BA8;       /* Medium-light pink-purple */
-    --primary-500: #D0AFCD;       /* Medium pink-purple (original) */
-    --primary-600: #A94F8A;       /* Medium-dark pink-purple */
-    --primary-700: #833D6B;       /* Dark pink-purple */
-    --primary-800: #6F2451;       /* Dark burgundy-purple (original) */
-    --primary-900: #4A1836;       /* Darkest burgundy */
+    /* Primary Colors - Industrial Charcoal Spectrum (100-900) */
+    --primary-50: #F7FAFC;        /* Platinum White - headlines */
+    --primary-100: #EDF2F7;       /* Very light grey */
+    --primary-200: #E2E8F0;       /* Light grey */
+    --primary-300: #CBD5E0;       /* Light grey - body text */
+    --primary-400: #A0AEC0;       /* Medium-light grey */
+    --primary-500: #718096;       /* Medium grey */
+    --primary-600: #4A5568;       /* Medium-dark grey */
+    --primary-700: #2D3748;       /* Dark grey */
+    --primary-800: #1A202C;       /* Very dark grey */
+    --primary-900: #171923;       /* Near black */
     
-    /* Neutral Colors - Gray-Purple Spectrum (100-900) */
-    --neutral-50: #F8F9FA;        /* Almost white */
-    --neutral-100: #E9ECF1;       /* Very light gray-blue */
-    --neutral-200: #D9DEE6;       /* Light gray-blue */
-    --neutral-300: #CCD0DC;       /* Light gray-blue (original) */
-    --neutral-400: #A8B0C1;       /* Medium-light gray-blue */
-    --neutral-500: #8691A7;       /* Medium gray-blue */
-    --neutral-600: #683759;       /* Medium dark purple (original) */
-    --neutral-700: #4D2A42;       /* Dark purple-gray */
-    --neutral-800: #341D2C;       /* Very dark purple-gray */
-    --neutral-900: #1A0E16;       /* Almost black */
+    /* Background Colors - Industrial Charcoal System (100-900) */
+    --neutral-50: #1A1A1A;        /* Deep Charcoal - primary background */
+    --neutral-100: #0A1821;       /* Cerulean Dark - secondary background */
+    --neutral-200: #2C3E50;       /* Graphite Blue - surface */
+    --neutral-300: #34495E;       /* Steel Blue - cards */
+    --neutral-400: #3F4C5F;       /* Dark slate */
+    --neutral-500: #5A6C7D;       /* Medium steel */
+    --neutral-600: #7B8FA3;       /* Light steel */
+    --neutral-700: #94A3B8;       /* Steel grey - accents */
+    --neutral-800: #CBD5E0;       /* Light grey - body text */
+    --neutral-900: #F7FAFC;       /* Platinum white - headlines */
     
-    /* Accent Colors - Extended Palette */
-    --accent-orange: #FF6B35;     /* Vibrant orange - Primary CTA */
-    --accent-orange-light: #FF8C5C; /* Light orange */
-    --accent-orange-dark: #D45C1C;  /* Dark orange (original) */
-    --accent-yellow: #FFD23F;     /* Warm yellow - Secondary CTA */
-    --accent-yellow-light: #FFE066; /* Light yellow */
-    --accent-yellow-dark: #E6B800;  /* Dark yellow */
-    --accent-green: #4ECDC4;      /* Teal-green - Success states */
-    --accent-green-light: #7FE5DF;  /* Light teal */
-    --accent-green-dark: #2BA39C;   /* Dark teal */
-    --accent-coral: #FF6B6B;      /* Coral - Warnings/Important */
-    --accent-coral-light: #FF9999;  /* Light coral */
-    --accent-coral-dark: #E64545;   /* Dark coral */
-    --accent-lavender: #B8A7CE;   /* Soft lavender - Tertiary accent */
-    --accent-lavender-light: #D0C4DF; /* Light lavender */
-    --accent-lavender-dark: #9B88B5;  /* Dark lavender */
+    /* Accent Colors - Professional Industrial Palette */
+    --accent-orange: #FFA500;     /* Industrial Orange - hover states */
+    --accent-orange-light: #FFB347; /* Light orange */
+    --accent-orange-dark: #FF8C00;  /* Dark orange */
+    --accent-yellow: #FFD700;     /* Construction Yellow - Primary CTA */
+    --accent-yellow-light: #FFDF32; /* Light yellow */
+    --accent-yellow-dark: #FFC400;  /* Dark yellow */
+    --accent-green: #28A745;      /* Success green */
+    --accent-green-light: #5CBF69;  /* Light green */
+    --accent-green-dark: #1E7E34;   /* Dark green */
+    --accent-coral: #DC3545;      /* Error red */
+    --accent-coral-light: #E57373;  /* Light red */
+    --accent-coral-dark: #C62828;   /* Dark red */
+    --accent-lavender: #C0C0C0;   /* Chrome Silver - Secondary CTA */
+    --accent-lavender-light: #D3D3D3; /* Light silver */
+    --accent-lavender-dark: #A9A9A9;  /* Dark silver */
     
-    /* Extended Palette for Geometric Design */
-    --amethyst: #9966CC;          /* Amethyst - additional accents */
-    --wisteria: #C9A0DC;          /* Wisteria - subtle backgrounds */
-    --white: #FFFFFF;             /* Pure white - dominant (70%) */
-    --black: #1A1A1A;             /* Soft black for text */
+    /* Industrial Palette Extensions */
+    --industrial-blue: #2C3E50;   /* Graphite Blue - surfaces */
+    --industrial-steel: #34495E;  /* Steel Blue - elements */
+    --white: #F7FAFC;             /* Platinum White - text/accents */
+    --black: #1A1A1A;             /* Deep Charcoal - backgrounds */
     
     /* Legacy Color Role Assignments (for backwards compatibility) */
     --primary-light: #EC9CCC;     /* Light pink-purple - accents, CTA */
@@ -112,21 +112,21 @@
     --text-secondary: #CCD0DC;    /* Secondary text */
     --text-muted: #D0AFCD;        /* Muted text */
     
-    /* Enhanced Amethyst Wisteria Twilight Gradients - Using New Color Shades */
-    --gradient-primary: linear-gradient(135deg, var(--primary-300) 0%, var(--primary-800) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--neutral-600) 0%, var(--primary-500) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--accent-orange-dark) 0%, var(--primary-300) 100%);
-    --gradient-warm: linear-gradient(135deg, var(--primary-300) 0%, var(--white) 100%);
-    --gradient-cool: linear-gradient(135deg, var(--neutral-300) 0%, var(--neutral-600) 100%);
-    --gradient-geometric: linear-gradient(135deg, var(--amethyst) 0%, var(--wisteria) 100%);
+    /* Professional Industrial Gradients - Dark Theme Optimized */
+    --gradient-primary: linear-gradient(135deg, #2C3E50 0%, #1A1A1A 100%);
+    --gradient-secondary: linear-gradient(135deg, #34495E 0%, #2C3E50 100%);
+    --gradient-accent: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    --gradient-warm: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
+    --gradient-cool: linear-gradient(135deg, #718096 0%, #4A5568 100%);
+    --gradient-geometric: linear-gradient(135deg, #C0C0C0 0%, #A9A9A9 100%);
     
-    /* New Dynamic Background Gradients with Extended Palette */
-    --gradient-hero: linear-gradient(135deg, var(--neutral-50) 0%, var(--primary-100) 40%, var(--primary-300) 100%);
-    --gradient-section-light: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-200) 100%);
-    --gradient-section-medium: linear-gradient(135deg, var(--neutral-100) 0%, var(--primary-200) 100%);
-    --gradient-section-dark: linear-gradient(135deg, var(--neutral-800) 0%, var(--primary-900) 100%);
-    --gradient-card: linear-gradient(135deg, var(--white) 0%, var(--neutral-50) 100%);
-    --gradient-card-hover: linear-gradient(135deg, var(--neutral-50) 0%, var(--primary-200) 15%, var(--white) 100%);
+    /* Industrial Background Gradients - Dark Theme */
+    --gradient-hero: linear-gradient(135deg, #1A1A1A 0%, #0A1821 40%, #2C3E50 100%);
+    --gradient-section-light: linear-gradient(135deg, #1A1A1A 0%, #0A1821 100%);
+    --gradient-section-medium: linear-gradient(135deg, #0A1821 0%, #2C3E50 100%);
+    --gradient-section-dark: linear-gradient(135deg, #171923 0%, #1A202C 100%);
+    --gradient-card: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+    --gradient-card-hover: linear-gradient(135deg, #34495E 0%, #4A5568 15%, #2C3E50 100%);
     
     /* Enhanced Gradient Variations for Sections */
     --gradient-hero-alt: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-yellow-light) 20%, var(--primary-200) 100%);
@@ -224,20 +224,20 @@
     --color-border-dark: var(--neutral-400);
     --color-border-focus: var(--primary-300);
     
-    /* Enhanced shadows with modern depth */
-    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-sm: 0 2px 4px 0 rgb(111 36 81 / 0.08), 0 1px 2px -1px rgb(111 36 81 / 0.05);
-    --shadow-md: 0 4px 8px -1px rgb(111 36 81 / 0.12), 0 2px 4px -2px rgb(111 36 81 / 0.08);
-    --shadow-lg: 0 10px 20px -3px rgb(111 36 81 / 0.15), 0 4px 8px -4px rgb(111 36 81 / 0.1);
-    --shadow-xl: 0 20px 30px -5px rgb(111 36 81 / 0.18), 0 8px 12px -6px rgb(111 36 81 / 0.12);
-    --shadow-2xl: 0 25px 50px -12px rgb(111 36 81 / 0.25), 0 12px 20px -8px rgb(212 92 28 / 0.15);
-    --shadow-inner: inset 0 2px 4px 0 rgb(111 36 81 / 0.06);
+    /* Industrial shadows with dramatic depth for dark theme */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(255 215 0 / 0.1);
+    --shadow-md: 0 4px 8px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(255 215 0 / 0.15);
+    --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.6), 0 4px 8px -4px rgb(255 165 0 / 0.2);
+    --shadow-xl: 0 20px 30px -5px rgb(0 0 0 / 0.7), 0 8px 12px -6px rgb(255 215 0 / 0.25);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.8), 0 12px 20px -8px rgb(192 192 192 / 0.2);
+    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.3);
     
-    /* Colored shadows for enhanced depth */
-    --shadow-primary: 0 8px 25px rgba(111, 36, 81, 0.2), 0 4px 12px rgba(111, 36, 81, 0.15);
-    --shadow-accent: 0 6px 20px rgba(212, 92, 28, 0.25), 0 2px 8px rgba(212, 92, 28, 0.2);
-    --shadow-card: 0 4px 15px rgba(111, 36, 81, 0.08), 0 2px 6px rgba(111, 36, 81, 0.05);
-    --shadow-card-hover: 0 12px 30px rgba(111, 36, 81, 0.15), 0 6px 15px rgba(236, 156, 204, 0.2);
+    /* Industrial colored shadows for dramatic effect */
+    --shadow-primary: 0 8px 25px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(255, 215, 0, 0.2);
+    --shadow-accent: 0 6px 20px rgba(255, 165, 0, 0.4), 0 2px 8px rgba(255, 215, 0, 0.3);
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(192, 192, 192, 0.1);
+    --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.7), 0 6px 15px rgba(255, 215, 0, 0.3);
     
     /* Modern animation curves */
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -392,8 +392,8 @@
   }
   
   body {
-    background: var(--white);                   /* Fix: Back to solid white for text gradient compatibility */
-    color: var(--neutral-dark);
+    background: #1A1A1A;                       /* Professional Industrial: Deep Charcoal */
+    color: #CBD5E0;                            /* Professional Industrial: Light Grey text */
     line-height: 1.6;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -408,7 +408,7 @@
   /* PRD Typography Scale - Montserrat for Headings */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;   /* Headings - Montserrat */
-    color: var(--primary-dark);              /* Dark burgundy-purple */
+    color: #F7FAFC;                          /* Platinum White for dark backgrounds */
     font-weight: 600;                        /* Semibold for geometric elegance */
     line-height: 1.1;                        /* Tight for geometric impact */
     letter-spacing: -0.02em;
@@ -461,7 +461,7 @@
   /* Body text styling - Inter font */
   p {
     font-family: 'Inter', sans-serif;
-    color: var(--neutral-dark);              /* #683759 - Medium dark purple */
+    color: #CBD5E0;                          /* Light Grey for readability on dark */
     line-height: 1.7;                        /* Loose for comfort per PRD */
     font-size: var(--text-lg);               /* 18px - Body text per PRD */
     font-weight: 400;
@@ -470,15 +470,15 @@
 
   /* Supporting text styling */
   .text-supporting {
-    color: var(--neutral-light);             /* Lighter color for supporting text */
+    color: #94A3B8;                          /* Steel Grey for supporting text */
     font-size: var(--text-base);             /* 16px */
   }
 
   /* Small text styling */
   .text-small {
     font-size: var(--text-sm);               /* 14px - Captions per PRD */
-    color: var(--neutral-dark);
-    opacity: 0.8;
+    color: #94A3B8;                          /* Steel Grey for small text */
+    opacity: 0.9;
   }
 
   .text-gradient {
@@ -549,17 +549,17 @@
   
   /* PRD Geometric Button System - Amethyst Wisteria Twilight */
   
-  /* Primary CTA Button (Main Action) - Sage Green with Terracotta Corner */
+  /* Primary CTA Button (Main Action) - Construction Yellow Industrial */
   .btn-primary {
-    background: #87A96B;                       /* Sage Green */
-    border: 2px solid #87A96B;
-    color: #FFFFFF;
+    background: #FFD700;                       /* Construction Yellow */
+    border: 2px solid #FFD700;
+    color: #1A1A1A;                            /* Deep Charcoal text for contrast */
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     border-radius: 0;
     position: relative;
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    box-shadow: 0 4px 16px rgba(135, 169, 107, 0.2);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
   }
 
   .btn-primary::before {
@@ -569,26 +569,27 @@
     right: -2px;
     width: 12px; 
     height: 12px;
-    background: #E76F51;                       /* Terracotta accent corner */
+    background: #FFA500;                       /* Industrial Orange accent corner */
     clip-path: polygon(0 0, 100% 0, 100% 100%);
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-primary:hover {
-    background: #E76F51;
+    background: #FFA500;                       /* Industrial Orange on hover */
+    color: #F7FAFC;                            /* Platinum White text on hover */
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(231, 111, 81, 0.3);
+    box-shadow: 0 8px 24px rgba(255, 165, 0, 0.4);
   }
 
   .btn-primary:hover::before {
-    background: #87A96B;
+    background: #FFD700;                       /* Construction Yellow corner on hover */
   }
   
-  /* Secondary CTA Button (Alternative Action) - Terracotta with Lavender Corner */
+  /* Secondary CTA Button (Alternative Action) - Chrome Silver Industrial */
   .btn-secondary {
     background: transparent;
-    border: 2px solid #E76F51;                /* Terracotta border */
-    color: #E76F51;
+    border: 2px solid #C0C0C0;                /* Chrome Silver border */
+    color: #C0C0C0;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     border-radius: 0;
@@ -603,20 +604,20 @@
     left: -2px;
     width: 12px; 
     height: 12px;
-    background: #B4A7D6;                      /* Soft Lavender corner */
+    background: #FFD700;                       /* Construction Yellow corner */
     clip-path: polygon(0 0, 100% 0, 0 100%);
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-secondary:hover {
-    background: #E76F51;
-    color: #FFFFFF;
+    background: #C0C0C0;                      /* Chrome Silver background on hover */
+    color: #1A1A1A;                           /* Deep Charcoal text on hover */
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(231, 111, 81, 0.2);
+    box-shadow: 0 8px 24px rgba(192, 192, 192, 0.3);
   }
 
   .btn-secondary:hover::before {
-    background: #87A96B;
+    background: #FFA500;                       /* Industrial Orange corner on hover */
   }
   
   /* Tertiary CTA Button (Support Action) - Warm Beige with Sage Green Dot */
