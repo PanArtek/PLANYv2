@@ -145,7 +145,7 @@ src/
 • **Bundle Size**: ✅ 187.44 kB (59.07 kB gzipped) - within targets
 • **Console Errors**: ✅ RESOLVED - no issues
 • **Visual Impact**: Transformed monotonous design into dynamic, modern aesthetic while preserving brand identity
-• **Deployment**: ✅ Ready for deployment
+• **Deployment**: ✅ Live na https://panartek.github.io/PLANYv2
 
 ### 2025-01-13 - GSAP Refactor (COMPLETED)
 • **Status**: ✅ UKOŃCZONE

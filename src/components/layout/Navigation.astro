@@ -11,10 +11,10 @@ import Button from '../ui/Button.astro';
       <div class="flex items-center">
         <a href="/" class="flex items-center group" aria-label="PLANY - Strona główna">
           <div class="logo-container relative">
-            <h1 class="logo-text text-3xl lg:text-4xl font-bold text-gradient-primary tracking-tight">
+            <h1 class="logo-text text-3xl lg:text-4xl font-bold tracking-tight" style="color: var(--primary-dark);">
               PLANY
             </h1>
-            <div class="logo-underline absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100"></div>
+            <div class="logo-underline absolute bottom-0 left-0 h-1 rounded-full transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100" style="background: var(--gradient-primary);"></div>
           </div>
         </a>
       </div>
@@ -331,9 +331,9 @@ import Button from '../ui/Button.astro';
         const href = link.getAttribute('href');
         
         // Handle internal anchor links
-        if (href && href.startsWith('/#')) {
+        if (href && href.startsWith('#')) {
           e.preventDefault();
-          const targetId = href.substring(2); // Remove /#
+          const targetId = href.substring(1); // Remove #
           const targetElement = document.getElementById(targetId);
           
           if (targetElement) {

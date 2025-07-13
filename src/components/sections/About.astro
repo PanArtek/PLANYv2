@@ -6,267 +6,167 @@ import Button from '../ui/Button.astro';
 <section id="o-nas" class="about section-gradient-light py-20">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
+      
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--primary-dark);">
           O nas
         </h2>
-        <p class="text-xl max-w-3xl mx-auto" style="color: var(--neutral-dark);">
-          Kompleksowy wykonawca wykończeń i instalacji z 17-letnim doświadczeniem.<br>
+        <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: var(--neutral-dark);">
+          Kompleksowy wykonawca wykończeń i instalacji z <strong>17-letnim doświadczeniem</strong>.<br>
           <strong>Własny zespół 20+ specjalistów</strong> we wszystkich branżach eliminuje problemy koordynacji.
         </p>
       </div>
 
-      <!-- Block A: Company Story & Main Message -->
-      <div class="mb-16">
-        <div class="max-w-4xl mx-auto text-center mb-12">
-          <h3 class="text-3xl md:text-4xl font-bold mb-6">
-            <span class="text-gradient-primary">Eliminujemy chaos koordynacji</span>
+      <!-- Main USPs Grid - 4 key advantages -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        
+        <!-- USP 1: Wizja lokalna -->
+        <div class="text-center group cursor-pointer transition-all duration-300 hover:scale-105">
+          <div class="mb-6">
+            <GeometricIcon 
+              shape="diamond" 
+              icon="MapPin" 
+              size="lg" 
+              color="var(--primary-light)" 
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--primary-dark);">
+            1. Wizja lokalna
           </h3>
-          <p class="text-xl leading-relaxed mb-4" style="color: var(--neutral-dark);">
-            <strong style="color: var(--primary-dark);">PLANY</strong> to kompleksowy wykonawca wykończeń i instalacji 
-            z <strong>17-letnim doświadczeniem</strong> na rynku. Własny zespół 20+ pracowników 
-            we wszystkich branżach eliminuje chaos koordynacji wielu podwykonawców.
+          <p class="text-sm font-semibold mb-2" style="color: var(--accent-orange);">
+            Zawsze wymagana
           </p>
-          <p class="text-lg font-semibold" style="color: var(--accent-orange);">
-            Jeden punkt kontaktu, pełna odpowiedzialność za całość.
+          <p class="text-sm leading-relaxed" style="color: var(--neutral-dark);">
+            Cały zespół (elektryk, hydraulik, wykończenia) jednocześnie. Bezpłatnie.
+          </p>
+        </div>
+
+        <!-- USP 2: Wycena 24h -->
+        <div class="text-center group cursor-pointer transition-all duration-300 hover:scale-105">
+          <div class="mb-6">
+            <GeometricIcon 
+              shape="hexagon" 
+              icon="Clock" 
+              size="lg" 
+              color="var(--accent-orange)" 
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--primary-dark);">
+            2. Wycena w 24h
+          </h3>
+          <p class="text-sm font-semibold mb-2" style="color: var(--primary-light);">
+            Szybka odpowiedź
+          </p>
+          <p class="text-sm leading-relaxed" style="color: var(--neutral-dark);">
+            Szczegółowy breakdown kosztów. Bez ukrytych płatności. Jedna faktura.
+          </p>
+        </div>
+
+        <!-- USP 3: Harmonogram i realizacja -->
+        <div class="text-center group cursor-pointer transition-all duration-300 hover:scale-105">
+          <div class="mb-6">
+            <GeometricIcon 
+              shape="triangle" 
+              icon="Calendar" 
+              size="lg" 
+              color="var(--primary-dark)" 
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--primary-dark);">
+            3. Harmonogram i realizacja
+          </h3>
+          <p class="text-sm font-semibold mb-2" style="color: var(--primary-medium);">
+            Dotrzymujemy terminów
+          </p>
+          <p class="text-sm leading-relaxed" style="color: var(--neutral-dark);">
+            Dotrzymujemy terminów bo kontrolujemy cały proces. Jeden punkt kontaktu.
+          </p>
+        </div>
+
+        <!-- USP 4: Gwarancja -->
+        <div class="text-center group cursor-pointer transition-all duration-300 hover:scale-105">
+          <div class="mb-6">
+            <GeometricIcon 
+              shape="pentagon" 
+              icon="Shield" 
+              size="lg" 
+              color="var(--primary-medium)" 
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--primary-dark);">
+            4. Gwarancja 24 miesiące
+          </h3>
+          <p class="text-sm font-semibold mb-2" style="color: var(--primary-light);">
+            Pełne zabezpieczenie
+          </p>
+          <p class="text-sm leading-relaxed" style="color: var(--neutral-dark);">
+            17 lat doświadczenia = stabilny partner na lata. Serwis gwarancyjny.
           </p>
         </div>
       </div>
 
-      <!-- Block B: Key USPs Showcase -->
-      <div class="mb-20">
-        <div class="text-center mb-12">
-          <h3 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">
-            Nasze kluczowe przewagi
-          </h3>
-          <p class="text-lg" style="color: var(--neutral-dark);">
-            To nas odróżnia od konkurencji
-          </p>
+      <!-- CTA Section -->
+      <div class="text-center mb-20">
+        <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+          <a 
+            href="#kontakt" 
+            class="btn-primary btn-lg inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
+          >
+            <GeometricIcon shape="triangle" icon="Calculator" size="sm" color="white" />
+            Poproś o wycenę
+          </a>
+          <a 
+            href="tel:+48123456789" 
+            class="btn-secondary btn-lg inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
+          >
+            <GeometricIcon shape="circle" icon="Phone" size="sm" color="var(--primary-dark)" />
+            Zadzwoń teraz
+          </a>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
-          <!-- USP 1: Wizja lokalna -->
-          <div class="text-center group cursor-pointer transition-transform duration-300 hover:scale-105">
-            <div class="mb-6">
-              <GeometricIcon 
-                shape="diamond" 
-                icon="MapPin" 
-                size="lg" 
-                color="var(--primary-light)" 
-              />
-            </div>
-            <h4 class="text-2xl font-bold mb-3" style="color: var(--primary-dark);">
-              Wizja lokalna
-            </h4>
-            <p class="text-lg font-semibold mb-2" style="color: var(--accent-orange);">
-              Zawsze wymagana
-            </p>
-            <p class="text-base" style="color: var(--neutral-dark);">
-              Dokumentujemy każdy projekt dla pełnej zgodności prawnej
-            </p>
-          </div>
+      </div>
 
-          <!-- USP 2: Wycena 24h -->
-          <div class="text-center group cursor-pointer transition-transform duration-300 hover:scale-105">
-            <div class="mb-6">
+      <!-- Stats Section - Clean separated layout -->
+      <div class="text-center">
+        <h3 class="text-2xl font-bold mb-8" style="color: var(--primary-dark);">
+          PLANY w liczbach
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-lg mx-auto">
+          
+          <!-- Stat 1: Specialists -->
+          <div class="text-center">
+            <div class="flex flex-col items-center gap-3">
               <GeometricIcon 
                 shape="hexagon" 
-                icon="Clock" 
-                size="lg" 
+                icon="Users" 
+                size="md" 
                 color="var(--accent-orange)" 
               />
+              <div>
+                <div class="text-4xl font-bold mb-2" style="color: var(--accent-orange);">20+</div>
+                <div class="text-sm font-medium" style="color: var(--neutral-dark);">Specjalistów</div>
+              </div>
             </div>
-            <h4 class="text-2xl font-bold mb-3" style="color: var(--primary-dark);">
-              Wycena w 24h
-            </h4>
-            <p class="text-lg font-semibold mb-2" style="color: var(--primary-light);">
-              Szybka odpowiedź
-            </p>
-            <p class="text-base" style="color: var(--neutral-dark);">
-              Precyzyjna kalkulacja kosztów w ciągu jednego dnia roboczego
-            </p>
           </div>
 
-          <!-- USP 3: Gwarancja 24 miesiące -->
-          <div class="text-center group cursor-pointer transition-transform duration-300 hover:scale-105">
-            <div class="mb-6">
+          <!-- Stat 2: Experience -->
+          <div class="text-center">
+            <div class="flex flex-col items-center gap-3">
               <GeometricIcon 
-                shape="pentagon" 
-                icon="Shield" 
-                size="lg" 
+                shape="triangle" 
+                icon="Award" 
+                size="md" 
                 color="var(--primary-dark)" 
               />
-            </div>
-            <h4 class="text-2xl font-bold mb-3" style="color: var(--primary-dark);">
-              Gwarancja 24 miesiące
-            </h4>
-            <p class="text-lg font-semibold mb-2" style="color: var(--primary-light);">
-              Pełne zabezpieczenie
-            </p>
-            <p class="text-base" style="color: var(--neutral-dark);">
-              Dwuletnia gwarancja na wszystkie prace i materiały
-            </p>
-          </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="text-center mt-12">
-          <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-            <a 
-              href="/#kontakt" 
-              class="btn-primary btn-lg inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
-            >
-              <GeometricIcon shape="triangle" icon="Calculator" size="sm" color="white" />
-              Poproś o wycenę
-            </a>
-            <a 
-              href="tel:+48123456789" 
-              class="btn-secondary btn-lg inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
-            >
-              <GeometricIcon shape="circle" icon="Phone" size="sm" color="var(--primary-dark)" />
-              Zadzwoń teraz
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Block C: Stats & Supporting Benefits -->
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        <!-- Stats Grid -->
-        <div>
-          <h4 class="text-xl font-bold mb-8 text-center" style="color: var(--primary-dark);">
-            PLANY w liczbach
-          </h4>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="text-center">
-              <div class="flex flex-col items-center gap-3">
-                <GeometricIcon 
-                  shape="triangle" 
-                  icon="Award" 
-                  size="md" 
-                  color="var(--primary-dark)" 
-                />
-                <div>
-                  <div class="text-3xl font-bold mb-2" style="color: var(--primary-dark);">17</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">lat doświadczenia</div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center">
-              <div class="flex flex-col items-center gap-3">
-                <GeometricIcon 
-                  shape="hexagon" 
-                  icon="Users" 
-                  size="md" 
-                  color="var(--accent-orange)" 
-                />
-                <div>
-                  <div class="text-3xl font-bold mb-2" style="color: var(--accent-orange);">20+</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">specjalistów</div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center">
-              <div class="flex flex-col items-center gap-3">
-                <GeometricIcon 
-                  shape="diamond" 
-                  icon="Building2" 
-                  size="md" 
-                  color="var(--primary-light)" 
-                />
-                <div>
-                  <div class="text-2xl font-bold mb-2" style="color: var(--primary-light);">100-5000m²</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">powierzchnie realizacji</div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center">
-              <div class="flex flex-col items-center gap-3">
-                <GeometricIcon 
-                  shape="circle" 
-                  icon="Phone" 
-                  size="md" 
-                  color="var(--primary-medium)" 
-                />
-                <div>
-                  <div class="text-3xl font-bold mb-2" style="color: var(--primary-medium);">1</div>
-                  <div class="text-sm" style="color: var(--neutral-dark);">telefon załatwia sprawę</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Supporting Benefits -->
-        <div>
-          <h4 class="text-xl font-bold mb-8 text-center" style="color: var(--primary-dark);">
-            Dlaczego klienci nas wybierają
-          </h4>
-          <div class="space-y-6">
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0 mt-1">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--primary-light);">
-                  <GeometricIcon shape="triangle" icon="Check" size="sm" color="white" />
-                </div>
-              </div>
               <div>
-                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
-                  Własny zespół wszystkich branż
-                </h5>
-                <p class="text-sm" style="color: var(--neutral-dark);">
-                  Eliminujemy problemy koordynacji podwykonawców
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0 mt-1">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--accent-orange);">
-                  <GeometricIcon shape="hexagon" icon="Check" size="sm" color="white" />
-                </div>
-              </div>
-              <div>
-                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
-                  Specjalizacja w różnych branżach
-                </h5>
-                <p class="text-sm" style="color: var(--neutral-dark);">
-                  Medyczne, edukacyjne, biurowe, handlowe - znamy wymagania każdej
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0 mt-1">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--primary-dark);">
-                  <GeometricIcon shape="diamond" icon="Check" size="sm" color="white" />
-                </div>
-              </div>
-              <div>
-                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
-                  Terminowość i elastyczność
-                </h5>
-                <p class="text-sm" style="color: var(--neutral-dark);">
-                  Dostosowujemy harmonogram do potrzeb klienta
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start space-x-4">
-              <div class="flex-shrink-0 mt-1">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: var(--primary-medium);">
-                  <GeometricIcon shape="pentagon" icon="Check" size="sm" color="white" />
-                </div>
-              </div>
-              <div>
-                <h5 class="font-semibold mb-2" style="color: var(--primary-dark);">
-                  Kompleksowa obsługa "pod klucz"
-                </h5>
-                <p class="text-sm" style="color: var(--neutral-dark);">
-                  Od wizji lokalnej po odbiór końcowy z gwarancją
-                </p>
+                <div class="text-4xl font-bold mb-2" style="color: var(--primary-dark);">17</div>
+                <div class="text-sm font-medium" style="color: var(--neutral-dark);">Lat doświadczenia</div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -285,14 +185,33 @@ import Button from '../ui/Button.astro';
     height: 1px;
     background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
   }
+
+  /* Enhanced hover effects for USP cards */
+  .about .group:hover .geometric-icon-container {
+    transform: scale(1.1) rotate(10deg);
+  }
+
+  .about .group:hover h3 {
+    color: var(--primary-light) !important;
+    transition: color 0.3s ease;
+  }
 </style>
 
 <script type="module">
   function initAboutAnimations() {
     if (!window.gsap || !window.ScrollTrigger) return;
 
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      gsap.set('.about [class*="grid"] > div', { opacity: 1, y: 0, scale: 1 });
+      return;
+    }
+
     // Animate USP cards on scroll
-    gsap.fromTo('.about [class*="md:grid-cols-3"] > div', 
+    gsap.fromTo('.about .grid > div', 
       {
         opacity: 0,
         y: 40,
@@ -306,49 +225,7 @@ import Button from '../ui/Button.astro';
         stagger: 0.15,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: '[class*="md:grid-cols-3"]',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-
-    // Animate stats grid
-    gsap.fromTo('.about .grid.grid-cols-2 .text-center', 
-      {
-        opacity: 0,
-        y: 20,
-        scale: 0.85
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.about .grid.grid-cols-2',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-
-    // Animate supporting benefits
-    gsap.fromTo('.about .space-y-6 > div', 
-      {
-        opacity: 0,
-        x: 30
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.about .space-y-6',
+          trigger: '.about .grid',
           start: 'top 80%',
           toggleActions: 'play none none reverse'
         }
