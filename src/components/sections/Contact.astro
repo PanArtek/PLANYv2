@@ -3,15 +3,15 @@ import Icon from '../ui/Icon.astro';
 import Card from '../ui/Card.astro';
 ---
 
-<section class="contact py-20 bg-white" id="kontakt">
+<section class="contact py-20" id="kontakt" style="background: linear-gradient(180deg, #F5F1EB 0%, #FEFCF3 50%, #F5F1EB 100%);">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
       <!-- Section Header -->
       <div class="contact-header text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold" style="color: var(--primary-dark);">
-          Skontaktuj się z <span style="color: var(--primary-light);">nami</span>
+        <h2 class="text-4xl lg:text-5xl font-bold" style="color: #87A96B;">
+          Skontaktuj się z <span style="background: linear-gradient(135deg, #B4A7D6 0%, #E76F51 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">nami</span>
         </h2>
-        <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: var(--neutral-dark);">
+        <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: #87A96B;">
           Własny zespół 20+ specjalistów - jeden telefon załatwia sprawę. 
           Odpowiemy w ciągu 24 godzin z bezpłatną wyceną.
         </p>
@@ -20,10 +20,10 @@ import Card from '../ui/Card.astro';
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <!-- Company Info -->
         <div class="company-info">
-          <Card variant="contact" clipPath="corner-cut" padding="lg" class="rounded-2xl" style="background: var(--primary-light);">
-            <h3 class="text-2xl font-semibold mb-6" style="color: var(--primary-dark);">PLANY</h3>
+          <Card variant="contact" clipPath="corner-cut" padding="lg" class="rounded-2xl" style="background: #B4A7D6;">
+            <h3 class="text-2xl font-semibold mb-6" style="color: #87A96B;">PLANY</h3>
             <div class="space-y-4">
-              <p class="text-lg leading-relaxed" style="color: var(--primary-dark);">
+              <p class="text-lg leading-relaxed" style="color: #87A96B;">
                 <strong>Kompleksowy wykonawca wykończeń i instalacji</strong><br>
                 Własny zespół 20+ specjalistów eliminuje problemy koordynacji.<br>
                 17 lat doświadczenia w wykończeniach komercyjnych.
@@ -31,11 +31,11 @@ import Card from '../ui/Card.astro';
               
               <div class="space-y-3 pt-4">
                 <div class="flex items-center gap-3">
-                  <div class="w-6 h-6 geometric-hexagon" style="background: var(--primary-dark);"></div>
+                  <div class="w-6 h-6 geometric-hexagon" style="background: #87A96B;"></div>
                   <span style="color: var(--primary-dark); font-weight: 500;">Realizacje 100-5000m² w całej Polsce</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div class="w-6 h-6 geometric-triangle" style="background: var(--accent-orange);"></div>
+                  <div class="w-6 h-6 geometric-triangle" style="background: #E76F51;"></div>
                   <span style="color: var(--primary-dark); font-weight: 500;">Zarządcy nieruchomości • Kliniki • Szkoły • Biura</span>
                 </div>
               </div>
@@ -46,16 +46,16 @@ import Card from '../ui/Card.astro';
         <!-- Contact Information -->
         <div class="contact-info space-y-8">
           <!-- Direct Contact -->
-          <Card variant="contact" clipPath="angled-cut" padding="lg" class="rounded-2xl" style="background: var(--white); border: 2px solid var(--primary-medium);">
-            <h3 class="text-2xl font-semibold mb-6" style="color: var(--primary-dark);">Jeden telefon załatwia sprawę</h3>
+          <Card variant="contact" clipPath="angled-cut" padding="lg" class="rounded-2xl" style="background: #FEFCF3; border: 2px solid #B4A7D6;">
+            <h3 class="text-2xl font-semibold mb-6" style="color: #87A96B;">Jeden telefon załatwia sprawę</h3>
             
             <div class="space-y-6">
               <div class="contact-item flex items-start gap-4">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: #87A96B;">
                   <Icon name="Phone" class="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 class="text-lg font-medium mb-1" style="color: var(--primary-dark);">Telefon</h4>
+                  <h4 class="text-lg font-medium mb-1" style="color: #87A96B;">Telefon</h4>
                   <a href="tel:+48123456789" class="text-xl font-semibold transition-colors" style="color: var(--accent-orange);">
                     +48 123 456 789
                   </a>
@@ -65,11 +65,11 @@ import Card from '../ui/Card.astro';
               </div>
 
               <div class="contact-item flex items-start gap-4">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: #87A96B;">
                   <Icon name="Mail" class="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 class="text-lg font-medium mb-1" style="color: var(--primary-dark);">Email</h4>
+                  <h4 class="text-lg font-medium mb-1" style="color: #87A96B;">Email</h4>
                   <a href="mailto:kontakt@plany.pl" class="text-lg font-semibold transition-colors" style="color: var(--accent-orange);">
                     kontakt@plany.pl
                   </a>
@@ -78,12 +78,12 @@ import Card from '../ui/Card.astro';
               </div>
 
               <div class="contact-item flex items-start gap-4">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: #87A96B;">
                   <Icon name="MapPin" class="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 class="text-lg font-medium mb-1" style="color: var(--primary-dark);">Zasięg</h4>
-                  <p class="text-lg font-semibold" style="color: var(--primary-dark);">Cała Polska</p>
+                  <h4 class="text-lg font-medium mb-1" style="color: #87A96B;">Zasięg</h4>
+                  <p class="text-lg font-semibold" style="color: #87A96B;">Cała Polska</p>
                   <p class="text-sm mt-1" style="color: var(--neutral-dark);">Realizacje 100-5000m²</p>
                   <p class="text-sm" style="color: var(--neutral-dark);">Wizja lokalna bezpłatna</p>
                 </div>
@@ -93,45 +93,45 @@ import Card from '../ui/Card.astro';
 
           <!-- Process Steps -->
           <Card variant="contact" clipPath="diamond" padding="lg" class="rounded-2xl" style="background: var(--neutral-light);">
-            <h3 class="text-2xl font-semibold mb-6" style="color: var(--primary-dark);">Eliminujemy chaos koordynacji</h3>
+            <h3 class="text-2xl font-semibold mb-6" style="color: #87A96B;">Eliminujemy chaos koordynacji</h3>
             
             <div class="space-y-6">
               <div class="process-step flex items-start gap-4">
-                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: #87A96B;">
                   1
                 </div>
                 <div>
-                  <h4 class="font-medium mb-1" style="color: var(--primary-dark);">Wizja lokalna</h4>
+                  <h4 class="font-medium mb-1" style="color: #87A96B;">Wizja lokalna</h4>
                   <p class="text-sm" style="color: var(--neutral-dark);">Cały zespół (elektryk, hydraulik, wykończenia) jednocześnie. Bezpłatnie.</p>
                 </div>
               </div>
 
               <div class="process-step flex items-start gap-4">
-                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: #87A96B;">
                   2
                 </div>
                 <div>
-                  <h4 class="font-medium mb-1" style="color: var(--primary-dark);">Wycena w 24h</h4>
+                  <h4 class="font-medium mb-1" style="color: #87A96B;">Wycena w 24h</h4>
                   <p class="text-sm" style="color: var(--neutral-dark);">Szczegółowy breakdown kosztów. Bez ukrytych płatności. Jedna faktura.</p>
                 </div>
               </div>
 
               <div class="process-step flex items-start gap-4">
-                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: #87A96B;">
                   3
                 </div>
                 <div>
-                  <h4 class="font-medium mb-1" style="color: var(--primary-dark);">Harmonogram i realizacja</h4>
+                  <h4 class="font-medium mb-1" style="color: #87A96B;">Harmonogram i realizacja</h4>
                   <p class="text-sm" style="color: var(--neutral-dark);">Dotrzymujemy terminów bo kontrolujemy cały proces. Jeden punkt kontaktu.</p>
                 </div>
               </div>
 
               <div class="process-step flex items-start gap-4">
-                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: var(--primary-dark);">
+                <div class="w-8 h-8 text-white rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0" style="background: #87A96B;">
                   4
                 </div>
                 <div>
-                  <h4 class="font-medium mb-1" style="color: var(--primary-dark);">Gwarancja 24 miesiące</h4>
+                  <h4 class="font-medium mb-1" style="color: #87A96B;">Gwarancja 24 miesiące</h4>
                   <p class="text-sm" style="color: var(--neutral-dark);">17 lat doświadczenia = stabilny partner na lata. Serwis gwarancyjny.</p>
                 </div>
               </div>
@@ -140,11 +140,11 @@ import Card from '../ui/Card.astro';
 
           <!-- Trust Indicators -->
           <div class="trust-indicators grid grid-cols-2 gap-4">
-            <Card variant="geometric" clipPath="hexagon" padding="md" class="trust-item text-center rounded-lg" style="background: var(--white); border: 2px solid var(--primary-medium);">
+            <Card variant="geometric" clipPath="hexagon" padding="md" class="trust-item text-center rounded-lg" style="background: #FEFCF3; border: 2px solid #B4A7D6;">
               <div class="text-2xl font-bold mb-1" style="color: var(--accent-orange);">20+</div>
               <div class="text-sm" style="color: var(--neutral-dark);">Specjalistów</div>
             </Card>
-            <Card variant="geometric" clipPath="pentagon" padding="md" class="trust-item text-center rounded-lg" style="background: var(--white); border: 2px solid var(--primary-medium);">
+            <Card variant="geometric" clipPath="pentagon" padding="md" class="trust-item text-center rounded-lg" style="background: #FEFCF3; border: 2px solid #B4A7D6;">
               <div class="text-2xl font-bold mb-1" style="color: var(--accent-orange);">17</div>
               <div class="text-sm" style="color: var(--neutral-dark);">Lat doświadczenia</div>
             </Card>

@@ -5,14 +5,14 @@ import GeometricIcon from '../ui/GeometricIcon.astro';
 import { SERVICES } from '../../utils/constants';
 ---
 
-<section class="services-geometric py-20" id="uslugi" style="background: var(--neutral-light);">
+<section class="services-geometric py-20" id="uslugi" style="background: linear-gradient(180deg, #FEFCF3 0%, #F5F1EB 100%);">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header - Geometric Style -->
     <div class="services-header text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-bold mb-6" style="color: var(--primary-dark);">
-        Nasze <span class="text-gradient-secondary">Specjalizacje</span>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6" style="color: #87A96B;">
+        Nasze <span style="background: linear-gradient(135deg, #B4A7D6 0%, #E76F51 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Specjalizacje</span>
       </h2>
-      <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: var(--neutral-dark);">
+      <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: #87A96B;">
         Własny zespół wszystkich branż eliminuje chaos koordynacji. Jeden telefon zamiast dziesięciu. 
         17 lat doświadczenia w Waszej branży - znamy co może pójść nie tak.
       </p>
@@ -21,14 +21,14 @@ import { SERVICES } from '../../utils/constants';
     <!-- PRD Geometric Services Grid - 6 Shapes System -->
     <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {SERVICES.map((service, index) => {
-        // PRD Service to Shape Mapping
+        // PRD Service to Shape Mapping - Digital Wellness Colors
         const serviceShapeMapping = {
-          'medical': { shape: 'triangle', color: 'var(--primary-light)' },      // Triangle - Emergency/Medical
-          'education': { shape: 'circle', color: 'var(--primary-dark)' },       // Circle - Unity/Community
-          'office': { shape: 'square', color: 'var(--accent-orange)' },         // Square - Structure/Business
-          'retail': { shape: 'hexagon', color: 'var(--primary-medium)' },       // Hexagon - Commerce/Efficiency
-          'installations': { shape: 'diamond', color: 'var(--neutral-dark)' },  // Diamond - Precision/Technical
-          'turnkey': { shape: 'pentagon', color: 'var(--amethyst)' }            // Pentagon - Completeness/Stability
+          'medical': { shape: 'triangle', color: '#E76F51' },      // Triangle - Emergency/Medical (Terracotta)
+          'education': { shape: 'circle', color: '#87A96B' },       // Circle - Unity/Community (Sage Green)
+          'office': { shape: 'square', color: '#B4A7D6' },         // Square - Structure/Business (Soft Lavender)
+          'retail': { shape: 'hexagon', color: '#F5F1EB' },       // Hexagon - Commerce/Efficiency (Warm Beige)
+          'installations': { shape: 'diamond', color: '#87A96B' },  // Diamond - Precision/Technical (Sage Green)
+          'turnkey': { shape: 'pentagon', color: '#E76F51' }            // Pentagon - Completeness/Stability (Terracotta)
         };
         
         const serviceMapping = serviceShapeMapping[service.id] || serviceShapeMapping['medical'];
@@ -54,23 +54,23 @@ import { SERVICES } from '../../utils/constants';
 
             <!-- Service Content -->
             <div class="service-content">
-              <h3 class="text-xl font-semibold mb-4 group-hover:transition-colors duration-300" style="color: var(--primary-dark);">
+              <h3 class="text-xl font-semibold mb-4 group-hover:transition-colors duration-300" style="color: #87A96B;">
                 {service.title}
               </h3>
               
-              <p class="mb-6 leading-relaxed" style="color: var(--neutral-dark);">
+              <p class="mb-6 leading-relaxed" style="color: #87A96B;">
                 {service.description}
               </p>
 
               <!-- Service Features -->
               <ul class="space-y-3">
                 {service.features.map(feature => (
-                  <li class="flex items-start gap-3 text-sm" style="color: var(--neutral-dark);">
-                    <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: var(--primary-light);">
+                  <li class="flex items-start gap-3 text-sm" style="color: #87A96B;">
+                    <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: #B4A7D6;">
                       <Icon 
                         name="Check" 
                         class="w-3 h-3" 
-                        style="color: var(--primary-dark);"
+                        style="color: #87A96B;"
                       />
                     </div>
                     <span>{feature}</span>
@@ -79,11 +79,11 @@ import { SERVICES } from '../../utils/constants';
               </ul>
 
               <!-- Geometric CTA -->
-              <div class="mt-6 pt-6" style="border-top: 1px solid var(--neutral-light);">
+              <div class="mt-6 pt-6" style="border-top: 1px solid #F5F1EB;">
                 <button 
                   class="service-cta-geometric font-medium text-sm transition-colors duration-200 flex items-center gap-2 group/cta"
                   data-service={service.id}
-                  style="color: var(--primary-dark);"
+                  style="color: #87A96B;"
                 >
                   Dowiedz się więcej
                   <Icon 

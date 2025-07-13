@@ -549,17 +549,17 @@
   
   /* PRD Geometric Button System - Amethyst Wisteria Twilight */
   
-  /* Primary CTA Button (Main Action) - Pink with Orange Corner */
+  /* Primary CTA Button (Main Action) - Sage Green with Terracotta Corner */
   .btn-primary {
-    background: var(--primary-light);          /* #EC9CCC - Light pink-purple */
-    border: 2px solid var(--primary-dark);    /* #6F2451 - Dark burgundy-purple */
+    background: #87A96B;                       /* Sage Green */
+    border: 2px solid #87A96B;
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    border-radius: 0;                          /* Sharp geometric edges */
+    border-radius: 0;
     position: relative;
-    transition: all 0.3s var(--ease-out);
-    box-shadow: var(--geometric-shadow);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 16px rgba(135, 169, 107, 0.2);
   }
 
   .btn-primary::before {
@@ -569,31 +569,31 @@
     right: -2px;
     width: 12px; 
     height: 12px;
-    background: var(--accent-orange);          /* #D45C1C - Orange accent corner */
+    background: #E76F51;                       /* Terracotta accent corner */
     clip-path: polygon(0 0, 100% 0, 100% 100%);
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(var(--geometric-hover-lift)) scale(1.02);
-    box-shadow: var(--shadow-primary);
+    background: #E76F51;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(231, 111, 81, 0.3);
   }
 
   .btn-primary:hover::before {
-    background: var(--primary-light);         /* Swap colors on hover */
+    background: #87A96B;
   }
   
-  /* Secondary CTA Button (Alternative Action) - Outline with Corner */
+  /* Secondary CTA Button (Alternative Action) - Terracotta with Lavender Corner */
   .btn-secondary {
     background: transparent;
-    border: 2px solid var(--primary-dark);    /* #6F2451 - Dark burgundy-purple */
-    color: var(--primary-dark);
+    border: 2px solid #E76F51;                /* Terracotta border */
+    color: #E76F51;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    border-radius: 0;                          /* Sharp geometric edges */
+    border-radius: 0;
     position: relative;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-secondary::before {
@@ -603,35 +603,35 @@
     left: -2px;
     width: 12px; 
     height: 12px;
-    background: var(--primary-medium);         /* #D0AFCD - Medium pink-purple */
+    background: #B4A7D6;                      /* Soft Lavender corner */
     clip-path: polygon(0 0, 100% 0, 0 100%);
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-secondary:hover {
-    background: var(--primary-dark);
+    background: #E76F51;
     color: #FFFFFF;
     transform: translateY(-2px) scale(1.02);
-    box-shadow: var(--shadow-primary);
+    box-shadow: 0 8px 24px rgba(231, 111, 81, 0.2);
   }
 
   .btn-secondary:hover::before {
-    background: var(--accent-orange);
+    background: #87A96B;
   }
   
-  /* Tertiary CTA Button (Support Action) - Orange with Dot */
+  /* Tertiary CTA Button (Support Action) - Warm Beige with Sage Green Dot */
   .btn-outline {
-    background: var(--accent-orange);          /* #D45C1C - Orange */
-    border: 2px solid var(--accent-orange);
-    color: #FFFFFF;
+    background: transparent;
+    border: 2px solid #F5F1EB;                /* Warm Beige border */
+    color: #87A96B;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 0;                          /* Sharp geometric edges */
+    border-radius: 0;
     position: relative;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-outline::after {
@@ -641,20 +641,20 @@
     right: -2px;
     width: 8px; 
     height: 8px;
-    background: var(--primary-light);         /* #EC9CCC - Pink accent dot */
+    background: #87A96B;                       /* Sage Green accent dot */
     border-radius: 50%;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-outline:hover {
-    background: transparent;
-    color: var(--accent-orange);
+    background: #F5F1EB;
+    color: #87A96B;
     transform: scale(1.05) translateY(-1px);
-    box-shadow: var(--shadow-accent);
+    box-shadow: 0 4px 16px rgba(245, 241, 235, 0.4);
   }
 
   .btn-outline:hover::after {
-    background: var(--primary-dark);
+    background: #E76F51;
   }
 
   /* Geometric Button Size Variants */
@@ -670,19 +670,20 @@
     padding: 24px 48px;                        /* Large geometric button */
   }
 
-  /* Hero-specific button variants for CTAs */
+  /* Hero-specific button variants for CTAs - Digital Wellness */
   .btn-primary-hero {
-    background: var(--primary-light);
-    border: 2px solid var(--primary-dark);
+    background: #87A96B;                       /* Sage Green */
+    border: 2px solid #87A96B;
     padding: 20px 40px;
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     border-radius: 0;
     position: relative;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     text-decoration: none;
     display: inline-block;
+    box-shadow: 0 4px 16px rgba(135, 169, 107, 0.2);
   }
 
   .btn-primary-hero::before {
@@ -690,20 +691,31 @@
     position: absolute;
     top: -2px; right: -2px;
     width: 12px; height: 12px;
-    background: var(--accent-orange);
+    background: #E76F51;                       /* Terracotta corner */
     clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-primary-hero:hover {
+    background: #E76F51;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(231, 111, 81, 0.3);
+  }
+
+  .btn-primary-hero:hover::before {
+    background: #87A96B;
   }
 
   .btn-secondary-hero {
     background: transparent;
-    border: 2px solid var(--primary-dark);
+    border: 2px solid #E76F51;                /* Terracotta border */
     padding: 20px 40px;
-    color: var(--primary-dark);
+    color: #E76F51;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     border-radius: 0;
     position: relative;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     text-decoration: none;
     display: inline-block;
   }
@@ -713,31 +725,60 @@
     position: absolute;
     top: -2px; left: -2px;
     width: 12px; height: 12px;
-    background: var(--primary-medium);
+    background: #B4A7D6;                      /* Soft Lavender corner */
     clip-path: polygon(0 0, 100% 0, 0 100%);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Geometric button variants (Services.astro compatibility) */
+  .btn-secondary-hero:hover {
+    background: #E76F51;
+    color: #FFFFFF;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(231, 111, 81, 0.2);
+  }
+
+  .btn-secondary-hero:hover::before {
+    background: #87A96B;
+  }
+
+  /* Geometric button variants (Services.astro compatibility) - Digital Wellness */
   .btn-geometric,
   .btn-primary-geometric,
   .btn-secondary-geometric {
-    @apply inline-flex items-center justify-center;
-    @apply px-6 py-3 text-sm font-medium rounded-lg;
-    @apply transition-all duration-200;
-    @apply relative overflow-hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
   }
 
   .btn-geometric,
   .btn-primary-geometric {
-    @apply bg-primary-light text-primary-dark;
-    @apply hover:bg-accent-orange hover:text-white;
-    @apply border border-primary-light;
+    background: #B4A7D6;                      /* Soft Lavender background */
+    color: #87A96B;                           /* Sage Green text */
+    border: 1px solid #B4A7D6;
+  }
+
+  .btn-geometric:hover,
+  .btn-primary-geometric:hover {
+    background: #E76F51;                      /* Terracotta on hover */
+    color: #FFFFFF;
   }
 
   .btn-secondary-geometric {
-    @apply bg-transparent text-primary-dark;
-    @apply border-2 border-primary-light;
-    @apply hover:bg-primary-light hover:text-primary-dark;
+    background: transparent;
+    color: #87A96B;                           /* Sage Green text */
+    border: 2px solid #B4A7D6;               /* Soft Lavender border */
+  }
+
+  .btn-secondary-geometric:hover {
+    background: #B4A7D6;
+    color: #87A96B;
   }
 
   /* Geometric corner accent for button variants */

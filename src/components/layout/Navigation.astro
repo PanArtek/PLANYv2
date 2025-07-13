@@ -11,10 +11,10 @@ import Button from '../ui/Button.astro';
       <div class="flex items-center">
         <a href="/" class="flex items-center group" aria-label="PLANY - Strona główna">
           <div class="logo-container relative">
-            <h1 class="logo-text text-3xl lg:text-4xl font-bold tracking-tight" style="color: var(--primary-dark);">
+            <h1 class="logo-text text-3xl lg:text-4xl font-bold tracking-tight" style="color: #87A96B;">
               PLANY
             </h1>
-            <div class="logo-underline absolute bottom-0 left-0 h-1 rounded-full transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100" style="background: var(--gradient-primary);"></div>
+            <div class="logo-underline absolute bottom-0 left-0 h-1 rounded-full transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100" style="background: linear-gradient(90deg, #87A96B 0%, #E76F51 100%);"></div>
           </div>
         </a>
       </div>
@@ -24,11 +24,12 @@ import Button from '../ui/Button.astro';
         {NAVIGATION.map((item) => (
           <a 
             href={item.href} 
-            class="nav-link text-neutral-600 hover:text-neutral-800 font-medium transition-colors duration-300 relative group"
+            class="nav-link font-medium transition-colors duration-300 relative group"
+            style="color: #87A96B;"
             data-section={item.href.replace('#', '')}
           >
             {item.label}
-            <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-primary-800 group-hover:w-full transition-all duration-300"></span>
+            <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style="background: linear-gradient(90deg, #87A96B 0%, #E76F51 100%);"></span>
           </a>
         ))}
       </div>
@@ -49,15 +50,16 @@ import Button from '../ui/Button.astro';
 
         <!-- Mobile Menu Button -->
         <button 
-          class="lg:hidden mobile-menu-button p-2 rounded-lg hover:bg-neutral-100 transition-colors duration-300"
+          class="lg:hidden mobile-menu-button p-2 rounded-lg transition-colors duration-300"
+          style="hover:background-color: #F5F1EB;"
           id="mobileMenuButton"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
         >
-          <svg class="w-6 h-6 text-neutral-600" id="menuIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6" id="menuIcon" fill="none" stroke="#87A96B" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <svg class="w-6 h-6 text-neutral-600 hidden" id="closeIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 hidden" id="closeIcon" fill="none" stroke="#87A96B" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -68,19 +70,20 @@ import Button from '../ui/Button.astro';
   <!-- Mobile Menu -->
   <div class="mobile-menu lg:hidden hidden" id="mobileMenu">
     <div class="mobile-menu-backdrop fixed inset-0 bg-black/20 backdrop-blur-sm"></div>
-    <div class="mobile-menu-panel absolute top-full left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-neutral-200/50 shadow-xl">
+    <div class="mobile-menu-panel absolute top-full left-0 right-0 backdrop-blur-lg shadow-xl" style="background: rgba(254, 252, 243, 0.9); border-top: 1px solid rgba(245, 241, 235, 0.5);">
       <div class="container mx-auto px-4 py-6">
         <div class="space-y-4">
           {NAVIGATION.map((item) => (
             <a 
               href={item.href} 
-              class="mobile-nav-link block py-3 px-4 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50/50 rounded-lg font-medium transition-all duration-300"
+              class="mobile-nav-link block py-3 px-4 rounded-lg font-medium transition-all duration-300"
+              style="color: #87A96B;"
               data-section={item.href.replace('#', '')}
             >
               {item.label}
             </a>
           ))}
-          <div class="pt-4 border-t border-neutral-200">
+          <div class="pt-4" style="border-top: 1px solid #F5F1EB;">
             <Button 
               variant="primary" 
               size="large"
@@ -120,7 +123,7 @@ import Button from '../ui/Button.astro';
   }
   
   .logo-text {
-    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+    background: linear-gradient(135deg, #87A96B 0%, #B4A7D6 50%, #E76F51 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -145,7 +148,7 @@ import Button from '../ui/Button.astro';
 
   /* Navigation link active states */
   .nav-link.active {
-    color: #3730a3;
+    color: #E76F51 !important;
   }
 
   .nav-link.active .nav-indicator {
@@ -184,9 +187,10 @@ import Button from '../ui/Button.astro';
     }
   }
 
-  /* Scroll progress bar animation */
+  /* Scroll progress bar animation - Digital Wellness */
   .scroll-progress {
     transform-origin: left;
+    background: linear-gradient(90deg, #87A96B 0%, #E76F51 100%) !important;
   }
 
   /* Custom scrollbar for mobile menu */
@@ -212,7 +216,7 @@ import Button from '../ui/Button.astro';
   .nav-link:focus,
   .mobile-nav-link:focus,
   .mobile-menu-button:focus {
-    outline: 2px solid #6366f1;
+    outline: 2px solid #87A96B;
     outline-offset: 2px;
   }
 
